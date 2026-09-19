@@ -1,338 +1,669 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WENDY'S JUICZ | Freshly Pressed. Naturally Better.</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-        content="WENDY'S JUICZ offers fresh juices, tigernut milk, zobo drinks, smoothies, wellness drinks, salads and wraps.">
+    <title>
+        WENDY'S JUICZ | Freshly Pressed. Naturally Better.
+    </title>
+
+    <meta
+        name="description"
+        content="WENDY'S JUICZ offers fresh juices, tigernut milk, zobo drinks, smoothies, wellness drinks, salads and wraps."
+    >
+
 
     <style>
 
+        /* ==================================================
+           COLORS
+        ================================================== */
+
         :root {
+
             --green: #0b7a3b;
+
             --dark-green: #123524;
+
             --gold: #f7b731;
+
             --light: #f6fff8;
+
             --white: #ffffff;
+
             --text: #222222;
+
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            background: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-            font-family: "Segoe UI", Arial, sans-serif;
-        }
-
-        /* ================= HEADER ================= */
-
-        header {
-            background: var(--green);
-            padding: 10px 8%;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            min-height: 85px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        /* ================= LOGO ================= */
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 65px;
-            width: auto;
-            max-width: 180px;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* ================= DESKTOP NAV ================= */
-
-        nav {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            white-space: nowrap;
-            transition: 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        /* ================= MOBILE MENU BUTTON ================= */
-
-        .menu-toggle {
-            display: none;
-            margin-left: auto;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1100;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background: white;
-            margin: 5px 0;
-            border-radius: 5px;
-            transition: 0.3s ease;
-        }
-
-        /* ================= HERO ================= */
-
-        .hero {
-            text-align: center;
-            padding: 50px 20px 80px;
-            background: white;
-        }
-
-        .hero-img {
-            width: 100%;
-            max-width: 1100px;
-            max-height: 600px;
-            object-fit: cover;
-            border-radius: 22px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: block;
-            margin: 0 auto;
-        }
-
-        .hero-content {
-            margin-top: 35px;
-        }
-
-        .hero h1 {
-            color: var(--green);
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            max-width: 850px;
-            margin: auto;
-            font-size: 20px;
-            color: #444;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            background: var(--gold);
-            color: #000;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ================= SECTIONS ================= */
-
-        .section {
-            padding: 80px 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            color: var(--green);
-            margin-bottom: 40px;
-        }
-
-        .about-text {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        /* ================= PRODUCTS ================= */
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 28px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card h3 {
-            color: var(--green);
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .price {
-            display: block;
-            margin-top: 15px;
-            font-size: 20px;
-            color: var(--green);
-            font-weight: 800;
-        }
-
-        /* ================= BENEFITS ================= */
-
-        .benefits-section {
-            background: #eafff0;
-        }
-
-        /* ================= CONTACT ================= */
-
-        .contact {
-            background: var(--green);
-            color: white;
-            text-align: center;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact p {
-            margin: 8px 0;
-            font-size: 18px;
-        }
-
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--gold);
-        }
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            background: var(--dark-green);
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-        }
-
-        /* ================= WHATSAPP ================= */
-
-        .whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-            z-index: 999;
-            transition: 0.3s ease;
-        }
-
-        .whatsapp:hover {
-            transform: translateY(-3px);
-        }
 
         /* ==================================================
-           MOBILE NAVIGATION
-           ================================================== */
+           RESET
+        ================================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+            scroll-padding-top: 90px;
+
+        }
+
+
+        body {
+
+            background: var(--light);
+
+            color: var(--text);
+
+            line-height: 1.6;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        header {
+
+            background: var(--green);
+
+            padding: 10px 8%;
+
+            display: flex;
+
+            align-items: center;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            min-height: 85px;
+
+            box-shadow:
+                0 3px 15px
+                rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* ==================================================
+           LOGO
+        ================================================== */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+        .logo img {
+
+            height: 65px;
+
+            width: auto;
+
+            max-width: 180px;
+
+            display: block;
+
+            object-fit: contain;
+
+        }
+
+
+        /* ==================================================
+           DESKTOP NAVIGATION
+        ================================================== */
+
+        nav {
+
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        nav a:hover {
+
+            color: var(--gold);
+
+        }
+
+
+        /* ==================================================
+           MOBILE MENU BUTTON
+        ================================================== */
+
+        .menu-toggle {
+
+            display: none;
+
+            margin-left: auto;
+
+            background: transparent;
+
+            border: none;
+
+            cursor: pointer;
+
+            padding: 8px;
+
+            z-index: 1100;
+
+        }
+
+
+        .menu-toggle span {
+
+            display: block;
+
+            width: 30px;
+
+            height: 3px;
+
+            background: white;
+
+            margin: 5px 0;
+
+            border-radius: 5px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+
+            text-align: center;
+
+            padding:
+                50px
+                20px
+                80px;
+
+            background: white;
+
+        }
+
+
+        .hero-img {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            max-height: 600px;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.2);
+
+            display: block;
+
+            margin: 0 auto;
+
+        }
+
+
+        .hero-content {
+
+            margin-top: 35px;
+
+        }
+
+
+        .hero h1 {
+
+            color: var(--green);
+
+            font-size: 3.5rem;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .hero p {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size: 20px;
+
+            color: #444;
+
+        }
+
+
+        /* ==================================================
+           BUTTON
+        ================================================== */
+
+        .btn {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            background: var(--gold);
+
+            color: #000;
+
+            padding:
+                15px
+                30px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.2);
+
+        }
+
+
+        /* ==================================================
+           SECTIONS
+        ================================================== */
+
+        .section {
+
+            padding:
+                80px
+                10%;
+
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            font-size: 40px;
+
+            color: var(--green);
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .about-text {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+
+            font-size: 18px;
+
+        }
+
+
+        /* ==================================================
+           PRODUCTS GRID
+        ================================================== */
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(270px, 1fr)
+                );
+
+            gap: 28px;
+
+        }
+
+
+        /* ==================================================
+           PRODUCT CARDS
+        ================================================== */
+
+        .card {
+
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-6px);
+
+        }
+
+
+        .product-img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        .card-content {
+
+            padding: 25px;
+
+        }
+
+
+        .card h3 {
+
+            color: var(--green);
+
+            margin-bottom: 10px;
+
+            font-size: 22px;
+
+        }
+
+
+        .price {
+
+            display: block;
+
+            margin-top: 15px;
+
+            font-size: 20px;
+
+            color: var(--green);
+
+            font-weight: 800;
+
+        }
+
+
+        /* ==================================================
+           BENEFITS
+        ================================================== */
+
+        .benefits-section {
+
+            background: #eafff0;
+
+        }
+
+
+        /* ==================================================
+           CONTACT
+        ================================================== */
+
+        .contact {
+
+            background: var(--green);
+
+            color: white;
+
+            text-align: center;
+
+        }
+
+
+        .contact .section-title {
+
+            color: white;
+
+        }
+
+
+        .contact p {
+
+            margin: 8px 0;
+
+            font-size: 18px;
+
+        }
+
+
+        .social-links {
+
+            margin-top: 20px;
+
+        }
+
+
+        .social-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .social-links a:hover {
+
+            color: var(--gold);
+
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+
+            background: var(--dark-green);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+        }
+
+
+        /* ==================================================
+           WHATSAPP
+        ================================================== */
+
+        .whatsapp {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            background: #25D366;
+
+            color: white;
+
+            padding:
+                15px
+                22px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.25);
+
+            z-index: 999;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .whatsapp:hover {
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
 
         @media (max-width: 768px) {
 
+
+            /* HEADER */
+
             header {
-                padding: 10px 5%;
+
+                padding:
+                    10px
+                    5%;
+
                 min-height: 70px;
-                justify-content: space-between;
+
+                justify-content:
+                    space-between;
+
             }
+
+
+            /* LOGO */
 
             .logo img {
+
                 height: 50px;
+
                 max-width: 150px;
+
             }
 
-            /* Show hamburger */
+
+            /* SHOW HAMBURGER */
 
             .menu-toggle {
+
                 display: block;
+
             }
 
-            /* Mobile navigation */
+
+            /* ==================================================
+               MOBILE NAVIGATION
+            ================================================== */
 
             nav {
+
                 position: absolute;
+
                 top: 100%;
+
                 left: 0;
+
                 width: 100%;
+
                 transform: none;
 
                 display: flex;
+
                 flex-direction: column;
+
                 align-items: center;
 
                 background: var(--green);
@@ -340,104 +671,203 @@
                 padding: 0;
 
                 max-height: 0;
+
                 overflow: hidden;
 
                 opacity: 0;
+
+                pointer-events: none;
 
                 transition:
                     max-height 0.35s ease,
                     opacity 0.25s ease,
                     padding 0.35s ease;
 
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+                box-shadow:
+                    0 8px 15px
+                    rgba(0, 0, 0, 0.15);
+
             }
 
-            /* Open mobile menu */
+
+            /* OPEN MENU */
 
             nav.active {
+
                 max-height: 350px;
-                padding: 15px 0 20px;
+
+                padding:
+                    15px
+                    0
+                    20px;
+
                 opacity: 1;
+
+                pointer-events: auto;
+
             }
+
+
+            /* MOBILE LINKS */
 
             nav a {
+
                 width: 100%;
+
                 text-align: center;
-                padding: 13px 20px;
+
+                padding:
+                    13px
+                    20px;
+
                 font-size: 17px;
+
             }
+
 
             nav a:hover {
-                background: rgba(255, 255, 255, 0.08);
+
+                background:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.08
+                    );
+
                 color: var(--gold);
+
             }
 
-            /* Hamburger animation */
 
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
+            /* ==================================================
+               HAMBURGER ANIMATION
+            ================================================== */
+
+            .menu-toggle.active
+            span:nth-child(1) {
+
+                transform:
+                    rotate(45deg)
+                    translate(
+                        6px,
+                        6px
+                    );
+
             }
 
-            .menu-toggle.active span:nth-child(2) {
+
+            .menu-toggle.active
+            span:nth-child(2) {
+
                 opacity: 0;
+
             }
 
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
+
+            .menu-toggle.active
+            span:nth-child(3) {
+
+                transform:
+                    rotate(-45deg)
+                    translate(
+                        6px,
+                        -6px
+                    );
+
             }
+
 
             /* HERO */
 
             .hero {
-                padding: 30px 15px 60px;
+
+                padding:
+                    30px
+                    15px
+                    60px;
+
             }
+
 
             .hero-img {
+
                 border-radius: 15px;
+
             }
+
 
             .hero h1 {
+
                 font-size: 40px;
+
             }
 
+
             .hero p {
+
                 font-size: 17px;
+
             }
+
 
             /* SECTIONS */
 
             .section {
-                padding: 60px 6%;
+
+                padding:
+                    60px
+                    6%;
+
             }
 
+
             .section-title {
+
                 font-size: 32px;
+
             }
+
 
             /* PRODUCTS */
 
             .product-img {
+
                 height: 220px;
+
             }
+
 
             /* WHATSAPP */
 
             .whatsapp {
+
                 bottom: 15px;
+
                 right: 15px;
-                padding: 13px 18px;
+
+                padding:
+                    13px
+                    18px;
+
             }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <header>
+
 
     <!-- LOGO -->
 
@@ -455,13 +885,21 @@
 
     <nav id="mobileNav">
 
-        <a href="#about">About</a>
+        <a href="#about">
+            About
+        </a>
 
-        <a href="#products">Products</a>
+        <a href="#products">
+            Products
+        </a>
 
-        <a href="#benefits">Benefits</a>
+        <a href="#benefits">
+            Benefits
+        </a>
 
-        <a href="#contact">Contact</a>
+        <a href="#contact">
+            Contact
+        </a>
 
     </nav>
 
@@ -477,17 +915,23 @@
     >
 
         <span></span>
+
         <span></span>
+
         <span></span>
 
     </button>
 
+
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- ==================================================
+     HERO
+================================================== -->
 
 <section class="hero">
+
 
     <img
         src="images/menu.jpg.jpeg"
@@ -495,63 +939,104 @@
         class="hero-img"
     >
 
+
     <div class="hero-content">
 
+
         <h1>
-            Freshly Pressed. Naturally Better.
+            Freshly Pressed.
+            Naturally Better.
         </h1>
 
+
         <p>
-            Premium fresh juices, tigernut milk, zobo drinks,
-            smoothies, wellness drinks, salads and wraps made
-            with carefully selected natural ingredients.
+
+            Premium fresh juices,
+            tigernut milk,
+            zobo drinks,
+            smoothies,
+            wellness drinks,
+            salads and wraps made
+            with carefully selected
+            natural ingredients.
+
         </p>
+
 
         <a
             class="btn"
             href="https://wa.me/2347088314315"
             target="_blank"
         >
+
             Order on WhatsApp
+
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- ==================================================
+     ABOUT
+================================================== -->
 
-<section id="about" class="section">
+<section
+    id="about"
+    class="section"
+>
+
 
     <h2 class="section-title">
+
         About Us
+
     </h2>
+
 
     <p class="about-text">
 
-        WENDY'S JUICZ is a premium health and wellness brand
-        offering fresh and delicious beverages including
-        cold-pressed juices, tigernut milk, zobo drinks,
+        WENDY'S JUICZ is a premium
+        health and wellness brand
+        offering fresh and delicious
+        beverages including
+        cold-pressed juices,
+        tigernut milk,
+        zobo drinks,
         smoothies and wellness drinks.
 
-        <br><br>
+        <br>
+        <br>
 
-        Every bottle is crafted with freshness, quality and care
-        to give you delicious options for your everyday lifestyle.
+        Every bottle is crafted
+        with freshness, quality and care
+        to give you delicious options
+        for your everyday lifestyle.
 
     </p>
+
 
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
+<!-- ==================================================
+     PRODUCTS
+================================================== -->
 
-<section id="products" class="section">
+<section
+    id="products"
+    class="section"
+>
+
 
     <h2 class="section-title">
+
         Our Products
+
     </h2>
+
 
     <div class="grid">
 
@@ -560,28 +1045,40 @@
 
         <div class="card">
 
+
             <img
                 src="images/tigernut-milk.jpg.jpeg"
                 alt="WENDY'S JUICZ Tigernut Milk"
                 class="product-img"
             >
 
+
             <div class="card-content">
+
 
                 <h3>
                     🌰 Tigernut Milk
                 </h3>
 
+
                 <p>
-                    Freshly squeezed, creamy and refreshing
+
+                    Freshly squeezed,
+                    creamy and refreshing
                     tigernut milk.
+
                 </p>
 
+
                 <span class="price">
+
                     ₦4,000
+
                 </span>
 
+
             </div>
+
 
         </div>
 
@@ -590,28 +1087,42 @@
 
         <div class="card">
 
+
             <img
                 src="images/zobo.jpg.jpeg"
                 alt="WENDY'S JUICZ Zobo Drink"
                 class="product-img"
             >
 
+
             <div class="card-content">
+
 
                 <h3>
                     🌺 Zobo Drink
                 </h3>
 
+
                 <p>
-                    Refreshing hibiscus goodness made with
-                    carefully selected natural ingredients.
+
+                    Refreshing hibiscus
+                    goodness made with
+                    carefully selected
+                    natural ingredients.
+
                 </p>
 
+
                 <span class="price">
-                    Price available on request
+
+                    Price available
+                    on request
+
                 </span>
 
+
             </div>
+
 
         </div>
 
@@ -620,28 +1131,40 @@
 
         <div class="card">
 
+
             <img
                 src="images/detox-magic.jpg"
                 alt="WENDY'S JUICZ Detox Magic"
                 class="product-img"
             >
 
+
             <div class="card-content">
+
 
                 <h3>
                     🥤 Detox Magic
                 </h3>
 
+
                 <p>
-                    A refreshing natural juice blend created
+
+                    A refreshing natural
+                    juice blend created
                     for your wellness routine.
+
                 </p>
 
+
                 <span class="price">
+
                     ₦5,500
+
                 </span>
 
+
             </div>
+
 
         </div>
 
@@ -650,27 +1173,40 @@
 
         <div class="card">
 
+
             <img
                 src="images/pineapple.jpg.jpg"
                 alt="WENDY'S JUICZ Pineapple Juice"
                 class="product-img"
             >
 
+
             <div class="card-content">
+
 
                 <h3>
                     🍍 Pineapple Juice
                 </h3>
 
+
                 <p>
-                    Freshly pressed tropical pineapple delight.
+
+                    Freshly pressed
+                    tropical pineapple
+                    delight.
+
                 </p>
 
+
                 <span class="price">
+
                     ₦5,000
+
                 </span>
 
+
             </div>
+
 
         </div>
 
@@ -679,28 +1215,40 @@
 
         <div class="card">
 
+
             <img
                 src="images/fruity-splash.jpg"
                 alt="WENDY'S JUICZ Fruity Splash"
                 class="product-img"
             >
 
+
             <div class="card-content">
+
 
                 <h3>
                     🍓 Fruity Splash
                 </h3>
 
+
                 <p>
-                    A delicious smoothie packed with fruity
+
+                    A delicious smoothie
+                    packed with fruity
                     flavour.
+
                 </p>
 
+
                 <span class="price">
+
                     ₦4,500
+
                 </span>
 
+
             </div>
+
 
         </div>
 
@@ -709,148 +1257,245 @@
 
         <div class="card">
 
+
             <img
                 src="images/salads-wraps.jpg.jpg"
                 alt="WENDY'S JUICZ Salads and Wraps"
                 class="product-img"
             >
 
+
             <div class="card-content">
+
 
                 <h3>
                     🥗 Salads & Wraps
                 </h3>
 
+
                 <p>
-                    Fresh and convenient meal options for
+
+                    Fresh and convenient
+                    meal options for
                     different lifestyles.
+
                 </p>
 
+
                 <span class="price">
-                    Price available on request
+
+                    Price available
+                    on request
+
                 </span>
+
 
             </div>
 
+
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- ================= BENEFITS ================= -->
+<!-- ==================================================
+     BENEFITS
+================================================== -->
 
-<section id="benefits" class="section benefits-section">
+<section
+    id="benefits"
+    class="section benefits-section"
+>
+
 
     <h2 class="section-title">
+
         Why Choose Us?
+
     </h2>
+
 
     <div class="grid">
 
 
+        <!-- NATURAL INGREDIENTS -->
+
         <div class="card">
+
 
             <div class="card-content">
 
+
                 <h3>
+
                     🌿 Natural Ingredients
+
                 </h3>
 
+
                 <p>
-                    We focus on carefully selected ingredients
+
+                    We focus on carefully
+                    selected ingredients
                     for our products.
+
                 </p>
 
+
             </div>
+
 
         </div>
 
 
+        <!-- FRESHLY PREPARED -->
+
         <div class="card">
+
 
             <div class="card-content">
 
+
                 <h3>
+
                     🧃 Freshly Prepared
+
                 </h3>
 
+
                 <p>
-                    Our beverages are prepared with freshness
+
+                    Our beverages are
+                    prepared with freshness
                     and quality in mind.
+
                 </p>
 
+
             </div>
+
 
         </div>
 
 
+        <!-- DELIVERY -->
+
         <div class="card">
+
 
             <div class="card-content">
 
+
                 <h3>
+
                     🚚 Delivery
+
                 </h3>
 
+
                 <p>
-                    Delivery is available across Lagos.
+
+                    Delivery is available
+                    across Lagos.
+
                 </p>
+
 
             </div>
 
+
         </div>
 
+
+        <!-- HEALTHY LIFESTYLE -->
 
         <div class="card">
 
+
             <div class="card-content">
 
+
                 <h3>
+
                     💚 Healthy Lifestyle
+
                 </h3>
 
+
                 <p>
-                    Delicious beverage and meal options designed
+
+                    Delicious beverage and
+                    meal options designed
                     to complement your lifestyle.
+
                 </p>
+
 
             </div>
 
+
         </div>
+
 
     </div>
+
 
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- ==================================================
+     CONTACT
+================================================== -->
 
-<section id="contact" class="section contact">
+<section
+    id="contact"
+    class="section contact"
+>
+
 
     <h2 class="section-title">
+
         Contact Us
+
     </h2>
 
+
     <p>
+
         📍 Lagos, Nigeria
+
     </p>
 
+
     <p>
+
         📞 07088314315
+
     </p>
 
+
     <p>
+
         📞 09066114326
+
     </p>
+
 
     <p>
+
         📧 Wendysjuicz@gmail.com
+
     </p>
 
+
+    <!-- SOCIAL LINKS -->
 
     <div class="social-links">
+
 
         <p>
 
@@ -860,7 +1505,9 @@
                 href="https://www.instagram.com/sip.wendys/"
                 target="_blank"
             >
+
                 @sip.wendys
+
             </a>
 
         </p>
@@ -874,41 +1521,61 @@
                 href="https://www.tiktok.com/@Wendysjuicz"
                 target="_blank"
             >
+
                 @Wendysjuicz
+
             </a>
 
         </p>
 
+
     </div>
 
+
+    <!-- ORDER BUTTON -->
 
     <a
         class="btn"
         href="https://wa.me/2347088314315"
         target="_blank"
     >
+
         Order Now
+
     </a>
+
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
-    <p>
-        © 2026 WENDY'S JUICZ
-    </p>
 
     <p>
-        Freshly Pressed. Naturally Better.
+
+        © 2026 WENDY'S JUICZ
+
     </p>
+
+
+    <p>
+
+        Freshly Pressed.
+        Naturally Better.
+
+    </p>
+
 
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+<!-- ==================================================
+     FLOATING WHATSAPP
+================================================== -->
 
 <a
     class="whatsapp"
@@ -916,62 +1583,187 @@
     target="_blank"
     aria-label="Chat with WENDY'S JUICZ on WhatsApp"
 >
+
     💬 WhatsApp
+
 </a>
 
 
-<!-- ================= MOBILE MENU JAVASCRIPT ================= -->
+<!-- ==================================================
+     MOBILE MENU JAVASCRIPT
+================================================== -->
 
 <script>
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileNav = document.getElementById("mobileNav");
 
-    menuToggle.addEventListener("click", function () {
+    /* GET ELEMENTS */
 
-        mobileNav.classList.toggle("active");
-
-        menuToggle.classList.toggle("active");
-
-        const isOpen = mobileNav.classList.contains("active");
-
-        menuToggle.setAttribute("aria-expanded", isOpen);
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Close navigation menu"
-                : "Open navigation menu"
+    const menuToggle =
+        document.getElementById(
+            "menuToggle"
         );
 
-    });
+
+    const mobileNav =
+        document.getElementById(
+            "mobileNav"
+        );
 
 
-    /* Close menu after clicking a navigation link */
+    /* ==================================================
+       OPEN / CLOSE MENU
+    ================================================== */
 
-    const navLinks = mobileNav.querySelectorAll("a");
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
 
-    navLinks.forEach(function (link) {
 
-        link.addEventListener("click", function () {
+            /* Prevent outside-click
+               event from firing */
 
-            mobileNav.classList.remove("active");
+            event.stopPropagation();
 
-            menuToggle.classList.remove("active");
 
-            menuToggle.setAttribute("aria-expanded", "false");
+            mobileNav.classList.toggle(
+                "active"
+            );
+
+
+            menuToggle.classList.toggle(
+                "active"
+            );
+
+
+            const isOpen =
+                mobileNav.classList.contains(
+                    "active"
+                );
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
 
             menuToggle.setAttribute(
                 "aria-label",
-                "Open navigation menu"
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
             );
 
-        });
 
-    });
+        }
+    );
+
+
+    /* ==================================================
+       CLOSE MENU WHEN CLICKING A LINK
+    ================================================== */
+
+    const navLinks =
+        mobileNav.querySelectorAll(
+            "a"
+        );
+
+
+    navLinks.forEach(
+        function (link) {
+
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    closeMenu();
+
+                }
+            );
+
+
+        }
+    );
+
+
+    /* ==================================================
+       CLOSE MENU WHEN CLICKING OUTSIDE
+    ================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+
+            const clickedInsideMenu =
+                mobileNav.contains(
+                    event.target
+                );
+
+
+            const clickedMenuButton =
+                menuToggle.contains(
+                    event.target
+                );
+
+
+            if (
+                mobileNav.classList.contains(
+                    "active"
+                )
+                &&
+                !clickedInsideMenu
+                &&
+                !clickedMenuButton
+            ) {
+
+
+                closeMenu();
+
+
+            }
+
+
+        }
+    );
+
+
+    /* ==================================================
+       CLOSE MENU FUNCTION
+    ================================================== */
+
+    function closeMenu() {
+
+
+        mobileNav.classList.remove(
+            "active"
+        );
+
+
+        menuToggle.classList.remove(
+            "active"
+        );
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+
+    }
+
 
 </script>
 
 
 </body>
+
 </html>
