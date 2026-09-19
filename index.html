@@ -6,23 +6,29 @@
 <title>WENDY'S JUICZ | Freshly Pressed. Naturally Better.</title>
 
 <style>
+:root{
+--green:#0b7a3b;
+--dark:#123524;
+--gold:#f7b731;
+--light:#f6fff8;
+}
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
-scroll-behavior:smooth;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 body{
-background:#f8fff8;
+background:var(--light);
 color:#222;
 line-height:1.6;
 }
 
 header{
-background:linear-gradient(135deg,#0f7a36,#1ea85d);
-padding:20px 8%;
+background:var(--green);
+padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -32,23 +38,23 @@ z-index:1000;
 }
 
 .logo{
-font-size:30px;
-font-weight:bold;
-color:white;
+color:#fff;
+font-size:28px;
+font-weight:700;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
-font-weight:bold;
+font-weight:600;
 }
 
 .hero{
 padding:100px 10%;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=80');
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=80');
 background-size:cover;
 background-position:center;
 color:white;
@@ -56,23 +62,23 @@ color:white;
 
 .hero h1{
 font-size:60px;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .hero p{
-font-size:22px;
 max-width:800px;
 margin:auto;
+font-size:20px;
 }
 
 .btn{
 display:inline-block;
 margin-top:25px;
-padding:15px 35px;
-background:#ffb000;
+background:var(--gold);
 color:#000;
-text-decoration:none;
+padding:15px 30px;
 border-radius:50px;
+text-decoration:none;
 font-weight:bold;
 }
 
@@ -80,14 +86,14 @@ font-weight:bold;
 padding:80px 10%;
 }
 
-.section h2{
+.section-title{
 text-align:center;
-margin-bottom:40px;
 font-size:40px;
-color:#0f7a36;
+color:var(--green);
+margin-bottom:40px;
 }
 
-.products{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
@@ -96,51 +102,47 @@ gap:25px;
 .card{
 background:white;
 padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .card h3{
-color:#0f7a36;
+color:var(--green);
 margin-bottom:10px;
 }
 
-.benefits{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.benefit{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
 .contact{
-background:#0f7a36;
+background:var(--green);
 color:white;
 text-align:center;
 }
 
 footer{
-background:#083d1d;
+background:var(--dark);
 color:white;
 text-align:center;
-padding:25px;
+padding:20px;
 }
 
 .whatsapp{
 position:fixed;
-right:20px;
 bottom:20px;
+right:20px;
 background:#25D366;
 color:white;
 padding:15px 20px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:40px;
+}
+nav{
+display:none;
+}
 }
 </style>
 </head>
@@ -151,7 +153,6 @@ font-weight:bold;
 <div class="logo">WENDY'S JUICZ</div>
 
 <nav>
-<a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#products">Products</a>
 <a href="#benefits">Benefits</a>
@@ -159,71 +160,63 @@ font-weight:bold;
 </nav>
 </header>
 
-<section class="hero" id="home">
-
+<section class="hero">
 <h1>Freshly Pressed. Naturally Better.</h1>
 
 <p>
 Premium cold-pressed juices, tigernut milk, zobo drinks,
-smoothies, wellness shots, salads and wraps crafted from
+smoothies, wellness shots, salads and wraps made from
 carefully selected natural ingredients.
 </p>
 
-<a href="https://wa.me/2347088314315" class="btn">
+<a class="btn" href="https://wa.me/2347088314315">
 Order on WhatsApp
 </a>
-
 </section>
 
-<section class="section" id="about">
+<section id="about" class="section">
+<h2 class="section-title">About Us</h2>
 
-<h2>About Us</h2>
-
-<p style="max-width:1000px;margin:auto;text-align:center;font-size:18px;">
-At WENDY'S JUICZ, we believe healthy living should be
-delicious, convenient, and refreshing. We specialize in
-premium cold-pressed juices, tigernut milk, zobo drinks,
-smoothies, wellness shots, salads, and wraps made from
-fresh fruits, vegetables, herbs, and natural ingredients.
-Our mission is to provide nutritious beverages and healthy
-meal options that help our customers stay energized,
-hydrated, and healthy while enjoying amazing taste.
+<p style="max-width:900px;margin:auto;text-align:center;font-size:18px;">
+WENDY'S JUICZ is a premium health and wellness brand offering
+fresh, natural and nutritious beverages including cold-pressed
+juices, tigernut milk, zobo drinks, smoothies and wellness shots.
+Every bottle is crafted with freshness, quality and care to help
+you live a healthier lifestyle.
 </p>
-
 </section>
 
-<section class="section" id="products">
+<section id="products" class="section">
+<h2 class="section-title">Our Products</h2>
 
-<h2>Featured Products</h2>
-
-<div class="products">
+<div class="grid">
 
 <div class="card">
 <h3>🌰 Tigernut Milk</h3>
-<p>Freshly squeezed and rich in nutrients.</p>
+<p>Freshly squeezed, creamy and nutritious.</p>
 <p><strong>₦4,000</strong></p>
 </div>
 
 <div class="card">
 <h3>🌺 Zobo Drink</h3>
-<p>Refreshing hibiscus drink with natural goodness.</p>
+<p>Refreshing hibiscus goodness.</p>
 </div>
 
 <div class="card">
 <h3>🥤 Detox Magic</h3>
-<p>Cleanse and refresh your body.</p>
+<p>Natural cleansing juice blend.</p>
 <p><strong>₦5,500</strong></p>
 </div>
 
 <div class="card">
 <h3>🍍 Pineapple Juice</h3>
-<p>Freshly pressed pineapple goodness.</p>
+<p>Freshly pressed tropical delight.</p>
 <p><strong>₦5,000</strong></p>
 </div>
 
 <div class="card">
-<h3>🍓 Fruity Splash Smoothie</h3>
-<p>Healthy fruit blend packed with flavor.</p>
+<h3>🍓 Fruity Splash</h3>
+<p>Healthy smoothie packed with flavor.</p>
 <p><strong>₦4,500</strong></p>
 </div>
 
@@ -233,42 +226,39 @@ hydrated, and healthy while enjoying amazing taste.
 </div>
 
 </div>
-
 </section>
 
-<section class="section" id="benefits">
+<section id="benefits" class="section">
+<h2 class="section-title">Why Choose Us?</h2>
 
-<h2>Benefits of Tigernut Milk</h2>
+<div class="grid">
 
-<div class="benefits">
-
-<div class="benefit">
-<h3>Rich in Fiber</h3>
-<p>Supports healthy digestion and gut health.</p>
+<div class="card">
+<h3>100% Natural</h3>
+<p>No artificial preservatives.</p>
 </div>
 
-<div class="benefit">
-<h3>Natural Energy</h3>
-<p>Provides lasting energy throughout the day.</p>
+<div class="card">
+<h3>Fresh Daily</h3>
+<p>Prepared fresh for maximum quality.</p>
 </div>
 
-<div class="benefit">
-<h3>Dairy-Free</h3>
-<p>A great alternative to traditional milk.</p>
+<div class="card">
+<h3>Fast Delivery</h3>
+<p>Delivery available across Lagos.</p>
 </div>
 
-<div class="benefit">
-<h3>Nutrient Rich</h3>
-<p>Contains vitamins and essential minerals.</p>
+<div class="card">
+<h3>Healthy Living</h3>
+<p>Nutritious drinks that support wellness.</p>
 </div>
 
 </div>
-
 </section>
 
-<section class="section contact" id="contact">
+<section id="contact" class="section contact">
 
-<h2 style="color:white;">Contact Us</h2>
+<h2 class="section-title" style="color:white;">Contact Us</h2>
 
 <p>📍 Lagos, Nigeria</p>
 <p>📞 07088314315</p>
@@ -277,7 +267,7 @@ hydrated, and healthy while enjoying amazing taste.
 <p>📸 Instagram: @sip.wendys</p>
 <p>🎵 TikTok: @Wendysjuicz</p>
 
-<a href="https://wa.me/2347088314315" class="btn">
+<a class="btn" href="https://wa.me/2347088314315">
 Order Now
 </a>
 
@@ -287,7 +277,7 @@ Order Now
 © 2026 WENDY'S JUICZ • Freshly Pressed. Naturally Better.
 </footer>
 
-<a href="https://wa.me/2347088314315" class="whatsapp">
+<a class="whatsapp" href="https://wa.me/2347088314315">
 WhatsApp
 </a>
 
