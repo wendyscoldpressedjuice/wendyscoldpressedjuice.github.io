@@ -8,7 +8,7 @@
     <title>WENDY'S JUICZ | Freshly Pressed. Naturally Better.</title>
 
     <meta name="description"
-          content="WENDY'S JUICZ offers premium cold-pressed juices, tigernut milk, zobo drinks, smoothies, wellness shots, salads and wraps.">
+        content="WENDY'S JUICZ offers cold-pressed juices, tigernut milk, zobo drinks, smoothies, wellness shots, salads and wraps.">
 
     <style>
         :root {
@@ -24,7 +24,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", Arial, sans-serif;
         }
 
         html {
@@ -35,11 +34,10 @@
             background: var(--light);
             color: var(--text);
             line-height: 1.6;
+            font-family: "Segoe UI", Arial, sans-serif;
         }
 
-        /* =========================
-           HEADER
-        ========================= */
+        /* HEADER */
 
         header {
             background: var(--green);
@@ -72,21 +70,20 @@
             color: var(--gold);
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
 
         .hero {
             text-align: center;
-            padding: 60px 20px 80px;
+            padding: 50px 20px 80px;
             background: white;
         }
 
         .hero-img {
             width: 100%;
-            max-width: 1000px;
-            height: auto;
-            border-radius: 20px;
+            max-width: 1100px;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 22px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: block;
             margin: 0 auto;
@@ -109,9 +106,7 @@
             color: #444;
         }
 
-        /* =========================
-           BUTTON
-        ========================= */
+        /* BUTTON */
 
         .btn {
             display: inline-block;
@@ -130,9 +125,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
+        /* SECTIONS */
 
         .section {
             padding: 80px 10%;
@@ -145,9 +138,7 @@
             margin-bottom: 40px;
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
+        /* ABOUT */
 
         .about-text {
             max-width: 900px;
@@ -156,20 +147,18 @@
             font-size: 18px;
         }
 
-        /* =========================
-           PRODUCTS
-        ========================= */
+        /* PRODUCT GRID */
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
         }
 
         .card {
             background: white;
-            padding: 30px 25px;
-            border-radius: 18px;
+            border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             transition: 0.3s;
         }
@@ -177,6 +166,17 @@
         .card:hover {
             transform: translateY(-6px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
         }
 
         .card h3 {
@@ -193,17 +193,13 @@
             font-weight: 800;
         }
 
-        /* =========================
-           BENEFITS
-        ========================= */
+        /* BENEFITS */
 
         .benefits-section {
             background: #eafff0;
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
+        /* CONTACT */
 
         .contact {
             background: var(--green);
@@ -228,16 +224,13 @@
             color: white;
             text-decoration: none;
             font-weight: 700;
-            margin: 0 8px;
         }
 
         .social-links a:hover {
             color: var(--gold);
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             background: var(--dark-green);
@@ -246,9 +239,7 @@
             padding: 25px 15px;
         }
 
-        /* =========================
-           WHATSAPP FLOATING BUTTON
-        ========================= */
+        /* WHATSAPP */
 
         .whatsapp {
             position: fixed;
@@ -269,9 +260,7 @@
             transform: scale(1.05);
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE */
 
         @media (max-width: 768px) {
 
@@ -307,6 +296,10 @@
                 font-size: 32px;
             }
 
+            .product-img {
+                height: 220px;
+            }
+
             .whatsapp {
                 bottom: 15px;
                 right: 15px;
@@ -318,9 +311,7 @@
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- HEADER -->
 
     <header>
 
@@ -338,19 +329,12 @@
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
-        <!--
-            IMPORTANT:
-            Put hero.jpg in the same folder as index.html
-        -->
-
         <img
-            src="hero.jpg"
+            src="images/hero.jpg"
             alt="WENDY'S JUICZ"
             class="hero-img"
         >
@@ -381,9 +365,7 @@
     </section>
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+    <!-- ABOUT -->
 
     <section id="about" class="section">
 
@@ -410,9 +392,7 @@
     </section>
 
 
-    <!-- =========================
-         PRODUCTS
-    ========================== -->
+    <!-- PRODUCTS -->
 
     <section id="products" class="section">
 
@@ -423,115 +403,183 @@
         <div class="grid">
 
 
-            <!-- Tigernut Milk -->
+            <!-- TIGERNUT MILK -->
 
             <div class="card">
 
-                <h3>
-                    🌰 Tigernut Milk
-                </h3>
+                <img
+                    src="images/tigernut-milk.jpg"
+                    alt="WENDY'S JUICZ Tigernut Milk"
+                    class="product-img"
+                >
 
-                <p>
-                    Freshly squeezed, creamy and
-                    refreshing tigernut milk.
-                </p>
+                <div class="card-content">
 
-                <span class="price">
-                    ₦4,000
-                </span>
+                    <h3>
+                        🌰 Tigernut Milk
+                    </h3>
+
+                    <p>
+                        Freshly squeezed, creamy and
+                        refreshing tigernut milk.
+                    </p>
+
+                    <span class="price">
+                        ₦4,000
+                    </span>
+
+                </div>
 
             </div>
 
 
-            <!-- Zobo -->
+            <!-- ZOBO -->
 
             <div class="card">
 
-                <h3>
-                    🌺 Zobo Drink
-                </h3>
+                <img
+                    src="images/zobo.jpg"
+                    alt="WENDY'S JUICZ Zobo Drink"
+                    class="product-img"
+                >
 
-                <p>
-                    Refreshing hibiscus goodness
-                    made with carefully selected
-                    natural ingredients.
-                </p>
+                <div class="card-content">
+
+                    <h3>
+                        🌺 Zobo Drink
+                    </h3>
+
+                    <p>
+                        Refreshing hibiscus goodness
+                        made with carefully selected
+                        natural ingredients.
+                    </p>
+
+                    <span class="price">
+                        Price available on request
+                    </span>
+
+                </div>
 
             </div>
 
 
-            <!-- Detox Magic -->
+            <!-- DETOX MAGIC -->
 
             <div class="card">
 
-                <h3>
-                    🥤 Detox Magic
-                </h3>
+                <img
+                    src="images/detox-magic.jpg"
+                    alt="WENDY'S JUICZ Detox Magic"
+                    class="product-img"
+                >
 
-                <p>
-                    A refreshing natural juice blend
-                    created for your wellness routine.
-                </p>
+                <div class="card-content">
 
-                <span class="price">
-                    ₦5,500
-                </span>
+                    <h3>
+                        🥤 Detox Magic
+                    </h3>
+
+                    <p>
+                        A refreshing natural juice blend
+                        created for your wellness routine.
+                    </p>
+
+                    <span class="price">
+                        ₦5,500
+                    </span>
+
+                </div>
 
             </div>
 
 
-            <!-- Pineapple -->
+            <!-- PINEAPPLE -->
 
             <div class="card">
 
-                <h3>
-                    🍍 Pineapple Juice
-                </h3>
+                <img
+                    src="images/pineapple.jpg"
+                    alt="WENDY'S JUICZ Pineapple Juice"
+                    class="product-img"
+                >
 
-                <p>
-                    Freshly pressed tropical
-                    pineapple delight.
-                </p>
+                <div class="card-content">
 
-                <span class="price">
-                    ₦5,000
-                </span>
+                    <h3>
+                        🍍 Pineapple Juice
+                    </h3>
+
+                    <p>
+                        Freshly pressed tropical
+                        pineapple delight.
+                    </p>
+
+                    <span class="price">
+                        ₦5,000
+                    </span>
+
+                </div>
 
             </div>
 
 
-            <!-- Fruity Splash -->
+            <!-- FRUITY SPLASH -->
 
             <div class="card">
 
-                <h3>
-                    🍓 Fruity Splash
-                </h3>
+                <img
+                    src="images/fruity-splash.jpg"
+                    alt="WENDY'S JUICZ Fruity Splash"
+                    class="product-img"
+                >
 
-                <p>
-                    A delicious smoothie packed
-                    with fruity flavour.
-                </p>
+                <div class="card-content">
 
-                <span class="price">
-                    ₦4,500
-                </span>
+                    <h3>
+                        🍓 Fruity Splash
+                    </h3>
+
+                    <p>
+                        A delicious smoothie packed
+                        with fruity flavour.
+                    </p>
+
+                    <span class="price">
+                        ₦4,500
+                    </span>
+
+                </div>
 
             </div>
 
 
-            <!-- Salads -->
+            <!-- SALADS AND WRAPS -->
 
             <div class="card">
 
-                <h3>
-                    🥗 Salads & Wraps
-                </h3>
+                <img
+                    src="images/salads-wraps.jpg"
+                    alt="WENDY'S JUICZ Salads and Wraps"
+                    class="product-img"
+                >
 
-                <p>
-                    Fresh and convenient meal options
-                    for different lifestyles.
-                </p>
+                <div class="card-content">
+
+                    <h3>
+                        🥗 Salads & Wraps
+                    </h3>
+
+                    <p>
+                        Fresh and convenient meal options
+                        for different lifestyles.
+                    </p>
+
+                    <span class="price">
+                        Price available on request
+                    </span>
+
+                </div>
 
             </div>
 
@@ -541,9 +589,7 @@
     </section>
 
 
-    <!-- =========================
-         BENEFITS
-    ========================== -->
+    <!-- BENEFITS -->
 
     <section id="benefits" class="section benefits-section">
 
@@ -556,56 +602,72 @@
 
             <div class="card">
 
-                <h3>
-                    🌿 Natural Ingredients
-                </h3>
+                <div class="card-content">
 
-                <p>
-                    We focus on carefully selected
-                    ingredients for our products.
-                </p>
+                    <h3>
+                        🌿 Natural Ingredients
+                    </h3>
 
-            </div>
+                    <p>
+                        We focus on carefully selected
+                        ingredients for our products.
+                    </p>
 
-
-            <div class="card">
-
-                <h3>
-                    🧃 Freshly Prepared
-                </h3>
-
-                <p>
-                    Our beverages are prepared with
-                    freshness and quality in mind.
-                </p>
+                </div>
 
             </div>
 
 
             <div class="card">
 
-                <h3>
-                    🚚 Delivery
-                </h3>
+                <div class="card-content">
 
-                <p>
-                    Delivery is available across
-                    Lagos.
-                </p>
+                    <h3>
+                        🧃 Freshly Prepared
+                    </h3>
+
+                    <p>
+                        Our beverages are prepared with
+                        freshness and quality in mind.
+                    </p>
+
+                </div>
 
             </div>
 
 
             <div class="card">
 
-                <h3>
-                    💚 Healthy Lifestyle
-                </h3>
+                <div class="card-content">
 
-                <p>
-                    Delicious beverage and meal options
-                    designed to complement your lifestyle.
-                </p>
+                    <h3>
+                        🚚 Delivery
+                    </h3>
+
+                    <p>
+                        Delivery is available across
+                        Lagos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-content">
+
+                    <h3>
+                        💚 Healthy Lifestyle
+                    </h3>
+
+                    <p>
+                        Delicious beverage and meal options
+                        designed to complement your lifestyle.
+                    </p>
+
+                </div>
 
             </div>
 
@@ -615,9 +677,7 @@
     </section>
 
 
-    <!-- =========================
-         CONTACT
-    ========================== -->
+    <!-- CONTACT -->
 
     <section id="contact" class="section contact">
 
@@ -641,7 +701,6 @@
             📧 Wendysjuicz@gmail.com
         </p>
 
-
         <div class="social-links">
 
             <p>
@@ -653,7 +712,6 @@
                     @sip.wendys
                 </a>
             </p>
-
 
             <p>
                 🎵 TikTok:
@@ -667,7 +725,6 @@
 
         </div>
 
-
         <a
             class="btn"
             href="https://wa.me/2347088314315"
@@ -679,9 +736,7 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -696,9 +751,7 @@
     </footer>
 
 
-    <!-- =========================
-         FLOATING WHATSAPP
-    ========================== -->
+    <!-- FLOATING WHATSAPP -->
 
     <a
         class="whatsapp"
