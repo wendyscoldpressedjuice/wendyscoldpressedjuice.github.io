@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,13 +44,15 @@
             background: var(--green);
             padding: 10px 8%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+            min-height: 85px;
         }
+
+        /* LOGO ON THE LEFT */
 
         .logo {
             display: flex;
@@ -64,11 +67,23 @@
             object-fit: contain;
         }
 
+        /* MENU IN THE MIDDLE */
+
+        nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 22px;
             font-weight: 600;
+            white-space: nowrap;
+            transition: 0.3s ease;
         }
 
         nav a:hover {
@@ -89,7 +104,7 @@
             max-height: 600px;
             object-fit: cover;
             border-radius: 22px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: block;
             margin: 0 auto;
         }
@@ -120,12 +135,12 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* ================= SECTIONS ================= */
@@ -160,8 +175,8 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.3s ease;
         }
 
         .card:hover {
@@ -224,6 +239,7 @@
             color: white;
             text-decoration: none;
             font-weight: 700;
+            transition: 0.3s ease;
         }
 
         .social-links a:hover {
@@ -251,8 +267,14 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
             z-index: 999;
+            transition: 0.3s ease;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         /* ================= MOBILE ================= */
@@ -261,6 +283,12 @@
 
             header {
                 padding: 10px 5%;
+                min-height: 70px;
+                justify-content: center;
+            }
+
+            .logo {
+                justify-content: center;
             }
 
             .logo img {
@@ -268,12 +296,18 @@
                 max-width: 150px;
             }
 
+            /* Hide desktop menu on mobile */
+
             nav {
                 display: none;
             }
 
             .hero {
                 padding: 30px 15px 60px;
+            }
+
+            .hero-img {
+                border-radius: 15px;
             }
 
             .hero h1 {
@@ -312,18 +346,30 @@
 
 <header>
 
+    <!-- LOGO -->
+
     <div class="logo">
+
         <img
             src="images/logo.png.jpeg"
             alt="WENDY'S JUICZ Logo"
         >
+
     </div>
 
+
+    <!-- CENTER MENU -->
+
     <nav>
+
         <a href="#about">About</a>
+
         <a href="#products">Products</a>
+
         <a href="#benefits">Benefits</a>
+
         <a href="#contact">Contact</a>
+
     </nav>
 
 </header>
@@ -335,13 +381,15 @@
 
     <img
         src="images/menu.jpg.jpeg"
-        alt="WENDY'S JUICZ"
+        alt="WENDY'S JUICZ Menu"
         class="hero-img"
     >
 
     <div class="hero-content">
 
-        <h1>Freshly Pressed. Naturally Better.</h1>
+        <h1>
+            Freshly Pressed. Naturally Better.
+        </h1>
 
         <p>
             Premium fresh juices, tigernut milk, zobo drinks,
@@ -366,7 +414,9 @@
 
 <section id="about" class="section">
 
-    <h2 class="section-title">About Us</h2>
+    <h2 class="section-title">
+        About Us
+    </h2>
 
     <p class="about-text">
 
@@ -389,7 +439,9 @@
 
 <section id="products" class="section">
 
-    <h2 class="section-title">Our Products</h2>
+    <h2 class="section-title">
+        Our Products
+    </h2>
 
     <div class="grid">
 
@@ -406,7 +458,9 @@
 
             <div class="card-content">
 
-                <h3>🌰 Tigernut Milk</h3>
+                <h3>
+                    🌰 Tigernut Milk
+                </h3>
 
                 <p>
                     Freshly squeezed, creamy and refreshing
@@ -434,7 +488,9 @@
 
             <div class="card-content">
 
-                <h3>🌺 Zobo Drink</h3>
+                <h3>
+                    🌺 Zobo Drink
+                </h3>
 
                 <p>
                     Refreshing hibiscus goodness made with
@@ -462,7 +518,9 @@
 
             <div class="card-content">
 
-                <h3>🥤 Detox Magic</h3>
+                <h3>
+                    🥤 Detox Magic
+                </h3>
 
                 <p>
                     A refreshing natural juice blend created
@@ -490,7 +548,9 @@
 
             <div class="card-content">
 
-                <h3>🍍 Pineapple Juice</h3>
+                <h3>
+                    🍍 Pineapple Juice
+                </h3>
 
                 <p>
                     Freshly pressed tropical pineapple delight.
@@ -517,7 +577,9 @@
 
             <div class="card-content">
 
-                <h3>🍓 Fruity Splash</h3>
+                <h3>
+                    🍓 Fruity Splash
+                </h3>
 
                 <p>
                     A delicious smoothie packed with fruity
@@ -545,7 +607,9 @@
 
             <div class="card-content">
 
-                <h3>🥗 Salads & Wraps</h3>
+                <h3>
+                    🥗 Salads & Wraps
+                </h3>
 
                 <p>
                     Fresh and convenient meal options for
@@ -575,11 +639,16 @@
 
     <div class="grid">
 
+
+        <!-- NATURAL INGREDIENTS -->
+
         <div class="card">
 
             <div class="card-content">
 
-                <h3>🌿 Natural Ingredients</h3>
+                <h3>
+                    🌿 Natural Ingredients
+                </h3>
 
                 <p>
                     We focus on carefully selected ingredients
@@ -591,11 +660,15 @@
         </div>
 
 
+        <!-- FRESHLY PREPARED -->
+
         <div class="card">
 
             <div class="card-content">
 
-                <h3>🧃 Freshly Prepared</h3>
+                <h3>
+                    🧃 Freshly Prepared
+                </h3>
 
                 <p>
                     Our beverages are prepared with freshness
@@ -607,11 +680,15 @@
         </div>
 
 
+        <!-- DELIVERY -->
+
         <div class="card">
 
             <div class="card-content">
 
-                <h3>🚚 Delivery</h3>
+                <h3>
+                    🚚 Delivery
+                </h3>
 
                 <p>
                     Delivery is available across Lagos.
@@ -622,11 +699,15 @@
         </div>
 
 
+        <!-- HEALTHY LIFESTYLE -->
+
         <div class="card">
 
             <div class="card-content">
 
-                <h3>💚 Healthy Lifestyle</h3>
+                <h3>
+                    💚 Healthy Lifestyle
+                </h3>
 
                 <p>
                     Delicious beverage and meal options designed
@@ -650,18 +731,29 @@
         Contact Us
     </h2>
 
-    <p>📍 Lagos, Nigeria</p>
+    <p>
+        📍 Lagos, Nigeria
+    </p>
 
-    <p>📞 07088314315</p>
+    <p>
+        📞 07088314315
+    </p>
 
-    <p>📞 09066114326</p>
+    <p>
+        📞 09066114326
+    </p>
 
-    <p>📧 Wendysjuicz@gmail.com</p>
+    <p>
+        📧 Wendysjuicz@gmail.com
+    </p>
 
+
+    <!-- SOCIAL MEDIA -->
 
     <div class="social-links">
 
         <p>
+
             📸 Instagram:
 
             <a
@@ -670,10 +762,12 @@
             >
                 @sip.wendys
             </a>
+
         </p>
 
 
         <p>
+
             🎵 TikTok:
 
             <a
@@ -682,10 +776,13 @@
             >
                 @Wendysjuicz
             </a>
+
         </p>
 
     </div>
 
+
+    <!-- ORDER BUTTON -->
 
     <a
         class="btn"
@@ -727,3 +824,21 @@
 
 </body>
 </html>
+```
+
+### What I changed
+
+* ✅ **Logo stays on the left**
+* ✅ **About / Products / Benefits / Contact are now centered**
+* ✅ Menu stays centered even though the logo is on the left
+* ✅ Header remains **sticky** when you scroll
+* ✅ Menu links still jump to the correct sections
+* ✅ Your existing product images remain unchanged
+* ✅ Your Pineapple image remains `images/pineapple.jpg.jpg`
+* ✅ Your Salads & Wraps image remains `images/salads-wraps.jpg.jpg`
+* ✅ WhatsApp button remains
+* ✅ Instagram `@sip.wendys` remains
+* ✅ TikTok `@Wendysjuicz` remains
+* ✅ Mobile version is still responsive
+
+You can paste this entire code into your `index.html` and save it.
