@@ -36,9 +36,7 @@
             font-family: "Segoe UI", Arial, sans-serif;
         }
 
-        /* =========================
-           HEADER
-        ========================== */
+        /* HEADER */
 
         header {
             background: var(--green);
@@ -49,7 +47,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
         }
 
         .logo {
@@ -70,16 +68,13 @@
             text-decoration: none;
             margin-left: 22px;
             font-weight: 600;
-            transition: 0.3s;
         }
 
         nav a:hover {
             color: var(--gold);
         }
 
-        /* =========================
-           HERO
-        ========================== */
+        /* HERO */
 
         .hero {
             text-align: center;
@@ -93,7 +88,7 @@
             max-height: 600px;
             object-fit: cover;
             border-radius: 22px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: block;
             margin: 0 auto;
         }
@@ -115,10 +110,6 @@
             color: #444;
         }
 
-        /* =========================
-           BUTTON
-        ========================== */
-
         .btn {
             display: inline-block;
             margin-top: 25px;
@@ -133,12 +124,10 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        /* =========================
-           SECTIONS
-        ========================== */
+        /* SECTIONS */
 
         .section {
             padding: 80px 10%;
@@ -158,9 +147,7 @@
             font-size: 18px;
         }
 
-        /* =========================
-           PRODUCT GRID
-        ========================== */
+        /* PRODUCT GRID */
 
         .grid {
             display: grid;
@@ -172,7 +159,7 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: 0.3s;
         }
 
@@ -205,17 +192,13 @@
             font-weight: 800;
         }
 
-        /* =========================
-           BENEFITS
-        ========================== */
+        /* BENEFITS */
 
         .benefits-section {
             background: #eafff0;
         }
 
-        /* =========================
-           CONTACT
-        ========================== */
+        /* CONTACT */
 
         .contact {
             background: var(--green);
@@ -246,9 +229,7 @@
             color: var(--gold);
         }
 
-        /* =========================
-           FOOTER
-        ========================== */
+        /* FOOTER */
 
         footer {
             background: var(--dark-green);
@@ -257,9 +238,7 @@
             padding: 25px 15px;
         }
 
-        /* =========================
-           WHATSAPP BUTTON
-        ========================== */
+        /* WHATSAPP */
 
         .whatsapp {
             position: fixed;
@@ -271,19 +250,11 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
             z-index: 999;
-            transition: 0.3s;
         }
 
-        .whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        /* =========================
-           MOBILE
-        ========================== */
+        /* MOBILE */
 
         @media (max-width: 768px) {
 
@@ -335,17 +306,18 @@
 
 <body>
 
-<!-- =========================
-     HEADER
-========================== -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
+    <!-- WENDY'S JUICZ LOGO -->
     <div class="logo">
+
         <img
             src="images/logo.png.jpeg"
             alt="WENDY'S JUICZ Logo"
         >
+
     </div>
 
     <nav>
@@ -358,9 +330,7 @@
 </header>
 
 
-<!-- =========================
-     HERO
-========================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -393,9 +363,7 @@
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================== -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about" class="section">
 
@@ -418,9 +386,7 @@
 </section>
 
 
-<!-- =========================
-     PRODUCTS
-========================== -->
+<!-- ================= PRODUCTS ================= -->
 
 <section id="products" class="section">
 
@@ -518,7 +484,7 @@
         <div class="card">
 
             <img
-                src="images/pineapple.jpg"
+                src="images/pineapple.jpg.jpg"
                 alt="WENDY'S JUICZ Pineapple Juice"
                 class="product-img"
             >
@@ -573,7 +539,7 @@
         <div class="card">
 
             <img
-                src="images/salads-wraps.jpg"
+                src="images/salads-wraps.jpg.jpg"
                 alt="WENDY'S JUICZ Salads and Wraps"
                 class="product-img"
             >
@@ -600,9 +566,7 @@
 </section>
 
 
-<!-- =========================
-     BENEFITS
-========================== -->
+<!-- ================= BENEFITS ================= -->
 
 <section id="benefits" class="section benefits-section">
 
@@ -611,7 +575,6 @@
     </h2>
 
     <div class="grid">
-
 
         <div class="card">
 
@@ -680,9 +643,7 @@
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================== -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact" class="section contact">
 
@@ -702,6 +663,7 @@
     <div class="social-links">
 
         <p>
+
             📸 Instagram:
 
             <a
@@ -710,10 +672,12 @@
             >
                 @sip.wendys
             </a>
+
         </p>
 
 
         <p>
+
             🎵 TikTok:
 
             <a
@@ -722,6 +686,7 @@
             >
                 @Wendysjuicz
             </a>
+
         </p>
 
     </div>
@@ -738,9 +703,7 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -755,9 +718,7 @@
 </footer>
 
 
-<!-- =========================
-     FLOATING WHATSAPP
-========================== -->
+<!-- ================= FLOATING WHATSAPP ================= -->
 
 <a
     class="whatsapp"
@@ -771,3 +732,4 @@
 
 </body>
 </html>
+                
