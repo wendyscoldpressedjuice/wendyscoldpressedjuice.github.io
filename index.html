@@ -8,7 +8,7 @@
     <title>WENDY'S JUICZ | Freshly Pressed. Naturally Better.</title>
 
     <meta name="description"
-        content="WENDY'S JUICZ offers cold-pressed juices, tigernut milk, zobo drinks, smoothies, wellness shots, salads and wraps.">
+        content="WENDY'S JUICZ offers fresh juices, tigernut milk, zobo drinks, smoothies, wellness drinks, salads and wraps.">
 
     <style>
         :root {
@@ -37,8 +37,6 @@
             font-family: "Segoe UI", Arial, sans-serif;
         }
 
-        /* HEADER */
-
         header {
             background: var(--green);
             padding: 18px 8%;
@@ -48,7 +46,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
         }
 
         .logo {
@@ -63,14 +61,11 @@
             text-decoration: none;
             margin-left: 22px;
             font-weight: 600;
-            transition: 0.3s;
         }
 
         nav a:hover {
             color: var(--gold);
         }
-
-        /* HERO */
 
         .hero {
             text-align: center;
@@ -84,7 +79,7 @@
             max-height: 600px;
             object-fit: cover;
             border-radius: 22px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: block;
             margin: 0 auto;
         }
@@ -106,8 +101,6 @@
             color: #444;
         }
 
-        /* BUTTON */
-
         .btn {
             display: inline-block;
             margin-top: 25px;
@@ -117,15 +110,12 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            transition: 0.3s;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-
-        /* SECTIONS */
 
         .section {
             padding: 80px 10%;
@@ -138,16 +128,12 @@
             margin-bottom: 40px;
         }
 
-        /* ABOUT */
-
         .about-text {
             max-width: 900px;
             margin: auto;
             text-align: center;
             font-size: 18px;
         }
-
-        /* PRODUCT GRID */
 
         .grid {
             display: grid;
@@ -159,13 +145,12 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: 0.3s;
         }
 
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
 
         .product-img {
@@ -193,13 +178,9 @@
             font-weight: 800;
         }
 
-        /* BENEFITS */
-
         .benefits-section {
             background: #eafff0;
         }
-
-        /* CONTACT */
 
         .contact {
             background: var(--green);
@@ -230,16 +211,12 @@
             color: var(--gold);
         }
 
-        /* FOOTER */
-
         footer {
             background: var(--dark-green);
             color: white;
             text-align: center;
             padding: 25px 15px;
         }
-
-        /* WHATSAPP */
 
         .whatsapp {
             position: fixed;
@@ -251,19 +228,11 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
             z-index: 999;
-            transition: 0.3s;
         }
-
-        .whatsapp:hover {
-            transform: scale(1.05);
-        }
-
-        /* MOBILE */
 
         @media (max-width: 768px) {
-
             header {
                 padding: 15px 5%;
             }
@@ -299,469 +268,306 @@
             .product-img {
                 height: 220px;
             }
-
-            .whatsapp {
-                bottom: 15px;
-                right: 15px;
-                padding: 13px 18px;
-            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
-    <header>
-
-        <div class="logo">
-            WENDY'S JUICZ
-        </div>
-
-        <nav>
-            <a href="#about">About</a>
-            <a href="#products">Products</a>
-            <a href="#benefits">Benefits</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-    </header>
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <img
-            src="images/hero.jpg"
-            alt="WENDY'S JUICZ"
-            class="hero-img"
-        >
-
-        <div class="hero-content">
-
-            <h1>
-                Freshly Pressed. Naturally Better.
-            </h1>
-
-            <p>
-                Premium cold-pressed juices, tigernut milk,
-                zobo drinks, smoothies, wellness shots,
-                salads and wraps made with carefully selected
-                natural ingredients.
-            </p>
-
-            <a
-                class="btn"
-                href="https://wa.me/2347088314315"
-                target="_blank"
-            >
-                Order on WhatsApp
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about" class="section">
-
-        <h2 class="section-title">
-            About Us
-        </h2>
-
-        <p class="about-text">
-
-            WENDY'S JUICZ is a premium health and wellness
-            brand offering fresh, natural and nutritious
-            beverages including cold-pressed juices,
-            tigernut milk, zobo drinks, smoothies and
-            wellness shots.
-
-            <br><br>
-
-            Every bottle is crafted with freshness,
-            quality and care to give you delicious
-            options for a healthier lifestyle.
-
-        </p>
-
-    </section>
-
-
-    <!-- PRODUCTS -->
-
-    <section id="products" class="section">
-
-        <h2 class="section-title">
-            Our Products
-        </h2>
-
-        <div class="grid">
-
-
-            <!-- TIGERNUT MILK -->
-
-            <div class="card">
-
-                <img
-                    src="images/tigernut-milk.jpg"
-                    alt="WENDY'S JUICZ Tigernut Milk"
-                    class="product-img"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        🌰 Tigernut Milk
-                    </h3>
-
-                    <p>
-                        Freshly squeezed, creamy and
-                        refreshing tigernut milk.
-                    </p>
-
-                    <span class="price">
-                        ₦4,000
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- ZOBO -->
-
-            <div class="card">
-
-                <img
-                    src="images/zobo.jpg"
-                    alt="WENDY'S JUICZ Zobo Drink"
-                    class="product-img"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        🌺 Zobo Drink
-                    </h3>
-
-                    <p>
-                        Refreshing hibiscus goodness
-                        made with carefully selected
-                        natural ingredients.
-                    </p>
-
-                    <span class="price">
-                        Price available on request
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- DETOX MAGIC -->
-
-            <div class="card">
-
-                <img
-                    src="images/detox-magic.jpg"
-                    alt="WENDY'S JUICZ Detox Magic"
-                    class="product-img"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        🥤 Detox Magic
-                    </h3>
-
-                    <p>
-                        A refreshing natural juice blend
-                        created for your wellness routine.
-                    </p>
-
-                    <span class="price">
-                        ₦5,500
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PINEAPPLE -->
-
-            <div class="card">
-
-                <img
-                    src="images/pineapple.jpg"
-                    alt="WENDY'S JUICZ Pineapple Juice"
-                    class="product-img"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        🍍 Pineapple Juice
-                    </h3>
-
-                    <p>
-                        Freshly pressed tropical
-                        pineapple delight.
-                    </p>
-
-                    <span class="price">
-                        ₦5,000
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- FRUITY SPLASH -->
-
-            <div class="card">
-
-                <img
-                    src="images/fruity-splash.jpg"
-                    alt="WENDY'S JUICZ Fruity Splash"
-                    class="product-img"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        🍓 Fruity Splash
-                    </h3>
-
-                    <p>
-                        A delicious smoothie packed
-                        with fruity flavour.
-                    </p>
-
-                    <span class="price">
-                        ₦4,500
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- SALADS AND WRAPS -->
-
-            <div class="card">
-
-                <img
-                    src="images/salads-wraps.jpg"
-                    alt="WENDY'S JUICZ Salads and Wraps"
-                    class="product-img"
-                >
-
-                <div class="card-content">
-
-                    <h3>
-                        🥗 Salads & Wraps
-                    </h3>
-
-                    <p>
-                        Fresh and convenient meal options
-                        for different lifestyles.
-                    </p>
-
-                    <span class="price">
-                        Price available on request
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- BENEFITS -->
-
-    <section id="benefits" class="section benefits-section">
-
-        <h2 class="section-title">
-            Why Choose Us?
-        </h2>
-
-        <div class="grid">
-
-
-            <div class="card">
-
-                <div class="card-content">
-
-                    <h3>
-                        🌿 Natural Ingredients
-                    </h3>
-
-                    <p>
-                        We focus on carefully selected
-                        ingredients for our products.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-content">
-
-                    <h3>
-                        🧃 Freshly Prepared
-                    </h3>
-
-                    <p>
-                        Our beverages are prepared with
-                        freshness and quality in mind.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-content">
-
-                    <h3>
-                        🚚 Delivery
-                    </h3>
-
-                    <p>
-                        Delivery is available across
-                        Lagos.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-content">
-
-                    <h3>
-                        💚 Healthy Lifestyle
-                    </h3>
-
-                    <p>
-                        Delicious beverage and meal options
-                        designed to complement your lifestyle.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact" class="section contact">
-
-        <h2 class="section-title">
-            Contact Us
-        </h2>
+<header>
+    <div class="logo">WENDY'S JUICZ</div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <img
+        src="images/hero.jpg"
+        alt="WENDY'S JUICZ"
+        class="hero-img"
+    >
+
+    <div class="hero-content">
+
+        <h1>Freshly Pressed. Naturally Better.</h1>
 
         <p>
-            📍 Lagos, Nigeria
+            Premium fresh juices, tigernut milk, zobo drinks,
+            smoothies, wellness drinks, salads and wraps made
+            with carefully selected natural ingredients.
         </p>
-
-        <p>
-            📞 07088314315
-        </p>
-
-        <p>
-            📞 09066114326
-        </p>
-
-        <p>
-            📧 Wendysjuicz@gmail.com
-        </p>
-
-        <div class="social-links">
-
-            <p>
-                📸 Instagram:
-                <a
-                    href="https://www.instagram.com/sip.wendys/"
-                    target="_blank"
-                >
-                    @sip.wendys
-                </a>
-            </p>
-
-            <p>
-                🎵 TikTok:
-                <a
-                    href="https://www.tiktok.com/@Wendysjuicz"
-                    target="_blank"
-                >
-                    @Wendysjuicz
-                </a>
-            </p>
-
-        </div>
 
         <a
             class="btn"
             href="https://wa.me/2347088314315"
             target="_blank"
         >
-            Order Now
+            Order on WhatsApp
         </a>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- FOOTER -->
+<section id="about" class="section">
 
-    <footer>
+    <h2 class="section-title">About Us</h2>
+
+    <p class="about-text">
+        WENDY'S JUICZ is a premium health and wellness brand
+        offering fresh and delicious beverages including
+        cold-pressed juices, tigernut milk, zobo drinks,
+        smoothies and wellness drinks.
+
+        <br><br>
+
+        Every bottle is crafted with freshness, quality and care
+        to give you delicious options for your everyday lifestyle.
+    </p>
+
+</section>
+
+<section id="products" class="section">
+
+    <h2 class="section-title">Our Products</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img
+                src="images/tigernut-milk.jpg"
+                alt="WENDY'S JUICZ Tigernut Milk"
+                class="product-img"
+            >
+
+            <div class="card-content">
+                <h3>🌰 Tigernut Milk</h3>
+
+                <p>
+                    Freshly squeezed, creamy and refreshing
+                    tigernut milk.
+                </p>
+
+                <span class="price">₦4,000</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="images/zobo.jpg"
+                alt="WENDY'S JUICZ Zobo Drink"
+                class="product-img"
+            >
+
+            <div class="card-content">
+                <h3>🌺 Zobo Drink</h3>
+
+                <p>
+                    Refreshing hibiscus goodness made with
+                    carefully selected natural ingredients.
+                </p>
+
+                <span class="price">
+                    Price available on request
+                </span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="images/detox-magic.jpg"
+                alt="WENDY'S JUICZ Detox Magic"
+                class="product-img"
+            >
+
+            <div class="card-content">
+                <h3>🥤 Detox Magic</h3>
+
+                <p>
+                    A refreshing natural juice blend created
+                    for your wellness routine.
+                </p>
+
+                <span class="price">₦5,500</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="images/pineapple.jpg"
+                alt="WENDY'S JUICZ Pineapple Juice"
+                class="product-img"
+            >
+
+            <div class="card-content">
+                <h3>🍍 Pineapple Juice</h3>
+
+                <p>
+                    Freshly pressed tropical pineapple delight.
+                </p>
+
+                <span class="price">₦5,000</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="images/fruity-splash.jpg"
+                alt="WENDY'S JUICZ Fruity Splash"
+                class="product-img"
+            >
+
+            <div class="card-content">
+                <h3>🍓 Fruity Splash</h3>
+
+                <p>
+                    A delicious smoothie packed with fruity
+                    flavour.
+                </p>
+
+                <span class="price">₦4,500</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img
+                src="images/salads-wraps.jpg"
+                alt="WENDY'S JUICZ Salads and Wraps"
+                class="product-img"
+            >
+
+            <div class="card-content">
+                <h3>🥗 Salads & Wraps</h3>
+
+                <p>
+                    Fresh and convenient meal options for
+                    different lifestyles.
+                </p>
+
+                <span class="price">
+                    Price available on request
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="benefits" class="section benefits-section">
+
+    <h2 class="section-title">Why Choose Us?</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-content">
+                <h3>🌿 Natural Ingredients</h3>
+                <p>
+                    We focus on carefully selected ingredients
+                    for our products.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>🧃 Freshly Prepared</h3>
+                <p>
+                    Our beverages are prepared with freshness
+                    and quality in mind.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>🚚 Delivery</h3>
+                <p>
+                    Delivery is available across Lagos.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>💚 Healthy Lifestyle</h3>
+                <p>
+                    Delicious beverage and meal options designed
+                    to complement your lifestyle.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact" class="section contact">
+
+    <h2 class="section-title">Contact Us</h2>
+
+    <p>📍 Lagos, Nigeria</p>
+    <p>📞 07088314315</p>
+    <p>📞 09066114326</p>
+    <p>📧 Wendysjuicz@gmail.com</p>
+
+    <div class="social-links">
 
         <p>
-            © 2026 WENDY'S JUICZ
+            📸 Instagram:
+            <a
+                href="https://www.instagram.com/sip.wendys/"
+                target="_blank"
+            >
+                @sip.wendys
+            </a>
         </p>
 
         <p>
-            Freshly Pressed. Naturally Better.
+            🎵 TikTok:
+            <a
+                href="https://www.tiktok.com/@Wendysjuicz"
+                target="_blank"
+            >
+                @Wendysjuicz
+            </a>
         </p>
 
-    </footer>
-
-
-    <!-- FLOATING WHATSAPP -->
+    </div>
 
     <a
-        class="whatsapp"
+        class="btn"
         href="https://wa.me/2347088314315"
         target="_blank"
-        aria-label="Chat with WENDY'S JUICZ on WhatsApp"
     >
-        💬 WhatsApp
+        Order Now
     </a>
 
+</section>
+
+<footer>
+
+    <p>© 2026 WENDY'S JUICZ</p>
+
+    <p>Freshly Pressed. Naturally Better.</p>
+
+</footer>
+
+<a
+    class="whatsapp"
+    href="https://wa.me/2347088314315"
+    target="_blank"
+    aria-label="Chat with WENDY'S JUICZ on WhatsApp"
+>
+    💬 WhatsApp
+</a>
 
 </body>
 </html>
