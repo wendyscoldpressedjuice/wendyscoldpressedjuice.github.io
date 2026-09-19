@@ -29,6 +29,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -48,11 +49,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
             min-height: 85px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
         }
 
-        /* LOGO ON THE LEFT */
+        /* ================= LOGO ================= */
 
         .logo {
             display: flex;
@@ -67,7 +68,7 @@
             object-fit: contain;
         }
 
-        /* MENU IN THE MIDDLE */
+        /* ================= DESKTOP NAV ================= */
 
         nav {
             position: absolute;
@@ -88,6 +89,28 @@
 
         nav a:hover {
             color: var(--gold);
+        }
+
+        /* ================= MOBILE MENU BUTTON ================= */
+
+        .menu-toggle {
+            display: none;
+            margin-left: auto;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: 0.3s ease;
         }
 
         /* ================= HERO ================= */
@@ -274,21 +297,18 @@
 
         .whatsapp:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        /* ================= MOBILE ================= */
+        /* ==================================================
+           MOBILE NAVIGATION
+           ================================================== */
 
         @media (max-width: 768px) {
 
             header {
                 padding: 10px 5%;
                 min-height: 70px;
-                justify-content: center;
-            }
-
-            .logo {
-                justify-content: center;
+                justify-content: space-between;
             }
 
             .logo img {
@@ -296,11 +316,77 @@
                 max-width: 150px;
             }
 
-            /* Hide desktop menu on mobile */
+            /* Show hamburger */
+
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Mobile navigation */
 
             nav {
-                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                transform: none;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                background: var(--green);
+
+                padding: 0;
+
+                max-height: 0;
+                overflow: hidden;
+
+                opacity: 0;
+
+                transition:
+                    max-height 0.35s ease,
+                    opacity 0.25s ease,
+                    padding 0.35s ease;
+
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
             }
+
+            /* Open mobile menu */
+
+            nav.active {
+                max-height: 350px;
+                padding: 15px 0 20px;
+                opacity: 1;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 13px 20px;
+                font-size: 17px;
+            }
+
+            nav a:hover {
+                background: rgba(255, 255, 255, 0.08);
+                color: var(--gold);
+            }
+
+            /* Hamburger animation */
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            /* HERO */
 
             .hero {
                 padding: 30px 15px 60px;
@@ -318,6 +404,8 @@
                 font-size: 17px;
             }
 
+            /* SECTIONS */
+
             .section {
                 padding: 60px 6%;
             }
@@ -326,9 +414,13 @@
                 font-size: 32px;
             }
 
+            /* PRODUCTS */
+
             .product-img {
                 height: 220px;
             }
+
+            /* WHATSAPP */
 
             .whatsapp {
                 bottom: 15px;
@@ -341,6 +433,7 @@
 </head>
 
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
@@ -358,9 +451,9 @@
     </div>
 
 
-    <!-- CENTER MENU -->
+    <!-- NAVIGATION -->
 
-    <nav>
+    <nav id="mobileNav">
 
         <a href="#about">About</a>
 
@@ -371,6 +464,23 @@
         <a href="#contact">Contact</a>
 
     </nav>
+
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </header>
 
@@ -640,8 +750,6 @@
     <div class="grid">
 
 
-        <!-- NATURAL INGREDIENTS -->
-
         <div class="card">
 
             <div class="card-content">
@@ -659,8 +767,6 @@
 
         </div>
 
-
-        <!-- FRESHLY PREPARED -->
 
         <div class="card">
 
@@ -680,8 +786,6 @@
         </div>
 
 
-        <!-- DELIVERY -->
-
         <div class="card">
 
             <div class="card-content">
@@ -698,8 +802,6 @@
 
         </div>
 
-
-        <!-- HEALTHY LIFESTYLE -->
 
         <div class="card">
 
@@ -748,8 +850,6 @@
     </p>
 
 
-    <!-- SOCIAL MEDIA -->
-
     <div class="social-links">
 
         <p>
@@ -781,8 +881,6 @@
 
     </div>
 
-
-    <!-- ORDER BUTTON -->
 
     <a
         class="btn"
@@ -822,23 +920,58 @@
 </a>
 
 
+<!-- ================= MOBILE MENU JAVASCRIPT ================= -->
+
+<script>
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    menuToggle.addEventListener("click", function () {
+
+        mobileNav.classList.toggle("active");
+
+        menuToggle.classList.toggle("active");
+
+        const isOpen = mobileNav.classList.contains("active");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+        );
+
+    });
+
+
+    /* Close menu after clicking a navigation link */
+
+    const navLinks = mobileNav.querySelectorAll("a");
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            mobileNav.classList.remove("active");
+
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        });
+
+    });
+
+</script>
+
+
 </body>
 </html>
-```
-
-### What I changed
-
-* ✅ **Logo stays on the left**
-* ✅ **About / Products / Benefits / Contact are now centered**
-* ✅ Menu stays centered even though the logo is on the left
-* ✅ Header remains **sticky** when you scroll
-* ✅ Menu links still jump to the correct sections
-* ✅ Your existing product images remain unchanged
-* ✅ Your Pineapple image remains `images/pineapple.jpg.jpg`
-* ✅ Your Salads & Wraps image remains `images/salads-wraps.jpg.jpg`
-* ✅ WhatsApp button remains
-* ✅ Instagram `@sip.wendys` remains
-* ✅ TikTok `@Wendysjuicz` remains
-* ✅ Mobile version is still responsive
-
-You can paste this entire code into your `index.html` and save it.
