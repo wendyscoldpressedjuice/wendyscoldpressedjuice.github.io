@@ -1,6 +1,7 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -11,48 +12,51 @@
     >
 
     <title>
-        WENDY'S JUICZ | Freshly Pressed. Naturally Better.
+        Wendy's Cold Pressed Juice | Fresh. Delicious. Made With Care.
     </title>
 
     <meta
         name="description"
-        content="WENDY'S JUICZ offers fresh juices, tigernut milk, zobo drinks, smoothies, wellness drinks, salads and wraps."
+        content="Shop Wendy's Cold Pressed Juice — fresh juices, zobo, tigernut milk and green salads delivered fresh to you."
     >
-
 
     <style>
 
-        /* ==================================================
-           COLORS
-        ================================================== */
+        /* =====================================================
+           ROOT
+        ===================================================== */
 
         :root {
 
-            --green: #0b7a3b;
+            --green: #08783d;
+            --dark-green: #064d29;
+            --light-green: #eafff1;
 
-            --dark-green: #123524;
-
-            --gold: #f7b731;
-
-            --light: #f6fff8;
+            --gold: #f5b72c;
+            --red: #e53935;
 
             --white: #ffffff;
+            --black: #171717;
+            --gray: #666;
+            --light-gray: #f5f7f6;
+            --border: #e4e8e5;
 
-            --text: #222222;
+            --shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+
+            --radius: 18px;
 
         }
 
 
-        /* ==================================================
+        /* =====================================================
            RESET
-        ================================================== */
+        ===================================================== */
 
         * {
 
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
 
         }
@@ -62,793 +66,2682 @@
 
             scroll-behavior: smooth;
 
-            scroll-padding-top: 90px;
+            scroll-padding-top: 100px;
 
         }
 
 
         body {
 
-            background: var(--light);
-
-            color: var(--text);
-
-            line-height: 1.6;
-
             font-family:
                 "Segoe UI",
                 Arial,
                 sans-serif;
 
+            background:
+                #ffffff;
+
+            color:
+                var(--black);
+
+            line-height:
+                1.6;
+
+            padding-bottom:
+                70px;
+
         }
 
 
-        /* ==================================================
+        button,
+        input {
+
+            font-family: inherit;
+
+        }
+
+
+        button {
+
+            cursor: pointer;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+
+        img {
+
+            max-width: 100%;
+
+        }
+
+
+        /* =====================================================
+           TOP ANNOUNCEMENT
+        ===================================================== */
+
+        .announcement {
+
+            background:
+                var(--dark-green);
+
+            color:
+                white;
+
+            text-align:
+                center;
+
+            padding:
+                9px 15px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+
+        }
+
+
+        /* =====================================================
            HEADER
-        ================================================== */
+        ===================================================== */
 
         header {
 
-            background: var(--green);
+            position:
+                sticky;
 
-            padding: 10px 8%;
+            top:
+                0;
 
-            display: flex;
+            z-index:
+                1000;
 
-            align-items: center;
+            background:
+                white;
 
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            min-height: 85px;
+            border-bottom:
+                1px solid var(--border);
 
             box-shadow:
-                0 3px 15px
-                rgba(0, 0, 0, 0.15);
+                0 3px 15px rgba(0,0,0,0.06);
 
         }
 
 
-        /* ==================================================
+        .header-inner {
+
+            max-width:
+                1250px;
+
+            margin:
+                auto;
+
+            padding:
+                12px 25px;
+
+            min-height:
+                82px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                25px;
+
+        }
+
+
+        /* =====================================================
            LOGO
-        ================================================== */
+        ===================================================== */
 
         .logo {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
+
+            flex-shrink:
+                0;
 
         }
 
 
         .logo img {
 
-            height: 65px;
+            height:
+                62px;
 
-            width: auto;
+            width:
+                auto;
 
-            max-width: 180px;
+            max-width:
+                190px;
 
-            display: block;
-
-            object-fit: contain;
+            object-fit:
+                contain;
 
         }
 
 
-        /* ==================================================
+        .brand-name {
+
+            display:
+                none;
+
+        }
+
+
+        /* =====================================================
            DESKTOP NAVIGATION
-        ================================================== */
+        ===================================================== */
 
-        nav {
+        .desktop-nav {
 
-            position: absolute;
+            display:
+                flex;
 
-            left: 50%;
+            align-items:
+                center;
 
-            transform: translateX(-50%);
+            gap:
+                25px;
 
-            display: flex;
-
-            align-items: center;
-
-            gap: 28px;
-
-        }
-
-
-        nav a {
-
-            color: white;
-
-            text-decoration: none;
-
-            font-weight: 600;
-
-            white-space: nowrap;
-
-            transition: 0.3s ease;
+            margin:
+                auto;
 
         }
 
 
-        nav a:hover {
+        .desktop-nav a {
 
-            color: var(--gold);
+            color:
+                #222;
+
+            font-weight:
+                600;
+
+            font-size:
+                15px;
+
+            transition:
+                0.25s;
 
         }
 
 
-        /* ==================================================
+        .desktop-nav a:hover {
+
+            color:
+                var(--green);
+
+        }
+
+
+        /* =====================================================
+           HEADER ACTIONS
+        ===================================================== */
+
+        .header-actions {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+        }
+
+
+        .icon-button {
+
+            position:
+                relative;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                none;
+
+            background:
+                var(--light-gray);
+
+            border-radius:
+                50%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                19px;
+
+            transition:
+                0.25s;
+
+        }
+
+
+        .icon-button:hover {
+
+            background:
+                var(--light-green);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .cart-count {
+
+            position:
+                absolute;
+
+            top:
+                -3px;
+
+            right:
+                -3px;
+
+            background:
+                var(--red);
+
+            color:
+                white;
+
+            width:
+                19px;
+
+            height:
+                19px;
+
+            border-radius:
+                50%;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+        }
+
+
+        /* =====================================================
            MOBILE MENU BUTTON
-        ================================================== */
+        ===================================================== */
 
         .menu-toggle {
 
-            display: none;
+            display:
+                none;
 
-            margin-left: auto;
+            border:
+                none;
 
-            background: transparent;
+            background:
+                transparent;
 
-            border: none;
-
-            cursor: pointer;
-
-            padding: 8px;
-
-            z-index: 1100;
+            font-size:
+                28px;
 
         }
 
 
-        .menu-toggle span {
-
-            display: block;
-
-            width: 30px;
-
-            height: 3px;
-
-            background: white;
-
-            margin: 5px 0;
-
-            border-radius: 5px;
-
-            transition: 0.3s ease;
-
-        }
-
-
-        /* ==================================================
+        /* =====================================================
            HERO
-        ================================================== */
+        ===================================================== */
 
         .hero {
 
-            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #effff4,
+                    #ffffff
+                );
 
             padding:
-                50px
-                20px
-                80px;
-
-            background: white;
+                70px 6%;
 
         }
 
 
-        .hero-img {
+        .hero-inner {
 
-            width: 100%;
+            max-width:
+                1250px;
 
-            max-width: 1100px;
+            margin:
+                auto;
 
-            max-height: 600px;
+            display:
+                grid;
 
-            object-fit: cover;
+            grid-template-columns:
+                1.05fr
+                0.95fr;
 
-            border-radius: 22px;
+            align-items:
+                center;
 
-            box-shadow:
-                0 10px 30px
-                rgba(0, 0, 0, 0.2);
-
-            display: block;
-
-            margin: 0 auto;
+            gap:
+                60px;
 
         }
 
 
         .hero-content {
 
-            margin-top: 35px;
+            max-width:
+                650px;
+
+        }
+
+
+        .hero-label {
+
+            display:
+                inline-block;
+
+            background:
+                var(--light-green);
+
+            color:
+                var(--green);
+
+            padding:
+                7px 14px;
+
+            border-radius:
+                50px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                18px;
 
         }
 
 
         .hero h1 {
 
-            color: var(--green);
+            font-size:
+                clamp(
+                    42px,
+                    6vw,
+                    76px
+                );
 
-            font-size: 3.5rem;
+            line-height:
+                1.05;
 
-            margin-bottom: 15px;
+            color:
+                var(--dark-green);
 
-        }
-
-
-        .hero p {
-
-            max-width: 850px;
-
-            margin: auto;
-
-            font-size: 20px;
-
-            color: #444;
+            margin-bottom:
+                18px;
 
         }
 
 
-        /* ==================================================
-           BUTTON
-        ================================================== */
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-text {
+
+            font-size:
+                19px;
+
+            color:
+                #555;
+
+            max-width:
+                600px;
+
+            margin-bottom:
+                28px;
+
+        }
+
+
+        .hero-buttons {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            flex-wrap:
+                wrap;
+
+        }
+
 
         .btn {
 
-            display: inline-block;
+            border:
+                none;
 
-            margin-top: 25px;
-
-            background: var(--gold);
-
-            color: #000;
+            border-radius:
+                50px;
 
             padding:
-                15px
+                14px 24px;
+
+            font-weight:
+                800;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            transition:
+                0.25s;
+
+        }
+
+
+        .btn-primary {
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+        }
+
+
+        .btn-primary:hover {
+
+            background:
+                var(--dark-green);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .btn-secondary {
+
+            background:
+                var(--gold);
+
+            color:
+                #111;
+
+        }
+
+
+        .btn-secondary:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .hero-image {
+
+            position:
+                relative;
+
+        }
+
+
+        .hero-image img {
+
+            width:
+                100%;
+
+            height:
+                520px;
+
+            object-fit:
+                cover;
+
+            border-radius:
                 30px;
 
-            border-radius: 50px;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            transition: 0.3s ease;
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.16);
 
         }
 
 
-        .btn:hover {
+        .floating-badge {
 
-            transform: translateY(-3px);
+            position:
+                absolute;
+
+            bottom:
+                25px;
+
+            left:
+                -20px;
+
+            background:
+                white;
+
+            padding:
+                15px 20px;
+
+            border-radius:
+                15px;
 
             box-shadow:
-                0 8px 20px
-                rgba(0, 0, 0, 0.2);
+                var(--shadow);
+
+            font-weight:
+                700;
 
         }
 
 
-        /* ==================================================
-           SECTIONS
-        ================================================== */
+        /* =====================================================
+           TRUST FEATURES
+        ===================================================== */
+
+        .trust-section {
+
+            padding:
+                30px 6%;
+
+            background:
+                white;
+
+        }
+
+
+        .trust-grid {
+
+            max-width:
+                1250px;
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .trust-card {
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            display:
+                flex;
+
+            gap:
+                12px;
+
+            align-items:
+                center;
+
+        }
+
+
+        .trust-icon {
+
+            font-size:
+                28px;
+
+        }
+
+
+        .trust-card h4 {
+
+            font-size:
+                15px;
+
+        }
+
+
+        .trust-card p {
+
+            font-size:
+                13px;
+
+            color:
+                var(--gray);
+
+        }
+
+
+        /* =====================================================
+           GENERAL SECTION
+        ===================================================== */
 
         .section {
 
+            max-width:
+                1250px;
+
+            margin:
+                auto;
+
             padding:
-                80px
-                10%;
+                80px 25px;
 
         }
 
 
-        .section-title {
+        .section-heading {
 
-            text-align: center;
+            text-align:
+                center;
 
-            font-size: 40px;
-
-            color: var(--green);
-
-            margin-bottom: 40px;
+            margin-bottom:
+                45px;
 
         }
 
 
-        .about-text {
+        .section-heading h2 {
 
-            max-width: 900px;
+            font-size:
+                38px;
 
-            margin: auto;
+            color:
+                var(--dark-green);
 
-            text-align: center;
-
-            font-size: 18px;
+            margin-bottom:
+                7px;
 
         }
 
 
-        /* ==================================================
-           PRODUCTS GRID
-        ================================================== */
+        .section-heading p {
 
-        .grid {
+            color:
+                var(--gray);
 
-            display: grid;
+        }
+
+
+        /* =====================================================
+           CATEGORY
+        ===================================================== */
+
+        .category-grid {
+
+            display:
+                grid;
 
             grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(270px, 1fr)
-                );
+                repeat(4,1fr);
 
-            gap: 28px;
+            gap:
+                20px;
 
         }
 
 
-        /* ==================================================
-           PRODUCT CARDS
-        ================================================== */
+        .category-card {
 
-        .card {
+            position:
+                relative;
 
-            background: white;
+            min-height:
+                220px;
 
-            border-radius: 20px;
+            border-radius:
+                20px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
-            box-shadow:
-                0 8px 25px
-                rgba(0, 0, 0, 0.08);
+            display:
+                flex;
 
-            transition: 0.3s ease;
+            align-items:
+                flex-end;
+
+            padding:
+                25px;
+
+            color:
+                white;
+
+            background:
+                var(--green);
+
+            transition:
+                0.3s;
 
         }
 
 
-        .card:hover {
+        .category-card:hover {
 
             transform:
-                translateY(-6px);
+                translateY(-5px);
 
         }
 
 
-        .product-img {
+        .category-card:nth-child(2) {
 
-            width: 100%;
-
-            height: 230px;
-
-            object-fit: cover;
-
-            display: block;
+            background:
+                #8c2542;
 
         }
 
 
-        .card-content {
+        .category-card:nth-child(3) {
 
-            padding: 25px;
-
-        }
-
-
-        .card h3 {
-
-            color: var(--green);
-
-            margin-bottom: 10px;
-
-            font-size: 22px;
+            background:
+                #a87920;
 
         }
 
 
-        .price {
+        .category-card:nth-child(4) {
 
-            display: block;
-
-            margin-top: 15px;
-
-            font-size: 20px;
-
-            color: var(--green);
-
-            font-weight: 800;
+            background:
+                #438c43;
 
         }
 
 
-        /* ==================================================
-           BENEFITS
-        ================================================== */
+        .category-icon {
 
-        .benefits-section {
+            position:
+                absolute;
 
-            background: #eafff0;
+            top:
+                25px;
 
-        }
+            right:
+                25px;
 
-
-        /* ==================================================
-           CONTACT
-        ================================================== */
-
-        .contact {
-
-            background: var(--green);
-
-            color: white;
-
-            text-align: center;
+            font-size:
+                55px;
 
         }
 
 
-        .contact .section-title {
+        .category-card h3 {
 
-            color: white;
-
-        }
-
-
-        .contact p {
-
-            margin: 8px 0;
-
-            font-size: 18px;
+            font-size:
+                22px;
 
         }
 
 
-        .social-links {
+        .category-card p {
 
-            margin-top: 20px;
-
-        }
-
-
-        .social-links a {
-
-            color: white;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            transition: 0.3s ease;
+            opacity:
+                0.9;
 
         }
 
 
-        .social-links a:hover {
+        /* =====================================================
+           SHOP TOOLBAR
+        ===================================================== */
 
-            color: var(--gold);
+        .shop-toolbar {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            margin-bottom:
+                30px;
+
+            flex-wrap:
+                wrap;
 
         }
 
 
-        /* ==================================================
+        .search-box {
+
+            flex:
+                1;
+
+            min-width:
+                250px;
+
+            position:
+                relative;
+
+        }
+
+
+        .search-box input {
+
+            width:
+                100%;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                50px;
+
+            padding:
+                14px 20px;
+
+            outline:
+                none;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .search-box input:focus {
+
+            border-color:
+                var(--green);
+
+        }
+
+
+        .filter-buttons {
+
+            display:
+                flex;
+
+            gap:
+                8px;
+
+            overflow-x:
+                auto;
+
+        }
+
+
+        .filter-btn {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            padding:
+                10px 16px;
+
+            border-radius:
+                50px;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        .filter-btn.active {
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+            border-color:
+                var(--green);
+
+        }
+
+
+        /* =====================================================
+           PRODUCT GRID
+        ===================================================== */
+
+        .product-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                22px;
+
+        }
+
+
+        .product-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
+
+            background:
+                white;
+
+            transition:
+                0.3s;
+
+            position:
+                relative;
+
+        }
+
+
+        .product-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .product-image-wrap {
+
+            position:
+                relative;
+
+            background:
+                var(--light-gray);
+
+        }
+
+
+        .product-image {
+
+            width:
+                100%;
+
+            height:
+                230px;
+
+            object-fit:
+                cover;
+
+            display:
+                block;
+
+        }
+
+
+        .product-badge {
+
+            position:
+                absolute;
+
+            top:
+                12px;
+
+            left:
+                12px;
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+            padding:
+                5px 10px;
+
+            border-radius:
+                50px;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .wishlist {
+
+            position:
+                absolute;
+
+            top:
+                12px;
+
+            right:
+                12px;
+
+            width:
+                38px;
+
+            height:
+                38px;
+
+            border:
+                none;
+
+            background:
+                white;
+
+            border-radius:
+                50%;
+
+            font-size:
+                18px;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.12);
+
+        }
+
+
+        .wishlist.active {
+
+            color:
+                #e53935;
+
+        }
+
+
+        .product-content {
+
+            padding:
+                18px;
+
+        }
+
+
+        .rating {
+
+            color:
+                var(--gold);
+
+            font-size:
+                13px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .product-title {
+
+            font-size:
+                18px;
+
+            color:
+                #222;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .product-description {
+
+            color:
+                var(--gray);
+
+            font-size:
+                14px;
+
+            min-height:
+                45px;
+
+        }
+
+
+        .product-bottom {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+        }
+
+
+        .product-price {
+
+            color:
+                var(--green);
+
+            font-size:
+                19px;
+
+            font-weight:
+                900;
+
+        }
+
+
+        .add-cart {
+
+            border:
+                none;
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+            padding:
+                10px 13px;
+
+            border-radius:
+                10px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .add-cart:hover {
+
+            background:
+                var(--dark-green);
+
+        }
+
+
+        /* =====================================================
+           DEALS
+        ===================================================== */
+
+        .deals {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--dark-green),
+                    var(--green)
+                );
+
+            color:
+                white;
+
+            border-radius:
+                25px;
+
+            padding:
+                45px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .deals h2 {
+
+            font-size:
+                34px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .deals p {
+
+            margin-bottom:
+                20px;
+
+            opacity:
+                0.9;
+
+        }
+
+
+        /* =====================================================
+           WHY CHOOSE US
+        ===================================================== */
+
+        .why-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                20px;
+
+        }
+
+
+        .why-card {
+
+            background:
+                var(--light-gray);
+
+            border-radius:
+                18px;
+
+            padding:
+                25px;
+
+        }
+
+
+        .why-card .icon {
+
+            font-size:
+                35px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .why-card h3 {
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .why-card p {
+
+            color:
+                var(--gray);
+
+            font-size:
+                14px;
+
+        }
+
+
+        /* =====================================================
+           TESTIMONIALS
+        ===================================================== */
+
+        .testimonial-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                20px;
+
+        }
+
+
+        .testimonial {
+
+            padding:
+                25px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                18px;
+
+            background:
+                white;
+
+        }
+
+
+        .testimonial .stars {
+
+            color:
+                var(--gold);
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .testimonial p {
+
+            color:
+                #444;
+
+            font-style:
+                italic;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .verified {
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            color:
+                var(--green);
+
+        }
+
+
+        /* =====================================================
+           REWARDS
+        ===================================================== */
+
+        .rewards {
+
+            background:
+                #fff8e7;
+
+            border-radius:
+                25px;
+
+            padding:
+                45px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+        }
+
+
+        .rewards-icon {
+
+            font-size:
+                55px;
+
+        }
+
+
+        /* =====================================================
+           NEWSLETTER
+        ===================================================== */
+
+        .newsletter {
+
+            background:
+                var(--light-green);
+
+            text-align:
+                center;
+
+            padding:
+                55px 25px;
+
+        }
+
+
+        .newsletter h2 {
+
+            color:
+                var(--dark-green);
+
+            font-size:
+                34px;
+
+        }
+
+
+        .newsletter p {
+
+            color:
+                var(--gray);
+
+            margin:
+                8px auto 20px;
+
+            max-width:
+                600px;
+
+        }
+
+
+        .subscribe-form {
+
+            max-width:
+                550px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            background:
+                white;
+
+            padding:
+                6px;
+
+            border-radius:
+                50px;
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .subscribe-form input {
+
+            flex:
+                1;
+
+            border:
+                none;
+
+            outline:
+                none;
+
+            padding:
+                12px 18px;
+
+            background:
+                transparent;
+
+        }
+
+
+        .subscribe-form button {
+
+            border:
+                none;
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+            padding:
+                12px 22px;
+
+            border-radius:
+                50px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        /* =====================================================
            FOOTER
-        ================================================== */
+        ===================================================== */
 
         footer {
 
-            background: var(--dark-green);
+            background:
+                var(--dark-green);
 
-            color: white;
-
-            text-align: center;
-
-            padding: 25px 15px;
-
-        }
-
-
-        /* ==================================================
-           WHATSAPP
-        ================================================== */
-
-        .whatsapp {
-
-            position: fixed;
-
-            bottom: 20px;
-
-            right: 20px;
-
-            background: #25D366;
-
-            color: white;
+            color:
+                white;
 
             padding:
-                15px
-                22px;
-
-            border-radius: 50px;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            box-shadow:
-                0 5px 20px
-                rgba(0, 0, 0, 0.25);
-
-            z-index: 999;
-
-            transition: 0.3s ease;
+                55px 6% 90px;
 
         }
 
 
-        .whatsapp:hover {
+        .footer-grid {
+
+            max-width:
+                1250px;
+
+            margin:
+                auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                2fr
+                1fr
+                1fr
+                1fr;
+
+            gap:
+                40px;
+
+        }
+
+
+        .footer-brand img {
+
+            height:
+                60px;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .footer-brand p {
+
+            color:
+                rgba(255,255,255,0.75);
+
+            max-width:
+                350px;
+
+        }
+
+
+        footer h3 {
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        footer a {
+
+            display:
+                block;
+
+            color:
+                rgba(255,255,255,0.75);
+
+            margin-bottom:
+                8px;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        footer a:hover {
+
+            color:
+                var(--gold);
+
+        }
+
+
+        .copyright {
+
+            text-align:
+                center;
+
+            margin-top:
+                40px;
+
+            padding-top:
+                20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            color:
+                rgba(255,255,255,0.7);
+
+        }
+
+
+        /* =====================================================
+           CART DRAWER
+        ===================================================== */
+
+        .cart-overlay {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            background:
+                rgba(0,0,0,0.45);
+
+            z-index:
+                2000;
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .cart-overlay.active {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+        }
+
+
+        .cart-drawer {
+
+            position:
+                absolute;
+
+            top:
+                0;
+
+            right:
+                0;
+
+            height:
+                100%;
+
+            width:
+                min(430px, 100%);
+
+            background:
+                white;
 
             transform:
-                translateY(-3px);
+                translateX(100%);
+
+            transition:
+                0.35s;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
 
         }
 
 
-        /* ==================================================
+        .cart-overlay.active
+        .cart-drawer {
+
+            transform:
+                translateX(0);
+
+        }
+
+
+        .cart-header {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                20px;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .close-cart {
+
+            border:
+                none;
+
+            background:
+                var(--light-gray);
+
+            width:
+                38px;
+
+            height:
+                38px;
+
+            border-radius:
+                50%;
+
+            font-size:
+                20px;
+
+        }
+
+
+        .cart-items {
+
+            flex:
+                1;
+
+            overflow-y:
+                auto;
+
+            padding:
+                20px;
+
+        }
+
+
+        .empty-cart {
+
+            text-align:
+                center;
+
+            padding:
+                60px 20px;
+
+            color:
+                var(--gray);
+
+        }
+
+
+        .cart-item {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                65px
+                1fr
+                auto;
+
+            gap:
+                12px;
+
+            align-items:
+                center;
+
+            padding:
+                12px 0;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .cart-item img {
+
+            width:
+                65px;
+
+            height:
+                65px;
+
+            object-fit:
+                cover;
+
+            border-radius:
+                10px;
+
+        }
+
+
+        .cart-item h4 {
+
+            font-size:
+                14px;
+
+        }
+
+
+        .cart-item-price {
+
+            color:
+                var(--green);
+
+            font-weight:
+                800;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .quantity-controls {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            margin-top:
+                5px;
+
+        }
+
+
+        .quantity-controls button {
+
+            width:
+                25px;
+
+            height:
+                25px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            border-radius:
+                5px;
+
+        }
+
+
+        .remove-item {
+
+            border:
+                none;
+
+            background:
+                none;
+
+            color:
+                var(--red);
+
+            font-size:
+                12px;
+
+        }
+
+
+        .cart-footer {
+
+            padding:
+                20px;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .cart-total {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            font-size:
+                20px;
+
+            font-weight:
+                900;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .checkout-btn {
+
+            width:
+                100%;
+
+            border:
+                none;
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+            padding:
+                15px;
+
+            border-radius:
+                12px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        .toast {
+
+            position:
+                fixed;
+
+            bottom:
+                90px;
+
+            left:
+                50%;
+
+            transform:
+                translate(
+                    -50%,
+                    20px
+                );
+
+            background:
+                var(--dark-green);
+
+            color:
+                white;
+
+            padding:
+                12px 20px;
+
+            border-radius:
+                50px;
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+            transition:
+                0.3s;
+
+            z-index:
+                3000;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .toast.show {
+
+            opacity:
+                1;
+
+            transform:
+                translate(
+                    -50%,
+                    0
+                );
+
+        }
+
+
+        /* =====================================================
+           MOBILE BOTTOM NAV
+        ===================================================== */
+
+        .mobile-bottom-nav {
+
+            display:
+                none;
+
+        }
+
+
+        /* =====================================================
            MOBILE
-        ================================================== */
+        ===================================================== */
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
 
 
-            /* HEADER */
+            .desktop-nav {
 
-            header {
-
-                padding:
-                    10px
-                    5%;
-
-                min-height: 70px;
-
-                justify-content:
-                    space-between;
+                display:
+                    none;
 
             }
 
-
-            /* LOGO */
-
-            .logo img {
-
-                height: 50px;
-
-                max-width: 150px;
-
-            }
-
-
-            /* SHOW HAMBURGER */
 
             .menu-toggle {
 
-                display: block;
+                display:
+                    block;
 
             }
 
 
-            /* ==================================================
-               MOBILE NAVIGATION
-            ================================================== */
-
-            nav {
-
-                position: absolute;
-
-                top: 100%;
-
-                left: 0;
-
-                width: 100%;
-
-                transform: none;
-
-                display: flex;
-
-                flex-direction: column;
-
-                align-items: center;
-
-                background: var(--green);
-
-                padding: 0;
-
-                max-height: 0;
-
-                overflow: hidden;
-
-                opacity: 0;
-
-                pointer-events: none;
-
-                transition:
-                    max-height 0.35s ease,
-                    opacity 0.25s ease,
-                    padding 0.35s ease;
-
-                box-shadow:
-                    0 8px 15px
-                    rgba(0, 0, 0, 0.15);
-
-            }
-
-
-            /* OPEN MENU */
-
-            nav.active {
-
-                max-height: 350px;
+            .header-inner {
 
                 padding:
-                    15px
-                    0
-                    20px;
-
-                opacity: 1;
-
-                pointer-events: auto;
+                    10px 15px;
 
             }
 
 
-            /* MOBILE LINKS */
+            .hero-inner {
 
-            nav a {
-
-                width: 100%;
-
-                text-align: center;
-
-                padding:
-                    13px
-                    20px;
-
-                font-size: 17px;
+                grid-template-columns:
+                    1fr;
 
             }
 
 
-            nav a:hover {
+            .hero-image {
 
-                background:
-                    rgba(
-                        255,
-                        255,
-                        255,
-                        0.08
-                    );
-
-                color: var(--gold);
+                order:
+                    -1;
 
             }
 
 
-            /* ==================================================
-               HAMBURGER ANIMATION
-            ================================================== */
+            .hero-image img {
 
-            .menu-toggle.active
-            span:nth-child(1) {
-
-                transform:
-                    rotate(45deg)
-                    translate(
-                        6px,
-                        6px
-                    );
+                height:
+                    380px;
 
             }
 
 
-            .menu-toggle.active
-            span:nth-child(2) {
+            .trust-grid {
 
-                opacity: 0;
-
-            }
-
-
-            .menu-toggle.active
-            span:nth-child(3) {
-
-                transform:
-                    rotate(-45deg)
-                    translate(
-                        6px,
-                        -6px
-                    );
+                grid-template-columns:
+                    repeat(2,1fr);
 
             }
 
 
-            /* HERO */
+            .category-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .product-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .testimonial-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+
+            body {
+
+                padding-bottom:
+                    72px;
+
+            }
+
+
+            .announcement {
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .header-actions {
+
+                display:
+                    none;
+
+            }
+
 
             .hero {
 
                 padding:
-                    30px
-                    15px
-                    60px;
-
-            }
-
-
-            .hero-img {
-
-                border-radius: 15px;
+                    45px 18px;
 
             }
 
 
             .hero h1 {
 
-                font-size: 40px;
+                font-size:
+                    43px;
 
             }
 
 
-            .hero p {
+            .hero-text {
 
-                font-size: 17px;
+                font-size:
+                    16px;
 
             }
 
 
-            /* SECTIONS */
+            .hero-buttons {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .hero-buttons .btn {
+
+                width:
+                    100%;
+
+            }
+
+
+            .hero-image img {
+
+                height:
+                    300px;
+
+                border-radius:
+                    20px;
+
+            }
+
+
+            .floating-badge {
+
+                left:
+                    10px;
+
+                bottom:
+                    10px;
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .trust-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .trust-card {
+
+                padding:
+                    13px;
+
+                display:
+                    block;
+
+                text-align:
+                    center;
+
+            }
+
+
+            .category-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    12px;
+
+            }
+
+
+            .category-card {
+
+                min-height:
+                    170px;
+
+                padding:
+                    15px;
+
+            }
+
+
+            .category-icon {
+
+                font-size:
+                    38px;
+
+                top:
+                    15px;
+
+                right:
+                    15px;
+
+            }
+
+
+            .category-card h3 {
+
+                font-size:
+                    16px;
+
+            }
+
+
+            .category-card p {
+
+                font-size:
+                    12px;
+
+            }
+
 
             .section {
 
                 padding:
-                    60px
-                    6%;
+                    55px 15px;
 
             }
 
 
-            .section-title {
+            .section-heading h2 {
 
-                font-size: 32px;
-
-            }
-
-
-            /* PRODUCTS */
-
-            .product-img {
-
-                height: 220px;
+                font-size:
+                    30px;
 
             }
 
 
-            /* WHATSAPP */
+            .product-grid {
 
-            .whatsapp {
+                grid-template-columns:
+                    1fr 1fr;
 
-                bottom: 15px;
+                gap:
+                    12px;
 
-                right: 15px;
+            }
+
+
+            .product-image {
+
+                height:
+                    160px;
+
+            }
+
+
+            .product-content {
 
                 padding:
-                    13px
+                    12px;
+
+            }
+
+
+            .product-title {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .product-description {
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .product-price {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .add-cart {
+
+                padding:
+                    8px;
+
+                font-size:
+                    11px;
+
+            }
+
+
+            .deals {
+
+                padding:
+                    35px 20px;
+
+            }
+
+
+            .deals h2 {
+
+                font-size:
+                    27px;
+
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .why-card {
+
+                padding:
                     18px;
+
+            }
+
+
+            .rewards {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+                padding:
+                    35px 20px;
+
+            }
+
+
+            .subscribe-form {
+
+                flex-direction:
+                    column;
+
+                background:
+                    transparent;
+
+                border:
+                    none;
+
+                gap:
+                    8px;
+
+            }
+
+
+            .subscribe-form input {
+
+                background:
+                    white;
+
+                border:
+                    1px solid var(--border);
+
+                border-radius:
+                    50px;
+
+            }
+
+
+            .subscribe-form button {
+
+                width:
+                    100%;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    30px;
+
+            }
+
+
+            .footer-brand {
+
+                grid-column:
+                    1 / -1;
+
+            }
+
+
+            /* MOBILE BOTTOM NAV */
+
+            .mobile-bottom-nav {
+
+                position:
+                    fixed;
+
+                bottom:
+                    0;
+
+                left:
+                    0;
+
+                right:
+                    0;
+
+                height:
+                    68px;
+
+                background:
+                    white;
+
+                border-top:
+                    1px solid var(--border);
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(5,1fr);
+
+                z-index:
+                    1500;
+
+                box-shadow:
+                    0 -5px 20px
+                    rgba(0,0,0,0.08);
+
+            }
+
+
+            .bottom-nav-item {
+
+                border:
+                    none;
+
+                background:
+                    transparent;
+
+                display:
+                    flex;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    center;
+
+                justify-content:
+                    center;
+
+                color:
+                    #666;
+
+                font-size:
+                    11px;
+
+                gap:
+                    2px;
+
+            }
+
+
+            .bottom-nav-item span:first-child {
+
+                font-size:
+                    20px;
+
+            }
+
+
+            .bottom-nav-item.active {
+
+                color:
+                    var(--green);
+
+                font-weight:
+                    800;
 
             }
 
@@ -862,114 +2755,432 @@
 <body>
 
 
-<!-- ==================================================
+<!-- =====================================================
+     ANNOUNCEMENT
+===================================================== -->
+
+<div class="announcement">
+
+    🚚 Fresh orders • Delivery available • WhatsApp ordering available
+
+</div>
+
+
+<!-- =====================================================
      HEADER
-================================================== -->
+===================================================== -->
 
 <header>
 
+    <div class="header-inner">
 
-    <!-- LOGO -->
 
-    <div class="logo">
+        <!-- LOGO -->
 
-        <img
-            src="images/logo.png.jpeg"
-            alt="WENDY'S JUICZ Logo"
+        <a
+            href="#home"
+            class="logo"
         >
 
+            <img
+                src="images/logo.png.jpeg"
+                alt="Wendy's Cold Pressed Juice"
+            >
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="desktop-nav">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#shop">
+                Shop
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+            <button
+                class="icon-button"
+                onclick="scrollToShop()"
+                aria-label="Search products"
+            >
+                🔍
+            </button>
+
+
+            <button
+                class="icon-button"
+                onclick="openCart()"
+                aria-label="Shopping cart"
+            >
+
+                🛒
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+
     </div>
-
-
-    <!-- NAVIGATION -->
-
-    <nav id="mobileNav">
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#products">
-            Products
-        </a>
-
-        <a href="#benefits">
-            Benefits
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
-
-    </nav>
-
-
-    <!-- MOBILE MENU BUTTON -->
-
-    <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobileNav"
-    >
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
-    </button>
-
 
 </header>
 
 
-<!-- ==================================================
+<!-- =====================================================
      HERO
-================================================== -->
+===================================================== -->
 
-<section class="hero">
+<section
+    class="hero"
+    id="home"
+>
 
-
-    <img
-        src="images/menu.jpg.jpeg"
-        alt="WENDY'S JUICZ Menu"
-        class="hero-img"
-    >
+    <div class="hero-inner">
 
 
-    <div class="hero-content">
+        <div class="hero-content">
 
 
-        <h1>
-            Freshly Pressed.
-            Naturally Better.
-        </h1>
+            <span class="hero-label">
 
+                🌿 Fresh • Delicious • Made With Care
+
+            </span>
+
+
+            <h1>
+
+                Freshness You
+                <span>Can Taste.</span>
+                ❤️
+
+            </h1>
+
+
+            <p class="hero-text">
+
+                Freshly prepared cold-pressed juices,
+                zobo, tigernut milk and green salads —
+                made with quality ingredients and
+                delivered fresh to you.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="#shop"
+                    class="btn btn-primary"
+                >
+
+                    SHOP NOW
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/2347088314315"
+                    target="_blank"
+                    class="btn btn-secondary"
+                >
+
+                    💬 ORDER ON WHATSAPP
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="hero-image">
+
+
+            <img
+                src="images/menu.jpg.jpeg"
+                alt="Wendy's Cold Pressed Juice Menu"
+            >
+
+
+            <div class="floating-badge">
+
+                ⭐ Freshly Made Daily
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRUST FEATURES
+===================================================== -->
+
+<section class="trust-section">
+
+    <div class="trust-grid">
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                🌿
+            </div>
+
+            <div>
+
+                <h4>
+                    Fresh Ingredients
+                </h4>
+
+                <p>
+                    Quality ingredients
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                🧊
+            </div>
+
+            <div>
+
+                <h4>
+                    Made Fresh
+                </h4>
+
+                <p>
+                    Prepared with care
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                📦
+            </div>
+
+            <div>
+
+                <h4>
+                    Clean Packaging
+                </h4>
+
+                <p>
+                    Neat & secure
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                🚚
+            </div>
+
+            <div>
+
+                <h4>
+                    Delivery
+                </h4>
+
+                <p>
+                    Convenient ordering
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section
+    class="section"
+    id="categories"
+>
+
+
+    <div class="section-heading">
+
+        <h2>
+            Shop by Category
+        </h2>
 
         <p>
-
-            Premium fresh juices,
-            tigernut milk,
-            zobo drinks,
-            smoothies,
-            wellness drinks,
-            salads and wraps made
-            with carefully selected
-            natural ingredients.
-
+            What are you craving today?
         </p>
+
+    </div>
+
+
+    <div class="category-grid">
 
 
         <a
-            class="btn"
-            href="https://wa.me/2347088314315"
-            target="_blank"
+            href="#shop"
+            class="category-card"
+            onclick="filterProducts('Juices')"
         >
 
-            Order on WhatsApp
+            <div class="category-icon">
+                🥤
+            </div>
+
+            <div>
+
+                <h3>
+                    Cold Pressed Juices
+                </h3>
+
+                <p>
+                    Fresh fruit combinations
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="#shop"
+            class="category-card"
+            onclick="filterProducts('Zobo')"
+        >
+
+            <div class="category-icon">
+                🌺
+            </div>
+
+            <div>
+
+                <h3>
+                    Zobo
+                </h3>
+
+                <p>
+                    Refreshing and delicious
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="#shop"
+            class="category-card"
+            onclick="filterProducts('Tigernut Milk')"
+        >
+
+            <div class="category-icon">
+                🥛
+            </div>
+
+            <div>
+
+                <h3>
+                    Tigernut Milk
+                </h3>
+
+                <p>
+                    Creamy and refreshing
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="#shop"
+            class="category-card"
+            onclick="filterProducts('Green Salad')"
+        >
+
+            <div class="category-icon">
+                🥗
+            </div>
+
+            <div>
+
+                <h3>
+                    Green Salads
+                </h3>
+
+                <p>
+                    Fresh and crunchy
+                </p>
+
+            </div>
 
         </a>
 
@@ -979,624 +3190,1786 @@
 </section>
 
 
-<!-- ==================================================
-     ABOUT
-================================================== -->
+<!-- =====================================================
+     SHOP
+===================================================== -->
 
 <section
-    id="about"
     class="section"
+    id="shop"
 >
 
 
-    <h2 class="section-title">
-
-        About Us
-
-    </h2>
-
-
-    <p class="about-text">
-
-        WENDY'S JUICZ is a premium
-        health and wellness brand
-        offering fresh and delicious
-        beverages including
-        cold-pressed juices,
-        tigernut milk,
-        zobo drinks,
-        smoothies and wellness drinks.
-
-        <br>
-        <br>
-
-        Every bottle is crafted
-        with freshness, quality and care
-        to give you delicious options
-        for your everyday lifestyle.
-
-    </p>
-
-
-</section>
-
-
-<!-- ==================================================
-     PRODUCTS
-================================================== -->
-
-<section
-    id="products"
-    class="section"
->
-
-
-    <h2 class="section-title">
-
-        Our Products
-
-    </h2>
-
-
-    <div class="grid">
-
-
-        <!-- TIGERNUT MILK -->
-
-        <div class="card">
-
-
-            <img
-                src="images/tigernut-milk.jpg.jpeg"
-                alt="WENDY'S JUICZ Tigernut Milk"
-                class="product-img"
-            >
-
-
-            <div class="card-content">
-
-
-                <h3>
-                    🌰 Tigernut Milk
-                </h3>
-
-
-                <p>
-
-                    Freshly squeezed,
-                    creamy and refreshing
-                    tigernut milk.
-
-                </p>
-
-
-                <span class="price">
-
-                    ₦4,000
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- ZOBO -->
-
-        <div class="card">
-
-
-            <img
-                src="images/zobo.jpg.jpeg"
-                alt="WENDY'S JUICZ Zobo Drink"
-                class="product-img"
-            >
-
-
-            <div class="card-content">
-
-
-                <h3>
-                    🌺 Zobo Drink
-                </h3>
-
-
-                <p>
-
-                    Refreshing hibiscus
-                    goodness made with
-                    carefully selected
-                    natural ingredients.
-
-                </p>
-
-
-                <span class="price">
-
-                    Price available
-                    on request
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- DETOX MAGIC -->
-
-        <div class="card">
-
-
-            <img
-                src="images/detox-magic.jpg"
-                alt="WENDY'S JUICZ Detox Magic"
-                class="product-img"
-            >
-
-
-            <div class="card-content">
-
-
-                <h3>
-                    🥤 Detox Magic
-                </h3>
-
-
-                <p>
-
-                    A refreshing natural
-                    juice blend created
-                    for your wellness routine.
-
-                </p>
-
-
-                <span class="price">
-
-                    ₦5,500
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- PINEAPPLE -->
-
-        <div class="card">
-
-
-            <img
-                src="images/pineapple.jpg.jpg"
-                alt="WENDY'S JUICZ Pineapple Juice"
-                class="product-img"
-            >
-
-
-            <div class="card-content">
-
-
-                <h3>
-                    🍍 Pineapple Juice
-                </h3>
-
-
-                <p>
-
-                    Freshly pressed
-                    tropical pineapple
-                    delight.
-
-                </p>
-
-
-                <span class="price">
-
-                    ₦5,000
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- FRUITY SPLASH -->
-
-        <div class="card">
-
-
-            <img
-                src="images/fruity-splash.jpg"
-                alt="WENDY'S JUICZ Fruity Splash"
-                class="product-img"
-            >
-
-
-            <div class="card-content">
-
-
-                <h3>
-                    🍓 Fruity Splash
-                </h3>
-
-
-                <p>
-
-                    A delicious smoothie
-                    packed with fruity
-                    flavour.
-
-                </p>
-
-
-                <span class="price">
-
-                    ₦4,500
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- SALADS & WRAPS -->
-
-        <div class="card">
-
-
-            <img
-                src="images/salads-wraps.jpg.jpg"
-                alt="WENDY'S JUICZ Salads and Wraps"
-                class="product-img"
-            >
-
-
-            <div class="card-content">
-
-
-                <h3>
-                    🥗 Salads & Wraps
-                </h3>
-
-
-                <p>
-
-                    Fresh and convenient
-                    meal options for
-                    different lifestyles.
-
-                </p>
-
-
-                <span class="price">
-
-                    Price available
-                    on request
-
-                </span>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- ==================================================
-     BENEFITS
-================================================== -->
-
-<section
-    id="benefits"
-    class="section benefits-section"
->
-
-
-    <h2 class="section-title">
-
-        Why Choose Us?
-
-    </h2>
-
-
-    <div class="grid">
-
-
-        <!-- NATURAL INGREDIENTS -->
-
-        <div class="card">
-
-
-            <div class="card-content">
-
-
-                <h3>
-
-                    🌿 Natural Ingredients
-
-                </h3>
-
-
-                <p>
-
-                    We focus on carefully
-                    selected ingredients
-                    for our products.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- FRESHLY PREPARED -->
-
-        <div class="card">
-
-
-            <div class="card-content">
-
-
-                <h3>
-
-                    🧃 Freshly Prepared
-
-                </h3>
-
-
-                <p>
-
-                    Our beverages are
-                    prepared with freshness
-                    and quality in mind.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- DELIVERY -->
-
-        <div class="card">
-
-
-            <div class="card-content">
-
-
-                <h3>
-
-                    🚚 Delivery
-
-                </h3>
-
-
-                <p>
-
-                    Delivery is available
-                    across Lagos.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- HEALTHY LIFESTYLE -->
-
-        <div class="card">
-
-
-            <div class="card-content">
-
-
-                <h3>
-
-                    💚 Healthy Lifestyle
-
-                </h3>
-
-
-                <p>
-
-                    Delicious beverage and
-                    meal options designed
-                    to complement your lifestyle.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- ==================================================
-     CONTACT
-================================================== -->
-
-<section
-    id="contact"
-    class="section contact"
->
-
-
-    <h2 class="section-title">
-
-        Contact Us
-
-    </h2>
-
-
-    <p>
-
-        📍 Lagos, Nigeria
-
-    </p>
-
-
-    <p>
-
-        📞 07088314315
-
-    </p>
-
-
-    <p>
-
-        📞 09066114326
-
-    </p>
-
-
-    <p>
-
-        📧 Wendysjuicz@gmail.com
-
-    </p>
-
-
-    <!-- SOCIAL LINKS -->
-
-    <div class="social-links">
-
+    <div class="section-heading">
+
+        <h2>
+            🔥 Our Best Sellers
+        </h2>
 
         <p>
+            Customer favorites, ready to order.
+        </p>
 
-            📸 Instagram:
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="shop-toolbar">
+
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search juices, zobo, tigernut milk..."
+                oninput="searchProducts()"
+            >
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+
+            <button
+                class="filter-btn active"
+                onclick="filterProducts('All')"
+            >
+                All
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Juices')"
+            >
+                Juices
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Zobo')"
+            >
+                Zobo
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Tigernut Milk')"
+            >
+                Tigernut Milk
+            </button>
+
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Green Salad')"
+            >
+                Salad
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div
+        class="product-grid"
+        id="productGrid"
+    >
+
+
+        <!-- PRODUCT 1 -->
+
+        <div
+            class="product-card"
+            data-category="Juices"
+            data-name="Watermelon Pineapple Juice"
+        >
+
+            <div class="product-image-wrap">
+
+                <span class="product-badge">
+                    BEST SELLER
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWishlist(this, 'Watermelon Pineapple Juice')"
+                >
+                    ♡
+                </button>
+
+                <img
+                    src="images/pineapple.jpg.jpg"
+                    alt="Watermelon Pineapple Juice"
+                    class="product-image"
+                >
+
+            </div>
+
+
+            <div class="product-content">
+
+                <div class="rating">
+                    ★★★★★ 4.9
+                </div>
+
+                <h3 class="product-title">
+                    Watermelon Pineapple Juice
+                </h3>
+
+                <p class="product-description">
+                    Refreshing watermelon and pineapple juice.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="product-price">
+                        ₦2,000
+                    </span>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart(
+                            'Watermelon Pineapple Juice',
+                            2000,
+                            'images/pineapple.jpg.jpg'
+                        )"
+                    >
+                        ADD TO CART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div
+            class="product-card"
+            data-category="Zobo"
+            data-name="Cold Pressed Zobo"
+        >
+
+            <div class="product-image-wrap">
+
+                <span class="product-badge">
+                    BEST SELLER
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWishlist(this, 'Cold Pressed Zobo')"
+                >
+                    ♡
+                </button>
+
+                <img
+                    src="images/zobo.jpg.jpeg"
+                    alt="Cold Pressed Zobo"
+                    class="product-image"
+                >
+
+            </div>
+
+
+            <div class="product-content">
+
+                <div class="rating">
+                    ★★★★★ 4.9
+                </div>
+
+                <h3 class="product-title">
+                    Cold Pressed Zobo
+                </h3>
+
+                <p class="product-description">
+                    Rich, refreshing zobo prepared with care.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="product-price">
+                        ₦2,000
+                    </span>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart(
+                            'Cold Pressed Zobo',
+                            2000,
+                            'images/zobo.jpg.jpeg'
+                        )"
+                    >
+                        ADD TO CART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div
+            class="product-card"
+            data-category="Tigernut Milk"
+            data-name="Tigernut Milk"
+        >
+
+            <div class="product-image-wrap">
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWishlist(this, 'Tigernut Milk')"
+                >
+                    ♡
+                </button>
+
+                <img
+                    src="images/tigernut-milk.jpg.jpeg"
+                    alt="Tigernut Milk"
+                    class="product-image"
+                >
+
+            </div>
+
+
+            <div class="product-content">
+
+                <div class="rating">
+                    ★★★★★ 4.8
+                </div>
+
+                <h3 class="product-title">
+                    Tigernut Milk
+                </h3>
+
+                <p class="product-description">
+                    Creamy, refreshing and delicious.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="product-price">
+                        ₦2,500
+                    </span>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart(
+                            'Tigernut Milk',
+                            2500,
+                            'images/tigernut-milk.jpg.jpeg'
+                        )"
+                    >
+                        ADD TO CART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div
+            class="product-card"
+            data-category="Green Salad"
+            data-name="Wendy's Green Salad"
+        >
+
+            <div class="product-image-wrap">
+
+                <span class="product-badge">
+                    FRESH
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWishlist(this, 'Wendy Green Salad')"
+                >
+                    ♡
+                </button>
+
+                <img
+                    src="images/salads-wraps.jpg.jpg"
+                    alt="Wendy's Green Salad"
+                    class="product-image"
+                >
+
+            </div>
+
+
+            <div class="product-content">
+
+                <div class="rating">
+                    ★★★★★ 4.9
+                </div>
+
+                <h3 class="product-title">
+                    Wendy's Green Salad
+                </h3>
+
+                <p class="product-description">
+                    Fresh vegetables with delicious dressing.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="product-price">
+                        ₦3,500
+                    </span>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart(
+                            'Wendy Green Salad',
+                            3500,
+                            'images/salads-wraps.jpg.jpg'
+                        )"
+                    >
+                        ADD TO CART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DEALS
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="deals">
+
+        <h2>
+            🎉 Fresh Deals & Special Offers
+        </h2>
+
+        <p>
+            Check back for Wendy's bundle deals
+            and promotions.
+        </p>
+
+        <a
+            href="#shop"
+            class="btn btn-secondary"
+        >
+            SHOP OFFERS
+        </a>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE WENDY'S
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <h2>
+            Why Choose Wendy's? ❤️
+        </h2>
+
+        <p>
+            Made with care. Served fresh.
+        </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                🌿
+            </div>
+
+            <h3>
+                Fresh Ingredients
+            </h3>
+
+            <p>
+                Quality ingredients.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                🧊
+            </div>
+
+            <h3>
+                Made Fresh
+            </h3>
+
+            <p>
+                Prepared with freshness in mind.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                📦
+            </div>
+
+            <h3>
+                Clean Packaging
+            </h3>
+
+            <p>
+                Every order handled with care.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                ❤️
+            </div>
+
+            <h3>
+                Made With Love
+            </h3>
+
+            <p>
+                Every order matters.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <h2>
+            ⭐ What Our Customers Are Saying
+        </h2>
+
+        <p>
+            Happy customers, fresh experiences.
+        </p>
+
+    </div>
+
+
+    <div class="testimonial-grid">
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The juice was so fresh and delicious.
+                I will definitely order again!"
+            </p>
+
+            <span class="verified">
+                Verified Customer
+            </span>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Everything came neatly packaged
+                and tasted amazing."
+            </p>
+
+            <span class="verified">
+                Verified Customer
+            </span>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The salad was fresh and the delivery
+                was convenient."
+            </p>
+
+            <span class="verified">
+                Verified Customer
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REWARDS
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="rewards">
+
+
+        <div>
+
+            <div class="rewards-icon">
+                🎁
+            </div>
+
+            <h2>
+                Wendy's Rewards
+            </h2>
+
+            <p>
+                Every order can bring you closer
+                to your next reward.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                ⭐ Earn points when you shop
+            </h3>
+
+            <p>
+                Create an account to track points
+                and receive special offers.
+            </p>
+
+            <button
+                class="btn btn-primary"
+                onclick="showToast('Rewards account coming soon!')"
+            >
+                VIEW REWARDS
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="newsletter">
+
+
+    <h2>
+        Stay Fresh With Wendy's 🍹
+    </h2>
+
+
+    <p>
+        Get updates about new products,
+        promotions and special offers.
+    </p>
+
+
+    <form
+        class="subscribe-form"
+        onsubmit="subscribeUser(event)"
+    >
+
+        <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter your email address"
+            required
+        >
+
+        <button type="submit">
+            SUBSCRIBE
+        </button>
+
+    </form>
+
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="contact">
+
+
+    <div class="footer-grid">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <img
+                src="images/logo.png.jpeg"
+                alt="Wendy's Cold Pressed Juice"
+            >
+
+            <h2>
+                Wendy's Cold Pressed Juice
+            </h2>
+
+            <p>
+                Fresh. Delicious. Made With Care. ❤️
+            </p>
+
+        </div>
+
+
+        <!-- SHOP -->
+
+        <div>
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="#shop">
+                All Products
+            </a>
+
+            <a href="#shop">
+                Juices
+            </a>
+
+            <a href="#shop">
+                Zobo
+            </a>
+
+            <a href="#shop">
+                Tigernut Milk
+            </a>
+
+            <a href="#shop">
+                Green Salad
+            </a>
+
+        </div>
+
+
+        <!-- CUSTOMER CARE -->
+
+        <div>
+
+            <h3>
+                Customer Care
+            </h3>
+
+            <a href="#contact">
+                Contact Us
+            </a>
+
+            <a href="#contact">
+                Delivery Information
+            </a>
+
+            <a
+                href="#"
+                onclick="showToast('FAQs coming soon!'); return false;"
+            >
+                FAQs
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <a
+                href="https://wa.me/2347088314315"
+                target="_blank"
+            >
+                💬 WhatsApp
+            </a>
+
+            <a href="tel:+2349066114326">
+                📞 0906 611 4326
+            </a>
+
+            <a href="mailto:Wendysjuicz@gmail.com">
+                📧 Email
+            </a>
 
             <a
                 href="https://www.instagram.com/sip.wendys/"
                 target="_blank"
             >
-
-                @sip.wendys
-
+                📸 Instagram
             </a>
-
-        </p>
-
-
-        <p>
-
-            🎵 TikTok:
 
             <a
                 href="https://www.tiktok.com/@Wendysjuicz"
                 target="_blank"
             >
-
-                @Wendysjuicz
-
+                🎵 TikTok
             </a>
 
-        </p>
+        </div>
 
 
     </div>
 
 
-    <!-- ORDER BUTTON -->
+    <div class="copyright">
 
-    <a
-        class="btn"
-        href="https://wa.me/2347088314315"
-        target="_blank"
-    >
+        © 2026 Wendy's Cold Pressed Juice.
+        All Rights Reserved.
 
-        Order Now
-
-    </a>
-
-
-</section>
-
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer>
-
-
-    <p>
-
-        © 2026 WENDY'S JUICZ
-
-    </p>
-
-
-    <p>
-
-        Freshly Pressed.
-        Naturally Better.
-
-    </p>
+    </div>
 
 
 </footer>
 
 
-<!-- ==================================================
-     FLOATING WHATSAPP
-================================================== -->
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
 
-<a
-    class="whatsapp"
-    href="https://wa.me/2347088314315"
-    target="_blank"
-    aria-label="Chat with WENDY'S JUICZ on WhatsApp"
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCartOutside(event)"
 >
 
-    💬 WhatsApp
 
-</a>
+    <div class="cart-drawer">
 
 
-<!-- ==================================================
-     MOBILE MENU JAVASCRIPT
-================================================== -->
+        <div class="cart-header">
+
+            <h2>
+                🛒 Your Cart
+            </h2>
+
+            <button
+                class="close-cart"
+                onclick="closeCart()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="cart-items"
+            id="cartItems"
+        >
+
+            <div class="empty-cart">
+
+                🛒
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add something fresh!
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+
+            <div class="cart-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="cartTotal">
+                    ₦0
+                </span>
+
+            </div>
+
+
+            <button
+                class="checkout-btn"
+                onclick="checkoutWhatsApp()"
+            >
+
+                💬 CHECKOUT ON WHATSAPP
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+>
+</div>
+
+
+<!-- =====================================================
+     MOBILE BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="mobile-bottom-nav">
+
+
+    <button
+        class="bottom-nav-item active"
+        onclick="goHome()"
+    >
+
+        <span>
+            🏠
+        </span>
+
+        <span>
+            Home
+        </span>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        onclick="scrollToShop()"
+    >
+
+        <span>
+            🛍️
+        </span>
+
+        <span>
+            Shop
+        </span>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        onclick="showWishlist()"
+    >
+
+        <span>
+            ❤️
+        </span>
+
+        <span>
+            Wishlist
+        </span>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        onclick="openCart()"
+    >
+
+        <span>
+            🛒
+        </span>
+
+        <span>
+            Cart
+        </span>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        onclick="showAccount()"
+    >
+
+        <span>
+            👤
+        </span>
+
+        <span>
+            Account
+        </span>
+
+    </button>
+
+
+</nav>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
 
-    /* GET ELEMENTS */
+    /* =====================================================
+       CART
+    ===================================================== */
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem("wendysCart")
+        ) || [];
+
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem("wendysWishlist")
+        ) || [];
+
+
+    /* =====================================================
+       FORMAT MONEY
+    ===================================================== */
+
+    function formatMoney(amount) {
+
+        return "₦" +
+            amount.toLocaleString(
+                "en-NG"
+            );
+
+    }
+
+
+    /* =====================================================
+       SAVE CART
+    ===================================================== */
+
+    function saveCart() {
+
+        localStorage.setItem(
+            "wendysCart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+    /* =====================================================
+       ADD TO CART
+    ===================================================== */
+
+    function addToCart(
+        name,
+        price,
+        image
+    ) {
+
+
+        const existing =
+            cart.find(
+                item =>
+                    item.name === name
+            );
+
+
+        if (existing) {
+
+            existing.quantity++;
+
+        } else {
+
+            cart.push({
+
+                name:
+                    name,
+
+                price:
+                    price,
+
+                image:
+                    image,
+
+                quantity:
+                    1
+
+            });
+
+        }
+
+
+        saveCart();
+
+        updateCart();
+
+        showToast(
+            name +
+            " added to cart 🛒"
+        );
+
+    }
+
+
+    /* =====================================================
+       UPDATE CART
+    ===================================================== */
+
+    function updateCart() {
+
+
+        const cartCount =
+            cart.reduce(
+                (
+                    total,
+                    item
+                ) =>
+                    total +
+                    item.quantity,
+                0
+            );
+
+
+        document.getElementById(
+            "cartCount"
+        ).textContent =
+            cartCount;
+
+
+        const cartItems =
+            document.getElementById(
+                "cartItems"
+            );
+
+
+        if (cart.length === 0) {
+
+
+            cartItems.innerHTML = `
+
+                <div class="empty-cart">
+
+                    <div style="font-size:50px;">
+                        🛒
+                    </div>
+
+                    <h3>
+                        Your cart is empty
+                    </h3>
+
+                    <p>
+                        Add something fresh!
+                    </p>
+
+                </div>
+
+            `;
+
+
+        } else {
+
+
+            cartItems.innerHTML =
+                cart.map(
+                    (
+                        item,
+                        index
+                    ) => `
+
+                    <div class="cart-item">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+                        <div>
+
+                            <h4>
+                                ${item.name}
+                            </h4>
+
+                            <div class="cart-item-price">
+
+                                ${formatMoney(
+                                    item.price
+                                )}
+
+                            </div>
+
+                            <div class="quantity-controls">
+
+                                <button
+                                    onclick="changeQuantity(
+                                        ${index},
+                                        -1
+                                    )"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    ${item.quantity}
+                                </span>
+
+                                <button
+                                    onclick="changeQuantity(
+                                        ${index},
+                                        1
+                                    )"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="remove-item"
+                            onclick="removeFromCart(
+                                ${index}
+                            )"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                `
+                ).join("");
+
+        }
+
+
+        const total =
+            cart.reduce(
+                (
+                    sum,
+                    item
+                ) =>
+                    sum +
+                    item.price *
+                    item.quantity,
+                0
+            );
+
+
+        document.getElementById(
+            "cartTotal"
+        ).textContent =
+            formatMoney(total);
+
+    }
+
+
+    /* =====================================================
+       CHANGE QUANTITY
+    ===================================================== */
+
+    function changeQuantity(
+        index,
+        amount
+    ) {
+
+
+        cart[index].quantity +=
+            amount;
+
+
+        if (
+            cart[index].quantity <= 0
+        ) {
+
+            cart.splice(
+                index,
+                1
+            );
+
+        }
+
+
+        saveCart();
+
+        updateCart();
+
+    }
+
+
+    /* =====================================================
+       REMOVE ITEM
+    ===================================================== */
+
+    function removeFromCart(index) {
+
+        cart.splice(
+            index,
+            1
+        );
+
+        saveCart();
+
+        updateCart();
+
+        showToast(
+            "Item removed"
+        );
+
+    }
+
+
+    /* =====================================================
+       OPEN CART
+    ===================================================== */
+
+    function openCart() {
+
+        updateCart();
+
+        document
+            .getElementById(
+                "cartOverlay"
+            )
+            .classList.add(
+                "active"
+            );
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    /* =====================================================
+       CLOSE CART
+    ===================================================== */
+
+    function closeCart() {
+
+        document
+            .getElementById(
+                "cartOverlay"
+            )
+            .classList.remove(
+                "active"
+            );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    /* =====================================================
+       CLOSE CART OUTSIDE
+    ===================================================== */
+
+    function closeCartOutside(event) {
+
+        if (
+            event.target.id ===
+            "cartOverlay"
+        ) {
+
+            closeCart();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       WHATSAPP CHECKOUT
+    ===================================================== */
+
+    function checkoutWhatsApp() {
+
+
+        if (cart.length === 0) {
+
+            showToast(
+                "Your cart is empty 🛒"
+            );
+
+            return;
+
+        }
+
+
+        let message =
+            "Hello Wendy's Cold Pressed Juice! 👋%0A%0AI would like to order:%0A%0A";
+
+
+        cart.forEach(
+            item => {
+
+                message +=
+                    "• " +
+                    item.name +
+                    " x" +
+                    item.quantity +
+                    " — " +
+                    formatMoney(
+                        item.price *
+                        item.quantity
+                    ) +
+                    "%0A";
+
+            }
+        );
+
+
+        const total =
+            cart.reduce(
+                (
+                    sum,
+                    item
+                ) =>
+                    sum +
+                    item.price *
+                    item.quantity,
+                0
+            );
+
+
+        message +=
+            "%0A*Total: " +
+            formatMoney(total) +
+            "*%0A%0A";
+
+        message +=
+            "Please confirm availability and delivery details. Thank you! ❤️";
+
+
+        window.open(
+            "https://wa.me/2347088314315?text=" +
+            message,
+            "_blank"
+        );
+
+    }
+
+
+    /* =====================================================
+       WISHLIST
+    ===================================================== */
+
+    function toggleWishlist(
+        button,
+        productName
+    ) {
+
+
+        if (
+            wishlist.includes(
+                productName
+            )
+        ) {
+
+            wishlist =
+                wishlist.filter(
+                    item =>
+                        item !==
+                        productName
+                );
+
+            button.classList.remove(
+                "active"
+            );
+
+            button.textContent =
+                "♡";
+
+            showToast(
+                "Removed from wishlist"
+            );
+
+        } else {
+
+            wishlist.push(
+                productName
+            );
+
+            button.classList.add(
+                "active"
+            );
+
+            button.textContent =
+                "♥";
+
+            showToast(
+                "Added to wishlist ❤️"
+            );
+
+        }
+
+
+        localStorage.setItem(
+            "wendysWishlist",
+            JSON.stringify(
+                wishlist
+            )
+        );
+
+    }
+
+
+    /* =====================================================
+       SHOW WISHLIST
+    ===================================================== */
+
+    function showWishlist() {
+
+        if (
+            wishlist.length === 0
+        ) {
+
+            showToast(
+                "Your wishlist is empty ❤️"
+            );
+
+            return;
+
+        }
+
+
+        showToast(
+            wishlist.length +
+            " item(s) in your wishlist ❤️"
+        );
+
+        scrollToShop();
+
+    }
+
+
+    /* =====================================================
+       SEARCH
+    ===================================================== */
+
+    function searchProducts() {
+
+
+        const search =
+            document
+                .getElementById(
+                    "searchInput"
+                )
+                .value
+                .toLowerCase();
+
+
+        document
+            .querySelectorAll(
+                ".product-card"
+            )
+            .forEach(
+                card => {
+
+                    const name =
+                        card.dataset.name
+                            .toLowerCase();
+
+                    card.style.display =
+                        name.includes(search)
+                            ? ""
+                            : "none";
+
+                }
+            );
+
+    }
+
+
+    /* =====================================================
+       FILTER
+    ===================================================== */
+
+    function filterProducts(
+        category
+    ) {
+
+
+        document
+            .querySelectorAll(
+                ".filter-btn"
+            )
+            .forEach(
+                button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                ".product-card"
+            )
+            .forEach(
+                card => {
+
+                    if (
+                        category ===
+                        "All" ||
+                        card.dataset.category ===
+                        category
+                    ) {
+
+                        card.style.display =
+                            "";
+
+                    } else {
+
+                        card.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+
+        document
+            .getElementById(
+                "shop"
+            )
+            .scrollIntoView({
+                behavior:
+                    "smooth"
+            });
+
+    }
+
+
+    /* =====================================================
+       SCROLL TO SHOP
+    ===================================================== */
+
+    function scrollToShop() {
+
+        document
+            .getElementById(
+                "shop"
+            )
+            .scrollIntoView({
+                behavior:
+                    "smooth"
+            });
+
+    }
+
+
+    /* =====================================================
+       HOME
+    ===================================================== */
+
+    function goHome() {
+
+        window.scrollTo({
+
+            top:
+                0,
+
+            behavior:
+                "smooth"
+
+        });
+
+    }
+
+
+    /* =====================================================
+       ACCOUNT
+    ===================================================== */
+
+    function showAccount() {
+
+        showToast(
+            "Account features coming soon 👤"
+        );
+
+    }
+
+
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
+
+    function subscribeUser(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+                .getElementById(
+                    "emailInput"
+                )
+                .value;
+
+
+        if (email) {
+
+            showToast(
+                "You're subscribed! 🎉"
+            );
+
+            document
+                .getElementById(
+                    "emailInput"
+                )
+                .value =
+                    "";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    let toastTimer;
+
+
+    function showToast(
+        message
+    ) {
+
+
+        const toast =
+            document.getElementById(
+                "toast"
+            );
+
+
+        toast.textContent =
+            message;
+
+
+        toast.classList.add(
+            "show"
+        );
+
+
+        clearTimeout(
+            toastTimer
+        );
+
+
+        toastTimer =
+            setTimeout(
+                function () {
+
+                    toast.classList.remove(
+                        "show"
+                    );
+
+                },
+                2500
+            );
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
 
     const menuToggle =
         document.getElementById(
@@ -1604,161 +4977,29 @@
         );
 
 
-    const mobileNav =
-        document.getElementById(
-            "mobileNav"
+    const desktopNav =
+        document.querySelector(
+            ".desktop-nav"
         );
 
-
-    /* ==================================================
-       OPEN / CLOSE MENU
-    ================================================== */
 
     menuToggle.addEventListener(
         "click",
-        function (event) {
+        function () {
 
-
-            /* Prevent outside-click
-               event from firing */
-
-            event.stopPropagation();
-
-
-            mobileNav.classList.toggle(
-                "active"
+            desktopNav.classList.toggle(
+                "mobile-open"
             );
-
-
-            menuToggle.classList.toggle(
-                "active"
-            );
-
-
-            const isOpen =
-                mobileNav.classList.contains(
-                    "active"
-                );
-
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
 
         }
     );
 
 
-    /* ==================================================
-       CLOSE MENU WHEN CLICKING A LINK
-    ================================================== */
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
 
-    const navLinks =
-        mobileNav.querySelectorAll(
-            "a"
-        );
-
-
-    navLinks.forEach(
-        function (link) {
-
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    closeMenu();
-
-                }
-            );
-
-
-        }
-    );
-
-
-    /* ==================================================
-       CLOSE MENU WHEN CLICKING OUTSIDE
-    ================================================== */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-
-            const clickedInsideMenu =
-                mobileNav.contains(
-                    event.target
-                );
-
-
-            const clickedMenuButton =
-                menuToggle.contains(
-                    event.target
-                );
-
-
-            if (
-                mobileNav.classList.contains(
-                    "active"
-                )
-                &&
-                !clickedInsideMenu
-                &&
-                !clickedMenuButton
-            ) {
-
-
-                closeMenu();
-
-
-            }
-
-
-        }
-    );
-
-
-    /* ==================================================
-       CLOSE MENU FUNCTION
-    ================================================== */
-
-    function closeMenu() {
-
-
-        mobileNav.classList.remove(
-            "active"
-        );
-
-
-        menuToggle.classList.remove(
-            "active"
-        );
-
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
-
-
-    }
+    updateCart();
 
 
 </script>
