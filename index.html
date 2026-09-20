@@ -1,4566 +1,1776 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Wendy's Cold Pressed Juice | Fresh. Delicious. Made With Care.</title>
-
-    <meta
-        name="description"
-        content="Shop Wendy's Cold Pressed Juice — fresh juices, zobo, tigernut milk and green salads delivered fresh to you."
-    >
-
-    <style>
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        :root {
-            --green: #08783d;
-            --dark-green: #064d29;
-            --light-green: #eafff1;
-
-            --gold: #f5b72c;
-            --red: #e53935;
-
-            --white: #ffffff;
-            --black: #171717;
-            --gray: #666666;
-            --light-gray: #f5f7f6;
-            --border: #e4e8e5;
-
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.16);
-
-            --radius: 18px;
-        }
-
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            font-family:
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-            background: #ffffff;
-            color: var(--black);
-            line-height: 1.6;
-
-            padding-bottom: 0;
-
-            overflow-x: hidden;
-        }
-
-        body.menu-open,
-        body.cart-open {
-            overflow: hidden;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-
-        /* =========================================================
-           ANNOUNCEMENT
-        ========================================================= */
-
-        .announcement {
-            background: var(--dark-green);
-            color: white;
-            text-align: center;
-            padding: 9px 15px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
-        }
-
-        .header-inner {
-            max-width: 1250px;
-            margin: auto;
-
-            padding: 12px 25px;
-            min-height: 82px;
-
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-
-            align-items: center;
-            gap: 20px;
-        }
-
-
-        /* =========================================================
-           LOGO
-        ========================================================= */
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            width: fit-content;
-        }
-
-        .logo img {
-            height: 62px;
-            width: auto;
-            max-width: 190px;
-            object-fit: contain;
-        }
-
-
-        /* =========================================================
-           DESKTOP NAVIGATION
-        ========================================================= */
-
-        .desktop-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 28px;
-        }
-
-        .desktop-nav a {
-            position: relative;
-
-            color: #222;
-            font-weight: 600;
-            font-size: 15px;
-
-            padding: 8px 0;
-
-            transition: 0.25s;
-        }
-
-        .desktop-nav a::after {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            bottom: 0;
-
-            width: 0;
-            height: 2px;
-
-            background: var(--green);
-
-            transition: 0.25s;
-        }
-
-        .desktop-nav a:hover {
-            color: var(--green);
-        }
-
-        .desktop-nav a:hover::after {
-            width: 100%;
-        }
-
-
-        /* =========================================================
-           HEADER ACTIONS
-        ========================================================= */
-
-        .header-actions {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .icon-button {
-            position: relative;
-
-            width: 42px;
-            height: 42px;
-
-            border: none;
-            background: var(--light-gray);
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 19px;
-
-            transition: 0.25s;
-        }
-
-        .icon-button:hover {
-            background: var(--light-green);
-            transform: translateY(-2px);
-        }
-
-        .cart-count {
-            position: absolute;
-
-            top: -3px;
-            right: -3px;
-
-            background: var(--red);
-            color: white;
-
-            width: 19px;
-            height: 19px;
-
-            border-radius: 50%;
-
-            font-size: 11px;
-            font-weight: 800;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        /* =========================================================
-           MOBILE MENU BUTTON
-        ========================================================= */
-.flyer-wrap{
-    width:100%;
-    height:700px;
-    overflow:hidden;
-    border-radius:24px;
-    background:#fff;
-    box-shadow:var(--shadow);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.flyer-wrap img{
-    width:100%;
-    height:100%;
-    object-fit:contain; /* Shows the entire menu */
-    object-position:center;
-    border-radius:24px;
-    background:#fff;
-}
-
-@media(max-width:900px){
-    .flyer-wrap{
-        height:600px;
-    }
-}
-
-@media(max-width:690px){
-    .flyer-wrap{
-        height:auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Wendy's Cold Pressed Juice | Fresh. Delicious. Made With Care.</title>
+  <meta
+    name="description"
+    content="Shop Wendy's Cold Pressed Juice — fresh juices, zobo, tigernut milk and green salads delivered fresh to you."
+  />
+
+  <style>
+    /* =========================================================
+       ROOT
+    ========================================================= */
+    :root {
+      --green: #08783d;
+      --dark-green: #064d29;
+      --light-green: #eafff1;
+
+      --gold: #f5b72c;
+      --red: #e53935;
+
+      --white: #ffffff;
+      --black: #171717;
+      --gray: #666666;
+      --light-gray: #f5f7f6;
+      --border: #e4e8e5;
+
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.16);
+
+      --radius: 18px;
     }
 
-    .flyer-wrap img{
-        width:100%;
-        height:auto;
-        object-fit:contain;
+    /* =========================================================
+       RESET
+    ========================================================= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #ffffff;
+      color: var(--black);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 0;
     }
-}
-        <div class="flyer-wrap">
-    <img src="images/menu.jpg.jpeg"
-         alt="WENDY'S JUICZ Full Menu"
-         loading="eager">
-</div>
-        /* =========================================================
-           FULL SCREEN MOBILE MENU
-        ========================================================= */
 
-        .mobile-menu-overlay {
-            position: fixed;
-            inset: 0;
-
-            background: rgba(4, 77, 41, 0.35);
-            backdrop-filter: blur(5px);
-
-            z-index: 5000;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition:
-                opacity 0.3s ease,
-                visibility 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu-panel {
-            position: absolute;
-
-            top: 0;
-            right: 0;
-
-            width: min(470px, 100%);
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    160deg,
-                    #ffffff 0%,
-                    #f7fff9 100%
-                );
-
-            overflow-y: auto;
-
-            transform: translateX(100%);
-
-            transition:
-                transform 0.4s cubic-bezier(.22, 1, .36, 1);
-
-            box-shadow: -15px 0 50px rgba(0,0,0,0.15);
-        }
-
-        .mobile-menu-overlay.active .mobile-menu-panel {
-            transform: translateX(0);
-        }
-
-        .mobile-menu-header {
-            position: sticky;
-            top: 0;
-            z-index: 2;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 20px;
-
-            background: rgba(255,255,255,0.94);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .mobile-menu-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .mobile-menu-brand img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-        }
-
-        .mobile-menu-brand-text h3 {
-            color: var(--dark-green);
-            font-size: 17px;
-        }
-
-        .mobile-menu-brand-text p {
-            color: var(--gray);
-            font-size: 12px;
-        }
-
-        .close-menu {
-            width: 45px;
-            height: 45px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--light-gray);
-
-            font-size: 28px;
-            line-height: 1;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            transition: 0.25s;
-        }
-
-        .close-menu:hover {
-            background: var(--green);
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .mobile-menu-content {
-            padding: 25px 20px 40px;
-        }
-
-        .mobile-menu-welcome {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--dark-green),
-                    var(--green)
-                );
-
-            color: white;
-
-            border-radius: 22px;
-
-            padding: 24px;
-
-            margin-bottom: 22px;
-
-            box-shadow: var(--shadow);
-        }
-
-        .mobile-menu-welcome span {
-            display: inline-block;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            opacity: 0.85;
-
-            margin-bottom: 5px;
-        }
-
-        .mobile-menu-welcome h2 {
-            font-size: 25px;
-            line-height: 1.2;
-            margin-bottom: 7px;
-        }
-
-        .mobile-menu-welcome p {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .mobile-menu-section-title {
-            font-size: 12px;
-            font-weight: 800;
-
-            color: #777;
-
-            text-transform: uppercase;
-            letter-spacing: 1px;
-
-            margin: 22px 3px 10px;
-        }
-
-        .mobile-menu-links {
-            display: grid;
-            gap: 8px;
-        }
-
-        .mobile-menu-link {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-
-            width: 100%;
-
-            padding: 15px;
-
-            border: 1px solid var(--border);
-            border-radius: 15px;
-
-            background: white;
-
-            color: #222;
-
-            font-weight: 700;
-
-            transition: 0.25s;
-        }
-
-        .mobile-menu-link:hover {
-            color: var(--green);
-            border-color: var(--green);
-            transform: translateX(4px);
-            background: var(--light-green);
-        }
-
-        .mobile-menu-link-icon {
-            width: 42px;
-            height: 42px;
-
-            flex-shrink: 0;
-
-            border-radius: 12px;
-
-            background: var(--light-green);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 20px;
-        }
-
-        .mobile-menu-link-text {
-            flex: 1;
-        }
-
-        .mobile-menu-link-text small {
-            display: block;
-
-            color: var(--gray);
-
-            font-size: 11px;
-            font-weight: 500;
-            margin-top: 2px;
-        }
-
-        .mobile-menu-arrow {
-            color: #aaa;
-            font-size: 18px;
-        }
-
-        .mobile-menu-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-
-            margin-top: 20px;
-        }
-
-        .mobile-action {
-            border: none;
-
-            padding: 15px 10px;
-
-            border-radius: 15px;
-
-            background: white;
-
-            border: 1px solid var(--border);
-
-            font-weight: 700;
-
-            color: #222;
-
-            transition: 0.25s;
-        }
-
-        .mobile-action:hover {
-            border-color: var(--green);
-            background: var(--light-green);
-            color: var(--green);
-        }
-
-        .mobile-menu-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-
-            margin-top: 20px;
-
-            width: 100%;
-
-            padding: 15px;
-
-            border-radius: 14px;
-
-            background: #25D366;
-            color: white;
-
-            font-weight: 800;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            background:
-                linear-gradient(
-                    135deg,
-                    #effff4,
-                    #ffffff
-                );
-
-            padding: 70px 6%;
-        }
-
-        .hero-inner {
-            max-width: 1250px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .hero-label {
-            display: inline-block;
-
-            background: var(--light-green);
-            color: var(--green);
-
-            padding: 7px 14px;
-
-            border-radius: 50px;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 6vw, 76px);
-            line-height: 1.05;
-
-            color: var(--dark-green);
-
-            margin-bottom: 18px;
-        }
-
-        .hero h1 span {
-            color: var(--green);
-        }
-
-        .hero-text {
-            font-size: 19px;
-            color: #555;
-
-            max-width: 600px;
-
-            margin-bottom: 28px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            border: none;
-            border-radius: 50px;
-
-            padding: 14px 24px;
-
-            font-weight: 800;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 8px;
-
-            transition: 0.25s;
-        }
-
-        .btn-primary {
-            background: var(--green);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--dark-green);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--gold);
-            color: #111;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 520px;
-
-            object-fit: cover;
-
-            border-radius: 30px;
-
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.16);
-        }
-
-        .floating-badge {
-            position: absolute;
-
-            bottom: 25px;
-            left: -20px;
-
-            background: white;
-
-            padding: 15px 20px;
-
-            border-radius: 15px;
-
-            box-shadow: var(--shadow);
-
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           TRUST
-        ========================================================= */
-
-        .trust-section {
-            padding: 30px 6%;
-            background: white;
-        }
-
-        .trust-grid {
-            max-width: 1250px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-
-            gap: 15px;
-        }
-
-        .trust-card {
-            padding: 20px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 15px;
-
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .trust-icon {
-            font-size: 28px;
-        }
-
-        .trust-card h4 {
-            font-size: 15px;
-        }
-
-        .trust-card p {
-            font-size: 13px;
-            color: var(--gray);
-        }
-
-
-        /* =========================================================
-           GENERAL SECTION
-        ========================================================= */
-
-        .section {
-            max-width: 1250px;
-            margin: auto;
-
-            padding: 80px 25px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-heading h2 {
-            font-size: 38px;
-            color: var(--dark-green);
-            margin-bottom: 7px;
-        }
-
-        .section-heading p {
-            color: var(--gray);
-        }
-
-
-        /* =========================================================
-           CATEGORIES
-        ========================================================= */
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
-
-        .category-card {
-            position: relative;
-
-            min-height: 220px;
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
-            display: flex;
-            align-items: flex-end;
-
-            padding: 25px;
-
-            color: white;
-
-            background: var(--green);
-
-            transition: 0.3s;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .category-card:nth-child(2) {
-            background: #8c2542;
-        }
-
-        .category-card:nth-child(3) {
-            background: #a87920;
-        }
-
-        .category-card:nth-child(4) {
-            background: #438c43;
-        }
-
-        .category-icon {
-            position: absolute;
-
-            top: 25px;
-            right: 25px;
-
-            font-size: 55px;
-        }
-
-        .category-card h3 {
-            font-size: 22px;
-        }
-
-        .category-card p {
-            opacity: 0.9;
-        }
-
-
-        /* =========================================================
-           SHOP TOOLBAR
-        ========================================================= */
-
-        .shop-toolbar {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: center;
-
-            gap: 15px;
-
-            margin-bottom: 30px;
-
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .search-box input {
-            width: 100%;
-
-            border: 1px solid var(--border);
-
-            border-radius: 50px;
-
-            padding: 14px 20px;
-
-            outline: none;
-
-            font-size: 15px;
-        }
-
-        .search-box input:focus {
-            border-color: var(--green);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 8px;
-
-            overflow-x: auto;
-        }
-
-        .filter-btn {
-            border: 1px solid var(--border);
-
-            background: white;
-
-            padding: 10px 16px;
-
-            border-radius: 50px;
-
-            white-space: nowrap;
-        }
-
-        .filter-btn.active {
-            background: var(--green);
-            color: white;
-            border-color: var(--green);
-        }
-
-
-        /* =========================================================
-           PRODUCTS
-        ========================================================= */
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 22px;
-        }
-
-        .product-card {
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            overflow: hidden;
-
-            background: white;
-
-            transition: 0.3s;
-
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .product-image-wrap {
-            position: relative;
-            background: var(--light-gray);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 230px;
-
-            object-fit: cover;
-
-            display: block;
-        }
-
-        .product-badge {
-            position: absolute;
-
-            top: 12px;
-            left: 12px;
-
-            background: var(--green);
-
-            color: white;
-
-            padding: 5px 10px;
-
-            border-radius: 50px;
-
-            font-size: 11px;
-            font-weight: 800;
-        }
-
-        .wishlist {
-            position: absolute;
-
-            top: 12px;
-            right: 12px;
-
-            width: 38px;
-            height: 38px;
-
-            border: none;
-
-            background: white;
-
-            border-radius: 50%;
-
-            font-size: 18px;
-
-            box-shadow:
-                0 4px 12px rgba(0,0,0,0.12);
-        }
-
-        .wishlist.active {
-            color: var(--red);
-        }
-
-        .product-content {
-            padding: 18px;
-        }
-
-        .rating {
-            color: var(--gold);
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-
-        .product-title {
-            font-size: 18px;
-            color: #222;
-            margin-bottom: 5px;
-        }
-
-        .product-description {
-            color: var(--gray);
-            font-size: 14px;
-            min-height: 45px;
-        }
-
-        .product-bottom {
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 8px;
-
-            margin-top: 15px;
-        }
-
-        .product-price {
-            color: var(--green);
-            font-size: 19px;
-            font-weight: 900;
-        }
-
-        .add-cart {
-            border: none;
-
-            background: var(--green);
-            color: white;
-
-            padding: 10px 13px;
-
-            border-radius: 10px;
-
-            font-weight: 700;
-        }
-
-        .add-cart:hover {
-            background: var(--dark-green);
-        }
-
-
-        /* =========================================================
-           DEALS
-        ========================================================= */
-
-        .deals {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--dark-green),
-                    var(--green)
-                );
-
-            color: white;
-
-            border-radius: 25px;
-
-            padding: 45px;
-
-            text-align: center;
-        }
-
-        .deals h2 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .deals p {
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-
-        /* =========================================================
-           WHY
-        ========================================================= */
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
-
-        .why-card {
-            background: var(--light-gray);
-
-            border-radius: 18px;
-
-            padding: 25px;
-        }
-
-        .why-card .icon {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .why-card h3 {
-            margin-bottom: 5px;
-        }
-
-        .why-card p {
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           TESTIMONIALS
-        ========================================================= */
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 20px;
-        }
-
-        .testimonial {
-            padding: 25px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            background: white;
-        }
-
-        .testimonial .stars {
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .testimonial p {
-            color: #444;
-
-            font-style: italic;
-
-            margin-bottom: 15px;
-        }
-
-        .verified {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--green);
-        }
-
-
-        /* =========================================================
-           REWARDS
-        ========================================================= */
-
-        .rewards {
-            background: #fff8e7;
-
-            border-radius: 25px;
-
-            padding: 45px;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 30px;
-        }
-
-        .rewards-icon {
-            font-size: 55px;
-        }
-
-
-        /* =========================================================
-           NEWSLETTER
-        ========================================================= */
-
-        .newsletter {
-            background: var(--light-green);
-
-            text-align: center;
-
-            padding: 55px 25px;
-        }
-
-        .newsletter h2 {
-            color: var(--dark-green);
-            font-size: 34px;
-        }
-
-        .newsletter p {
-            color: var(--gray);
-
-            margin: 8px auto 20px;
-
-            max-width: 600px;
-        }
-
-        .subscribe-form {
-            max-width: 550px;
-
-            margin: auto;
-
-            display: flex;
-
-            background: white;
-
-            padding: 6px;
-
-            border-radius: 50px;
-
-            border: 1px solid var(--border);
-        }
-
-        .subscribe-form input {
-            flex: 1;
-
-            border: none;
-
-            outline: none;
-
-            padding: 12px 18px;
-
-            background: transparent;
-        }
-
-        .subscribe-form button {
-            border: none;
-
-            background: var(--green);
-
-            color: white;
-
-            padding: 12px 22px;
-
-            border-radius: 50px;
-
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            background: var(--dark-green);
-
-            color: white;
-
-            padding: 55px 6% 90px;
-        }
-
-        .footer-grid {
-            max-width: 1250px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                2fr
-                1fr
-                1fr
-                1fr;
-
-            gap: 40px;
-        }
-
-        .footer-brand img {
-            height: 60px;
-            margin-bottom: 15px;
-        }
-
-        .footer-brand p {
-            color: rgba(255,255,255,0.75);
-            max-width: 350px;
-        }
-
-        footer h3 {
-            margin-bottom: 15px;
-        }
-
-        footer a {
-            display: block;
-
-            color: rgba(255,255,255,0.75);
-
-            margin-bottom: 8px;
-
-            transition: 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--gold);
-        }
-
-        .copyright {
-            text-align: center;
-
-            margin-top: 40px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid rgba(255,255,255,0.15);
-
-            color:
-                rgba(255,255,255,0.7);
-        }
-
-
-        /* =========================================================
-           CART
-        ========================================================= */
-
-        .cart-overlay {
-            position: fixed;
-            inset: 0;
-
-            background: rgba(0,0,0,0.45);
-
-            z-index: 6000;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: 0.3s;
-        }
-
-        .cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .cart-drawer {
-            position: absolute;
-
-            top: 0;
-            right: 0;
-
-            height: 100%;
-
-            width: min(430px, 100%);
-
-            background: white;
-
-            transform: translateX(100%);
-
-            transition: 0.35s;
-
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-overlay.active .cart-drawer {
-            transform: translateX(0);
-        }
-
-        .cart-header {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 20px;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .close-cart {
-            border: none;
-
-            background: var(--light-gray);
-
-            width: 38px;
-            height: 38px;
-
-            border-radius: 50%;
-
-            font-size: 20px;
-        }
-
-        .cart-items {
-            flex: 1;
-
-            overflow-y: auto;
-
-            padding: 20px;
-        }
-
-        .empty-cart {
-            text-align: center;
-
-            padding: 60px 20px;
-
-            color: var(--gray);
-        }
-
-        .cart-item {
-            display: grid;
-
-            grid-template-columns:
-                65px
-                1fr
-                auto;
-
-            gap: 12px;
-
-            align-items: center;
-
-            padding: 12px 0;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .cart-item img {
-            width: 65px;
-            height: 65px;
-
-            object-fit: cover;
-
-            border-radius: 10px;
-        }
-
-        .cart-item h4 {
-            font-size: 14px;
-        }
-
-        .cart-item-price {
-            color: var(--green);
-            font-weight: 800;
-            font-size: 13px;
-        }
-
-        .quantity-controls {
-            display: flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            margin-top: 5px;
-        }
-
-        .quantity-controls button {
-            width: 25px;
-            height: 25px;
-
-            border:
-                1px solid var(--border);
-
-            background: white;
-
-            border-radius: 5px;
-        }
-
-        .remove-item {
-            border: none;
-            background: none;
-
-            color: var(--red);
-
-            font-size: 12px;
-        }
-
-        .cart-footer {
-            padding: 20px;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-        .cart-total {
-            display: flex;
-
-            justify-content:
-                space-between;
-
-            font-size: 20px;
-
-            font-weight: 900;
-
-            margin-bottom: 15px;
-        }
-
-        .checkout-btn {
-            width: 100%;
-
-            border: none;
-
-            background: var(--green);
-
-            color: white;
-
-            padding: 15px;
-
-            border-radius: 12px;
-
-            font-weight: 800;
-        }
-
-        .clear-cart-btn {
-            width: 100%;
-
-            border: none;
-
-            background: transparent;
-
-            color: var(--red);
-
-            padding: 10px;
-
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           TOAST
-        ========================================================= */
-
-        .toast {
-            position: fixed;
-
-            bottom: 90px;
-            left: 50%;
-
-            transform:
-                translate(-50%, 20px);
-
-            background: var(--dark-green);
-
-            color: white;
-
-            padding: 12px 20px;
-
-            border-radius: 50px;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition: 0.3s;
-
-            z-index: 7000;
-
-            font-size: 14px;
-
-            max-width: 90%;
-
-            text-align: center;
-        }
-
-        .toast.show {
-            opacity: 1;
-
-            transform:
-                translate(-50%, 0);
-        }
-
-
-        /* =========================================================
-           MOBILE BOTTOM NAV
-        ========================================================= */
-
-        .mobile-bottom-nav {
-            display: none;
-        }
-
-
-        /* =========================================================
-           TABLET
-        ========================================================= */
-
-        @media (max-width: 1000px) {
-
-            .desktop-nav {
-                gap: 17px;
-            }
-
-            .desktop-nav a {
-                font-size: 14px;
-            }
-
-            .hero-inner {
-                gap: 35px;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .category-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .why-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .trust-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 700px) {
-
-            body {
-                padding-bottom: 72px;
-            }
-
-            .announcement {
-                font-size: 12px;
-                padding: 8px 10px;
-            }
-
-            .header-inner {
-                min-height: 72px;
-
-                padding:
-                    8px 15px;
-
-                display: flex;
-
-                justify-content:
-                    space-between;
-            }
-
-            .desktop-nav {
-                display: none;
-            }
-
-            .header-actions {
-                display: flex;
-                margin-left: auto;
-            }
-
-            .header-actions .icon-button:first-child {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-                margin-left: 7px;
-            }
-
-            .logo img {
-                height: 53px;
-                max-width: 155px;
-            }
-
-
-            /* HERO */
-
-            .hero {
-                padding:
-                    45px 18px;
-            }
-
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .hero-image img {
-                height: 300px;
-                border-radius: 20px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero-text {
-                font-size: 16px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .hero-buttons .btn {
-                width: 100%;
-            }
-
-            .floating-badge {
-                left: 10px;
-                bottom: 10px;
-                font-size: 12px;
-            }
-
-
-            /* TRUST */
-
-            .trust-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .trust-card {
-                padding: 13px;
-
-                display: block;
-
-                text-align: center;
-            }
-
-
-            /* CATEGORIES */
-
-            .category-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .category-card {
-                min-height: 170px;
-                padding: 15px;
-            }
-
-            .category-icon {
-                font-size: 38px;
-
-                top: 15px;
-                right: 15px;
-            }
-
-            .category-card h3 {
-                font-size: 16px;
-            }
-
-            .category-card p {
-                font-size: 12px;
-            }
-
-
-            /* SECTIONS */
-
-            .section {
-                padding:
-                    55px 15px;
-            }
-
-            .section-heading h2 {
-                font-size: 30px;
-            }
-
-
-            /* PRODUCTS */
-
-            .product-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .product-image {
-                height: 160px;
-            }
-
-            .product-content {
-                padding: 12px;
-            }
-
-            .product-title {
-                font-size: 15px;
-            }
-
-            .product-description {
-                font-size: 12px;
-            }
-
-            .product-price {
-                font-size: 15px;
-            }
-
-            .add-cart {
-                padding: 8px;
-                font-size: 11px;
-            }
-
-            .product-bottom {
-                align-items: flex-end;
-            }
-
-
-            /* SEARCH */
-
-            .shop-toolbar {
-                display: block;
-            }
-
-            .search-box {
-                margin-bottom: 12px;
-            }
-
-            .filter-buttons {
-                padding-bottom: 5px;
-            }
-
-
-            /* DEALS */
-
-            .deals {
-                padding:
-                    35px 20px;
-            }
-
-            .deals h2 {
-                font-size: 27px;
-            }
-
-
-            /* WHY */
-
-            .why-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .why-card {
-                padding: 18px;
-            }
-
-
-            /* TESTIMONIALS */
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-
-            /* REWARDS */
-
-            .rewards {
-                flex-direction: column;
-
-                text-align: center;
-
-                padding:
-                    35px 20px;
-            }
-
-
-            /* NEWSLETTER */
-
-            .subscribe-form {
-                flex-direction: column;
-
-                background: transparent;
-
-                border: none;
-
-                gap: 8px;
-            }
-
-            .subscribe-form input {
-                background: white;
-
-                border:
-                    1px solid var(--border);
-
-                border-radius: 50px;
-            }
-
-            .subscribe-form button {
-                width: 100%;
-            }
-
-
-            /* FOOTER */
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-
-                gap: 30px;
-            }
-
-            .footer-brand {
-                grid-column: 1 / -1;
-            }
-
-
-            /* BOTTOM NAV */
-
-            .mobile-bottom-nav {
-                position: fixed;
-
-                bottom: 0;
-                left: 0;
-                right: 0;
-
-                height: 68px;
-
-                background: white;
-
-                border-top:
-                    1px solid var(--border);
-
-                display: grid;
-
-                grid-template-columns:
-                    repeat(5,1fr);
-
-                z-index: 4000;
-
-                box-shadow:
-                    0 -5px 20px
-                    rgba(0,0,0,0.08);
-            }
-
-            .bottom-nav-item {
-                border: none;
-
-                background: transparent;
-
-                display: flex;
-
-                flex-direction: column;
-
-                align-items: center;
-
-                justify-content: center;
-
-                color: #666;
-
-                font-size: 11px;
-
-                gap: 2px;
-            }
-
-            .bottom-nav-item span:first-child {
-                font-size: 20px;
-            }
-
-            .bottom-nav-item.active {
-                color: var(--green);
-                font-weight: 800;
-            }
-
-            footer {
-                padding-bottom: 100px;
-            }
-        }
-
-
-        @media (max-width: 430px) {
-
-            .header-actions .icon-button {
-                width: 38px;
-                height: 38px;
-            }
-
-            .menu-toggle {
-                width: 40px;
-                height: 40px;
-            }
-
-            .logo img {
-                max-width: 135px;
-            }
-
-            .mobile-menu-panel {
-                width: 100%;
-            }
-
-            .product-title {
-                font-size: 14px;
-            }
-
-            .product-price {
-                font-size: 14px;
-            }
-
-            .add-cart {
-                font-size: 10px;
-                padding: 7px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    body.menu-open,
+    body.cart-open { overflow: hidden; }
+
+    button, input { font-family: inherit; }
+    button { cursor: pointer; }
+    a { text-decoration: none; }
+    img { max-width: 100%; }
+
+    /* =========================================================
+       ANNOUNCEMENT
+    ========================================================= */
+    .announcement {
+      background: var(--dark-green);
+      color: #fff;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1250px;
+      margin: auto;
+      padding: 12px 25px;
+      min-height: 82px;
+
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* =========================================================
+       LOGO
+    ========================================================= */
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: fit-content;
+    }
+
+    .logo img {
+      height: 62px;
+      width: auto;
+      max-width: 190px;
+      object-fit: contain;
+    }
+
+    /* =========================================================
+       DESKTOP NAVIGATION
+    ========================================================= */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .desktop-nav a {
+      position: relative;
+      color: #222;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 8px 0;
+      transition: 0.25s;
+    }
+
+    .desktop-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--green);
+      transition: 0.25s;
+    }
+
+    .desktop-nav a:hover { color: var(--green); }
+    .desktop-nav a:hover::after { width: 100%; }
+
+    /* =========================================================
+       HEADER ACTIONS
+    ========================================================= */
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-button {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: var(--light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      transition: 0.25s;
+    }
+
+    .icon-button:hover {
+      background: var(--light-green);
+      transform: translateY(-2px);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: var(--red);
+      color: #fff;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* =========================================================
+       MOBILE MENU BUTTON
+    ========================================================= */
+    .menu-toggle {
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      background: var(--light-gray);
+      font-size: 26px;
+      line-height: 1;
+      display: none; /* shown in mobile */
+      align-items: center;
+      justify-content: center;
+      transition: 0.25s;
+    }
+    .menu-toggle:hover {
+      background: var(--light-green);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       HERO (with menu image)
+    ========================================================= */
+    .hero {
+      background: linear-gradient(135deg, #effff4, #ffffff);
+      padding: 70px 6%;
+    }
+
+    .hero-inner {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-content { max-width: 650px; }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--light-green);
+      color: var(--green);
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.05;
+      color: var(--dark-green);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span { color: var(--green); }
+
+    .hero-text {
+      font-size: 19px;
+      color: #555;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      border: none;
+      border-radius: 50px;
+      padding: 14px 24px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.25s;
+      color: inherit;
+    }
+
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-primary:hover { background: var(--dark-green); transform: translateY(-2px); }
+
+    .btn-secondary { background: var(--gold); color: #111; }
+    .btn-secondary:hover { transform: translateY(-2px); }
+
+    .hero-image { position: relative; }
+
+    .hero-image img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.16);
+    }
+
+    .floating-badge {
+      position: absolute;
+      bottom: 25px;
+      left: -20px;
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       TRUST
+    ========================================================= */
+    .trust-section { padding: 30px 6%; background: #fff; }
+    .trust-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .trust-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .trust-icon { font-size: 28px; }
+    .trust-card h4 { font-size: 15px; }
+    .trust-card p { font-size: 13px; color: var(--gray); }
+
+    /* =========================================================
+       GENERAL SECTION
+    ========================================================= */
+    .section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 80px 25px;
+    }
+
+    .section-heading { text-align: center; margin-bottom: 45px; }
+    .section-heading h2 { font-size: 38px; color: var(--dark-green); margin-bottom: 7px; }
+    .section-heading p { color: var(--gray); }
+
+    /* =========================================================
+       CATEGORIES
+    ========================================================= */
+    .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .category-card {
+      position: relative;
+      min-height: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding: 25px;
+      color: #fff;
+      background: var(--green);
+      transition: 0.3s;
+    }
+    .category-card:hover { transform: translateY(-5px); }
+
+    .category-card:nth-child(2) { background: #8c2542; }
+    .category-card:nth-child(3) { background: #a87920; }
+    .category-card:nth-child(4) { background: #438c43; }
+
+    .category-icon {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      font-size: 55px;
+    }
+
+    .category-card h3 { font-size: 22px; }
+    .category-card p { opacity: 0.9; }
+
+    /* =========================================================
+       SHOP TOOLBAR
+    ========================================================= */
+    .shop-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .search-box { flex: 1; min-width: 250px; }
+
+    .search-box input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 14px 20px;
+      outline: none;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    .search-box input:focus { border-color: var(--green); }
+
+    .filter-buttons { display: flex; gap: 8px; overflow-x: auto; }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 10px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .filter-btn.active { background: var(--green); color: #fff; border-color: var(--green); }
+
+    /* =========================================================
+       PRODUCTS
+    ========================================================= */
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+    .product-image-wrap { position: relative; background: var(--light-gray); }
+
+    .product-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--green);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .wishlist {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border: none;
+      background: #fff;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .wishlist.active { color: var(--red); }
+
+    .product-content { padding: 18px; }
+
+    .rating { color: var(--gold); font-size: 13px; margin-bottom: 5px; }
+    .product-title { font-size: 18px; color: #222; margin-bottom: 5px; }
+    .product-description { color: var(--gray); font-size: 14px; min-height: 45px; }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .product-price { color: var(--green); font-size: 19px; font-weight: 900; }
+
+    .add-cart {
+      border: none;
+      background: var(--green);
+      color: #fff;
+      padding: 10px 13px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .add-cart:hover { background: var(--dark-green); }
+
+    /* =========================================================
+       DEALS
+    ========================================================= */
+    .deals {
+      background: linear-gradient(135deg, var(--dark-green), var(--green));
+      color: #fff;
+      border-radius: 25px;
+      padding: 45px;
+      text-align: center;
+    }
+    .deals h2 { font-size: 34px; margin-bottom: 10px; }
+    .deals p { margin-bottom: 20px; opacity: 0.9; }
+
+    /* =========================================================
+       WHY
+    ========================================================= */
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .why-card {
+      background: var(--light-gray);
+      border-radius: 18px;
+      padding: 25px;
+    }
+    .why-card .icon { font-size: 35px; margin-bottom: 10px; }
+    .why-card h3 { margin-bottom: 5px; }
+    .why-card p { color: var(--gray); font-size: 14px; }
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .testimonial {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .testimonial .stars { color: var(--gold); margin-bottom: 12px; }
+    .testimonial p { color: #444; font-style: italic; margin-bottom: 15px; }
+    .verified { font-size: 13px; font-weight: 700; color: var(--green); }
+
+    /* =========================================================
+       REWARDS
+    ========================================================= */
+    .rewards {
+      background: #fff8e7;
+      border-radius: 25px;
+      padding: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+    .rewards-icon { font-size: 55px; }
+
+    /* =========================================================
+       NEWSLETTER
+    ========================================================= */
+    .newsletter { background: var(--light-green); text-align: center; padding: 55px 25px; }
+    .newsletter h2 { color: var(--dark-green); font-size: 34px; }
+    .newsletter p {
+      color: var(--gray);
+      margin: 8px auto 20px;
+      max-width: 600px;
+    }
+
+    .subscribe-form {
+      max-width: 550px;
+      margin: auto;
+      display: flex;
+      background: #fff;
+      padding: 6px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+    }
+
+    .subscribe-form input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 12px 18px;
+      background: transparent;
+    }
+
+    .subscribe-form button {
+      border: none;
+      background: var(--green);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      background: var(--dark-green);
+      color: #fff;
+      padding: 55px 6% 90px;
+    }
+
+    .footer-grid {
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand img { height: 60px; margin-bottom: 15px; }
+    .footer-brand p { color: rgba(255,255,255,0.75); max-width: 350px; }
+    footer h3 { margin-bottom: 15px; }
+
+    footer a {
+      display: block;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+      transition: 0.2s;
+    }
+    footer a:hover { color: var(--gold); }
+
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* =========================================================
+       CART
+    ========================================================= */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 6000;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+    .cart-overlay.active { opacity: 1; visibility: visible; }
+
+    .cart-drawer {
+      position: absolute;
+      top: 0; right: 0;
+      height: 100%;
+      width: min(430px, 100%);
+      background: #fff;
+      transform: translateX(100%);
+      transition: 0.35s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-overlay.active .cart-drawer { transform: translateX(0); }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .close-cart {
+      border: none;
+      background: var(--light-gray);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .cart-items { flex: 1; overflow-y: auto; padding: 20px; }
+
+    .empty-cart { text-align: center; padding: 60px 20px; color: var(--gray); }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 65px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .cart-item h4 { font-size: 14px; }
+
+    .cart-item-price { color: var(--green); font-weight: 800; font-size: 13px; }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 5px;
+    }
+
+    .quantity-controls button {
+      width: 25px;
+      height: 25px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    .remove-item { border: none; background: none; color: var(--red); font-size: 12px; }
+
+    .cart-footer { padding: 20px; border-top: 1px solid var(--border); }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      border: none;
+      background: var(--green);
+      color: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .clear-cart-btn {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: var(--red);
+      padding: 10px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+    .toast {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translate(-50%, 20px);
+      background: var(--dark-green);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      z-index: 7000;
+      font-size: 14px;
+      max-width: 90%;
+      text-align: center;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    /* =========================================================
+       MOBILE BOTTOM NAV
+    ========================================================= */
+    .mobile-bottom-nav { display: none; }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 1000px) {
+      .desktop-nav { gap: 17px; }
+      .desktop-nav a { font-size: 14px; }
+      .hero-inner { gap: 35px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      body { padding-bottom: 72px; }
+      .announcement { font-size: 12px; padding: 8px 10px; }
+
+      .header-inner {
+        min-height: 72px;
+        padding: 8px 15px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .desktop-nav { display: none; }
+      .header-actions { display: flex; margin-left: auto; }
+      .header-actions .icon-button:first-child { display: none; }
+
+      .menu-toggle { display: inline-flex; }
+
+      .logo img { height: 53px; max-width: 155px; }
+
+      .hero { padding: 45px 18px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 30px; }
+      .hero-image { order: -1; }
+      .hero-image img { height: 300px; border-radius: 20px; }
+      .hero h1 { font-size: 43px; }
+      .hero-text { font-size: 16px; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons .btn { width: 100%; }
+      .floating-badge { left: 10px; bottom: 10px; font-size: 12px; }
+
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .trust-card { padding: 13px; display: block; text-align: center; }
+
+      .category-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .category-card { min-height: 170px; padding: 15px; }
+      .category-icon { font-size: 38px; top: 15px; right: 15px; }
+      .category-card h3 { font-size: 16px; }
+      .category-card p { font-size: 12px; }
+
+      .section { padding: 55px 15px; }
+      .section-heading h2 { font-size: 30px; }
+
+      .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .product-image { height: 160px; }
+      .product-content { padding: 12px; }
+      .product-title { font-size: 15px; }
+      .product-description { font-size: 12px; }
+      .product-price { font-size: 15px; }
+      .add-cart { padding: 8px; font-size: 11px; }
+      .product-bottom { align-items: flex-end; }
+
+      .shop-toolbar { display: block; }
+      .search-box { margin-bottom: 12px; }
+      .filter-buttons { padding-bottom: 5px; }
+
+      .deals { padding: 35px 20px; }
+      .deals h2 { font-size: 27px; }
+
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .why-card { padding: 18px; }
+
+      .testimonial-grid { grid-template-columns: 1fr; }
+
+      .rewards { flex-direction: column; text-align: center; padding: 35px 20px; }
+
+      .subscribe-form { flex-direction: column; background: transparent; border: none; gap: 8px; }
+      .subscribe-form input {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+      }
+      .subscribe-form button { width: 100%; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-brand { grid-column: 1 / -1; }
+
+      .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        height: 68px;
+        background: #fff;
+        border-top: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        z-index: 4000;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
+      }
+
+      .bottom-nav-item {
+        border: none;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 11px;
+        gap: 2px;
+      }
+
+      .bottom-nav-item span:first-child { font-size: 20px; }
+      .bottom-nav-item.active { color: var(--green); font-weight: 800; }
+
+      footer { padding-bottom: 100px; }
+    }
+
+    @media (max-width: 430px) {
+      .header-actions .icon-button { width: 38px; height: 38px; }
+      .menu-toggle { width: 40px; height: 40px; }
+      .logo img { max-width: 135px; }
+      .product-title { font-size: 14px; }
+      .product-price { font-size: 14px; }
+      .add-cart { font-size: 10px; padding: 7px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
-
 <body>
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">🚚 Fresh orders • Delivery available • WhatsApp ordering available</div>
 
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#home" class="logo" onclick="closeMobileMenu()">
+        <img src="images/logo.png.jpeg" alt="Wendy's Cold Pressed Juice" />
+      </a>
 
-    <!-- =========================================================
-         ANNOUNCEMENT
-    ========================================================== -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <div class="announcement">
-        🚚 Fresh orders • Delivery available • WhatsApp ordering available
+      <div class="header-actions">
+        <button class="icon-button" onclick="scrollToShop()" aria-label="Search products">🔍</button>
+
+        <button class="icon-button" onclick="openCart()" aria-label="Shopping cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        onclick="toggleMobileMenu()"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenuOverlay"
+      >
+        ☰
+      </button>
     </div>
+  </header>
 
+  <!-- FULL SCREEN MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="handleMenuOverlayClick(event)" style="
+    position:fixed; inset:0; background: rgba(4, 77, 41, 0.35); backdrop-filter: blur(5px); z-index:5000;
+    opacity:0; visibility:hidden; transition: opacity .3s ease, visibility .3s ease;">
+    <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Wendy's menu" style="
+      position:absolute; top:0; right:0; width:min(470px,100%); height:100%; overflow-y:auto;
+      background: linear-gradient(160deg,#ffffff 0%, #f7fff9 100%);
+      transform: translateX(100%); transition: transform .4s cubic-bezier(.22,1,.36,1);
+      box-shadow:-15px 0 50px rgba(0,0,0,0.15);
+    ">
+      <style>
+        /* Small inline styles for the mobile menu to keep code self-contained in one rewrite */
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-menu-overlay.active .mobile-menu-panel { transform: translateX(0); }
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
+        .mobile-menu-header{
+          position: sticky; top:0; z-index:2;
+          display:flex; align-items:center; justify-content:space-between;
+          padding:20px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px);
+          border-bottom: 1px solid var(--border);
+        }
+        .mobile-menu-brand{ display:flex; align-items:center; gap:12px; }
+        .mobile-menu-brand img{ width:52px; height:52px; object-fit:contain; }
+        .mobile-menu-brand-text h3{ color: var(--dark-green); font-size:17px; }
+        .mobile-menu-brand-text p{ color: var(--gray); font-size:12px; }
 
-    <header>
+        .close-menu{
+          width:45px; height:45px; border:none; border-radius:50%;
+          background: var(--light-gray);
+          font-size:28px; line-height:1;
+          display:flex; align-items:center; justify-content:center;
+          transition:.25s;
+        }
+        .close-menu:hover{ background: var(--green); color:#fff; transform: rotate(90deg); }
 
-        <div class="header-inner">
+        .mobile-menu-content{ padding:25px 20px 40px; }
+        .mobile-menu-welcome{
+          background: linear-gradient(135deg, var(--dark-green), var(--green));
+          color:#fff; border-radius:22px; padding:24px; margin-bottom:22px; box-shadow: var(--shadow);
+        }
+        .mobile-menu-welcome span{ display:inline-block; font-size:13px; font-weight:700; opacity:.85; margin-bottom:5px; }
+        .mobile-menu-welcome h2{ font-size:25px; line-height:1.2; margin-bottom:7px; }
+        .mobile-menu-welcome p{ font-size:13px; opacity:.9; }
 
+        .mobile-menu-section-title{
+          font-size:12px; font-weight:800; color:#777; text-transform:uppercase; letter-spacing:1px;
+          margin:22px 3px 10px;
+        }
 
-            <!-- LOGO -->
+        .mobile-menu-links{ display:grid; gap:8px; }
+        .mobile-menu-link{
+          display:flex; align-items:center; gap:14px; width:100%;
+          padding:15px; border:1px solid var(--border); border-radius:15px;
+          background:#fff; color:#222; font-weight:700;
+          transition:.25s;
+        }
+        .mobile-menu-link:hover{
+          color: var(--green); border-color: var(--green); transform: translateX(4px); background: var(--light-green);
+        }
 
-            <a
-                href="#home"
-                class="logo"
-                onclick="closeMobileMenu()"
-            >
-                <img
-                    src="images/logo.png.jpeg"
-                    alt="Wendy's Cold Pressed Juice"
-                >
-            </a>
+        .mobile-menu-link-icon{
+          width:42px; height:42px; flex-shrink:0; border-radius:12px; background: var(--light-green);
+          display:flex; align-items:center; justify-content:center; font-size:20px;
+        }
+        .mobile-menu-link-text{ flex:1; }
+        .mobile-menu-link-text small{ display:block; color: var(--gray); font-size:11px; font-weight:500; margin-top:2px; }
+        .mobile-menu-arrow{ color:#aaa; font-size:18px; }
 
+        .mobile-menu-actions{
+          display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+          margin-top:20px;
+        }
+        .mobile-action{
+          border: none; padding: 15px 10px; border-radius: 15px;
+          background: #fff; border: 1px solid var(--border);
+          font-weight: 700; color:#222;
+          transition:.25s;
+        }
+        .mobile-action:hover{
+          border-color: var(--green); background: var(--light-green); color: var(--green);
+        }
+        .mobile-menu-whatsapp{
+          display:flex; align-items:center; justify-content:center; gap:8px;
+          margin-top:20px; width:100%; padding:15px; border-radius:14px;
+          background:#25D366; color:#fff; font-weight:800;
+        }
+      </style>
 
-            <!-- DESKTOP NAV -->
-
-            <nav
-                class="desktop-nav"
-                aria-label="Main navigation"
-            >
-
-                <a href="#home">
-                    Home
-                </a>
-
-                <a href="#shop">
-                    Shop
-                </a>
-
-                <a href="#categories">
-                    Categories
-                </a>
-
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
-            </nav>
-
-
-            <!-- HEADER ACTIONS -->
-
-            <div class="header-actions">
-
-                <button
-                    class="icon-button"
-                    onclick="scrollToShop()"
-                    aria-label="Search products"
-                >
-                    🔍
-                </button>
-
-                <button
-                    class="icon-button"
-                    onclick="openCart()"
-                    aria-label="Shopping cart"
-                >
-                    🛒
-
-                    <span
-                        class="cart-count"
-                        id="cartCount"
-                    >
-                        0
-                    </span>
-                </button>
-
-            </div>
-
-
-            <!-- MOBILE MENU BUTTON -->
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                onclick="toggleMobileMenu()"
-                aria-label="Open menu"
-                aria-expanded="false"
-                aria-controls="mobileMenuOverlay"
-            >
-                ☰
-            </button>
-
+      <div class="mobile-menu-header">
+        <div class="mobile-menu-brand">
+          <img src="images/logo.png.jpeg" alt="Wendy's logo" />
+          <div class="mobile-menu-brand-text">
+            <h3>Wendy's Cold Pressed Juice</h3>
+            <p>Fresh. Delicious. Made With Care. ❤️</p>
+          </div>
         </div>
 
-    </header>
-
-
-    <!-- =========================================================
-         FULL SCREEN MOBILE MENU
-    ========================================================== -->
-
-    <div
-        class="mobile-menu-overlay"
-        id="mobileMenuOverlay"
-        onclick="handleMenuOverlayClick(event)"
-    >
-
-        <div
-            class="mobile-menu-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Wendy's menu"
-        >
-
-
-            <!-- MENU HEADER -->
-
-            <div class="mobile-menu-header">
-
-                <div class="mobile-menu-brand">
-
-                    <img
-                        src="images/logo.png.jpeg"
-                        alt="Wendy's logo"
-                    >
-
-                    <div class="mobile-menu-brand-text">
-
-                        <h3>
-                            Wendy's Cold Pressed Juice
-                        </h3>
-
-                        <p>
-                            Fresh. Delicious. Made With Care. ❤️
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="close-menu"
-                    onclick="closeMobileMenu()"
-                    aria-label="Close menu"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <!-- MENU CONTENT -->
-
-            <div class="mobile-menu-content">
-
-
-                <div class="mobile-menu-welcome">
-
-                    <span>
-                        🌿 WELCOME TO WENDY'S
-                    </span>
-
-                    <h2>
-                        Freshness You Can Taste. ❤️
-                    </h2>
-
-                    <p>
-                        Fresh juices, zobo, tigernut milk
-                        and salads made with care.
-                    </p>
-
-                </div>
-
-
-                <!-- MAIN MENU -->
-
-                <div class="mobile-menu-section-title">
-                    Main Menu
-                </div>
-
-                <div class="mobile-menu-links">
-
-
-                    <a
-                        href="#home"
-                        class="mobile-menu-link"
-                        onclick="closeMobileMenu()"
-                    >
-
-                        <div class="mobile-menu-link-icon">
-                            🏠
-                        </div>
-
-                        <div class="mobile-menu-link-text">
-
-                            Home
-
-                            <small>
-                                Back to the homepage
-                            </small>
-
-                        </div>
-
-                        <span class="mobile-menu-arrow">
-                            ›
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="#shop"
-                        class="mobile-menu-link"
-                        onclick="closeMobileMenu()"
-                    >
-
-                        <div class="mobile-menu-link-icon">
-                            🛍️
-                        </div>
-
-                        <div class="mobile-menu-link-text">
-
-                            Shop
-
-                            <small>
-                                Browse our fresh products
-                            </small>
-
-                        </div>
-
-                        <span class="mobile-menu-arrow">
-                            ›
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="#categories"
-                        class="mobile-menu-link"
-                        onclick="closeMobileMenu()"
-                    >
-
-                        <div class="mobile-menu-link-icon">
-                            🥤
-                        </div>
-
-                        <div class="mobile-menu-link-text">
-
-                            Categories
-
-                            <small>
-                                Juices, Zobo, Tigernut & Salad
-                            </small>
-
-                        </div>
-
-                        <span class="mobile-menu-arrow">
-                            ›
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="#about"
-                        class="mobile-menu-link"
-                        onclick="closeMobileMenu()"
-                    >
-
-                        <div class="mobile-menu-link-icon">
-                            ❤️
-                        </div>
-
-                        <div class="mobile-menu-link-text">
-
-                            About Wendy's
-
-                            <small>
-                                Made fresh with care
-                            </small>
-
-                        </div>
-
-                        <span class="mobile-menu-arrow">
-                            ›
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="#contact"
-                        class="mobile-menu-link"
-                        onclick="closeMobileMenu()"
-                    >
-
-                        <div class="mobile-menu-link-icon">
-                            📞
-                        </div>
-
-                        <div class="mobile-menu-link-text">
-
-                            Contact
-
-                            <small>
-                                Get in touch with us
-                            </small>
-
-                        </div>
-
-                        <span class="mobile-menu-arrow">
-                            ›
-                        </span>
-
-                    </a>
-
-                </div>
-
-
-                <!-- QUICK ACTIONS -->
-
-                <div class="mobile-menu-section-title">
-                    Quick Access
-                </div>
-
-                <div class="mobile-menu-actions">
-
-                    <button
-                        class="mobile-action"
-                        onclick="mobileWishlistAction()"
-                    >
-                        ❤️ Wishlist
-                    </button>
-
-                    <button
-                        class="mobile-action"
-                        onclick="mobileCartAction()"
-                    >
-                        🛒 Cart
-                    </button>
-
-                    <button
-                        class="mobile-action"
-                        onclick="mobileAccountAction()"
-                    >
-                        👤 Account
-                    </button>
-
-                    <button
-                        class="mobile-action"
-                        onclick="scrollToShop(); closeMobileMenu()"
-                    >
-                        🔍 Search
-                    </button>
-
-                </div>
-
-
-                <!-- WHATSAPP -->
-
-                <a
-                    href="https://wa.me/2347088314315"
-                    target="_blank"
-                    class="mobile-menu-whatsapp"
-                    onclick="closeMobileMenu()"
-                >
-                    💬 Order on WhatsApp
-                </a>
-
-
-            </div>
-
+        <button class="close-menu" onclick="closeMobileMenu()" aria-label="Close menu">×</button>
+      </div>
+
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-welcome">
+          <span>🌿 WELCOME TO WENDY'S</span>
+          <h2>Freshness You Can Taste. ❤️</h2>
+          <p>Fresh juices, zobo, tigernut milk and salads made with care.</p>
         </div>
 
+        <div class="mobile-menu-section-title">Main Menu</div>
+        <div class="mobile-menu-links">
+          <a href="#home" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">🏠</div>
+            <div class="mobile-menu-link-text">
+              Home
+              <small>Back to the homepage</small>
+            </div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+
+          <a href="#shop" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">🛍️</div>
+            <div class="mobile-menu-link-text">
+              Shop
+              <small>Browse our fresh products</small>
+            </div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+
+          <a href="#categories" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">🥤</div>
+            <div class="mobile-menu-link-text">
+              Categories
+              <small>Juices, Zobo, Tigernut & Salad</small>
+            </div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+
+          <a href="#about" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">❤️</div>
+            <div class="mobile-menu-link-text">
+              About Wendy's
+              <small>Made fresh with care</small>
+            </div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+
+          <a href="#contact" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">📞</div>
+            <div class="mobile-menu-link-text">
+              Contact
+              <small>Get in touch with us</small>
+            </div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+        </div>
+
+        <div class="mobile-menu-section-title">Quick Access</div>
+        <div class="mobile-menu-actions">
+          <button class="mobile-action" onclick="mobileWishlistAction()">❤️ Wishlist</button>
+          <button class="mobile-action" onclick="mobileCartAction()">🛒 Cart</button>
+          <button class="mobile-action" onclick="mobileAccountAction()">👤 Account</button>
+          <button class="mobile-action" onclick="scrollToShop(); closeMobileMenu()">🔍 Search</button>
+        </div>
+
+        <a href="https://wa.me/2347088314315" target="_blank" class="mobile-menu-whatsapp" onclick="closeMobileMenu()">
+          💬 Order on WhatsApp
+        </a>
+      </div>
     </div>
-
-
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
-
-    <section
-        class="hero"
-        id="home"
-    >
-
-        <div class="hero-inner">
-
-
-            <div class="hero-content">
-
-                <span class="hero-label">
-                    🌿 Fresh • Delicious • Made With Care
-                </span>
-
-                <h1>
-                    Freshness You
-                    <span>Can Taste.</span>
-                    ❤️
-                </h1>
-
-                <p class="hero-text">
-                    Freshly prepared cold-pressed juices,
-                    zobo, tigernut milk and green salads —
-                    made with quality ingredients and
-                    delivered fresh to you.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="#shop"
-                        class="btn btn-primary"
-                    >
-                        SHOP NOW
-                    </a>
-
-                    <a
-                        href="https://wa.me/2347088314315"
-                        target="_blank"
-                        class="btn btn-secondary"
-                    >
-                        💬 ORDER ON WHATSAPP
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-image">
-
-                <img
-                    src="images/menu.jpg.jpeg"
-                    alt="Wendy's Cold Pressed Juice Menu"
-                >
-
-                <div class="floating-badge">
-                    ⭐ Freshly Made Daily
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         TRUST
-    ========================================================== -->
-
-    <section class="trust-section">
-
-        <div class="trust-grid">
-
-
-            <div class="trust-card">
-
-                <div class="trust-icon">
-                    🌿
-                </div>
-
-                <div>
-
-                    <h4>
-                        Fresh Ingredients
-                    </h4>
-
-                    <p>
-                        Quality ingredients
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="trust-card">
-
-                <div class="trust-icon">
-                    🧊
-                </div>
-
-                <div>
-
-                    <h4>
-                        Made Fresh
-                    </h4>
-
-                    <p>
-                        Prepared with care
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="trust-card">
-
-                <div class="trust-icon">
-                    📦
-                </div>
-
-                <div>
-
-                    <h4>
-                        Clean Packaging
-                    </h4>
-
-                    <p>
-                        Neat & secure
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="trust-card">
-
-                <div class="trust-icon">
-                    🚚
-                </div>
-
-                <div>
-
-                    <h4>
-                        Delivery
-                    </h4>
-
-                    <p>
-                        Convenient ordering
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         CATEGORIES
-    ========================================================== -->
-
-    <section
-        class="section"
-        id="categories"
-    >
-
-        <div class="section-heading">
-
-            <h2>
-                Shop by Category
-            </h2>
-
-            <p>
-                What are you craving today?
-            </p>
-
-        </div>
-
-
-        <div class="category-grid">
-
-
-            <a
-                href="#shop"
-                class="category-card"
-                onclick="filterProducts('Juices')"
-            >
-
-                <div class="category-icon">
-                    🥤
-                </div>
-
-                <div>
-
-                    <h3>
-                        Cold Pressed Juices
-                    </h3>
-
-                    <p>
-                        Fresh fruit combinations
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="#shop"
-                class="category-card"
-                onclick="filterProducts('Zobo')"
-            >
-
-                <div class="category-icon">
-                    🌺
-                </div>
-
-                <div>
-
-                    <h3>
-                        Zobo
-                    </h3>
-
-                    <p>
-                        Refreshing and delicious
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="#shop"
-                class="category-card"
-                onclick="filterProducts('Tigernut Milk')"
-            >
-
-                <div class="category-icon">
-                    🥛
-                </div>
-
-                <div>
-
-                    <h3>
-                        Tigernut Milk
-                    </h3>
-
-                    <p>
-                        Creamy and refreshing
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="#shop"
-                class="category-card"
-                onclick="filterProducts('Green Salad')"
-            >
-
-                <div class="category-icon">
-                    🥗
-                </div>
-
-                <div>
-
-                    <h3>
-                        Green Salads
-                    </h3>
-
-                    <p>
-                        Fresh and crunchy
-                    </p>
-
-                </div>
-
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         SHOP
-    ========================================================== -->
-
-    <section
-        class="section"
-        id="shop"
-    >
-
-        <div class="section-heading">
-
-            <h2>
-                🔥 Our Best Sellers
-            </h2>
-
-            <p>
-                Customer favorites, ready to order.
-            </p>
-
-        </div>
-
-
-        <div class="shop-toolbar">
-
-            <div class="search-box">
-
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="Search juices, zobo, tigernut milk..."
-                    oninput="searchProducts()"
-                >
-
-            </div>
-
-
-            <div class="filter-buttons">
-
-                <button
-                    class="filter-btn active"
-                    onclick="filterProducts('All')"
-                >
-                    All
-                </button>
-
-                <button
-                    class="filter-btn"
-                    onclick="filterProducts('Juices')"
-                >
-                    Juices
-                </button>
-
-                <button
-                    class="filter-btn"
-                    onclick="filterProducts('Zobo')"
-                >
-                    Zobo
-                </button>
-
-                <button
-                    class="filter-btn"
-                    onclick="filterProducts('Tigernut Milk')"
-                >
-                    Tigernut Milk
-                </button>
-
-                <button
-                    class="filter-btn"
-                    onclick="filterProducts('Green Salad')"
-                >
-                    Salad
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div
-            class="product-grid"
-            id="productGrid"
-        >
-
-
-            <!-- PRODUCT 1 -->
-
-            <div
-                class="product-card"
-                data-category="Juices"
-                data-name="Watermelon Pineapple Juice"
-            >
-
-                <div class="product-image-wrap">
-
-                    <span class="product-badge">
-                        BEST SELLER
-                    </span>
-
-                    <button
-                        class="wishlist"
-                        onclick="toggleWishlist(
-                            this,
-                            'Watermelon Pineapple Juice'
-                        )"
-                        aria-label="Add Watermelon Pineapple Juice to wishlist"
-                    >
-                        ♡
-                    </button>
-
-                    <img
-                        src="images/pineapple.jpg.jpg"
-                        alt="Watermelon Pineapple Juice"
-                        class="product-image"
-                    >
-
-                </div>
-
-
-                <div class="product-content">
-
-                    <div class="rating">
-                        ★★★★★ 4.9
-                    </div>
-
-                    <h3 class="product-title">
-                        Watermelon Pineapple Juice
-                    </h3>
-
-                    <p class="product-description">
-                        Refreshing watermelon and pineapple juice.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="product-price">
-                            ₦2,000
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(
-                                'Watermelon Pineapple Juice',
-                                2000,
-                                'images/pineapple.jpg.jpg'
-                            )"
-                        >
-                            ADD TO CART
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 2 -->
-
-            <div
-                class="product-card"
-                data-category="Zobo"
-                data-name="Cold Pressed Zobo"
-            >
-
-                <div class="product-image-wrap">
-
-                    <span class="product-badge">
-                        BEST SELLER
-                    </span>
-
-                    <button
-                        class="wishlist"
-                        onclick="toggleWishlist(
-                            this,
-                            'Cold Pressed Zobo'
-                        )"
-                        aria-label="Add Cold Pressed Zobo to wishlist"
-                    >
-                        ♡
-                    </button>
-
-                    <img
-                        src="images/zobo.jpg.jpeg"
-                        alt="Cold Pressed Zobo"
-                        class="product-image"
-                    >
-
-                </div>
-
-
-                <div class="product-content">
-
-                    <div class="rating">
-                        ★★★★★ 4.9
-                    </div>
-
-                    <h3 class="product-title">
-                        Cold Pressed Zobo
-                    </h3>
-
-                    <p class="product-description">
-                        Rich, refreshing zobo prepared with care.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="product-price">
-                            ₦2,000
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(
-                                'Cold Pressed Zobo',
-                                2000,
-                                'images/zobo.jpg.jpeg'
-                            )"
-                        >
-                            ADD TO CART
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 3 -->
-
-            <div
-                class="product-card"
-                data-category="Tigernut Milk"
-                data-name="Tigernut Milk"
-            >
-
-                <div class="product-image-wrap">
-
-                    <button
-                        class="wishlist"
-                        onclick="toggleWishlist(
-                            this,
-                            'Tigernut Milk'
-                        )"
-                        aria-label="Add Tigernut Milk to wishlist"
-                    >
-                        ♡
-                    </button>
-
-                    <img
-                        src="images/tigernut-milk.jpg.jpeg"
-                        alt="Tigernut Milk"
-                        class="product-image"
-                    >
-
-                </div>
-
-
-                <div class="product-content">
-
-                    <div class="rating">
-                        ★★★★★ 4.8
-                    </div>
-
-                    <h3 class="product-title">
-                        Tigernut Milk
-                    </h3>
-
-                    <p class="product-description">
-                        Creamy, refreshing and delicious.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="product-price">
-                            ₦2,500
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(
-                                'Tigernut Milk',
-                                2500,
-                                'images/tigernut-milk.jpg.jpeg'
-                            )"
-                        >
-                            ADD TO CART
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 4 -->
-
-            <div
-                class="product-card"
-                data-category="Green Salad"
-                data-name="Wendy's Green Salad"
-            >
-
-                <div class="product-image-wrap">
-
-                    <span class="product-badge">
-                        FRESH
-                    </span>
-
-                    <button
-                        class="wishlist"
-                        onclick="toggleWishlist(
-                            this,
-                            'Wendy Green Salad'
-                        )"
-                        aria-label="Add Wendy's Green Salad to wishlist"
-                    >
-                        ♡
-                    </button>
-
-                    <img
-                        src="images/salads-wraps.jpg.jpg"
-                        alt="Wendy's Green Salad"
-                        class="product-image"
-                    >
-
-                </div>
-
-
-                <div class="product-content">
-
-                    <div class="rating">
-                        ★★★★★ 4.9
-                    </div>
-
-                    <h3 class="product-title">
-                        Wendy's Green Salad
-                    </h3>
-
-                    <p class="product-description">
-                        Fresh vegetables with delicious dressing.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <span class="product-price">
-                            ₦3,500
-                        </span>
-
-                        <button
-                            class="add-cart"
-                            onclick="addToCart(
-                                'Wendy Green Salad',
-                                3500,
-                                'images/salads-wraps.jpg.jpg'
-                            )"
-                        >
-                            ADD TO CART
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         DEALS
-    ========================================================== -->
-
-    <section class="section">
-
-        <div class="deals">
-
-            <h2>
-                🎉 Fresh Deals & Special Offers
-            </h2>
-
-            <p>
-                Check back for Wendy's bundle deals
-                and promotions.
-            </p>
-
-            <a
-                href="#shop"
-                class="btn btn-secondary"
-            >
-                SHOP OFFERS
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         ABOUT
-    ========================================================== -->
-
-    <section
-        class="section"
-        id="about"
-    >
-
-        <div class="section-heading">
-
-            <h2>
-                Why Choose Wendy's? ❤️
-            </h2>
-
-            <p>
-                Made with care. Served fresh.
-            </p>
-
-        </div>
-
-
-        <div class="why-grid">
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    🌿
-                </div>
-
-                <h3>
-                    Fresh Ingredients
-                </h3>
-
-                <p>
-                    Quality ingredients.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    🧊
-                </div>
-
-                <h3>
-                    Made Fresh
-                </h3>
-
-                <p>
-                    Prepared with freshness in mind.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    📦
-                </div>
-
-                <h3>
-                    Clean Packaging
-                </h3>
-
-                <p>
-                    Every order handled with care.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="icon">
-                    ❤️
-                </div>
-
-                <h3>
-                    Made With Love
-                </h3>
-
-                <p>
-                    Every order matters.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         TESTIMONIALS
-    ========================================================== -->
-
-    <section class="section">
-
-        <div class="section-heading">
-
-            <h2>
-                ⭐ What Our Customers Are Saying
-            </h2>
-
-            <p>
-                Happy customers, fresh experiences.
-            </p>
-
-        </div>
-
-
-        <div class="testimonial-grid">
-
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "The juice was so fresh and delicious.
-                    I will definitely order again!"
-                </p>
-
-                <span class="verified">
-                    Verified Customer
-                </span>
-
-            </div>
-
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "Everything came neatly packaged
-                    and tasted amazing."
-                </p>
-
-                <span class="verified">
-                    Verified Customer
-                </span>
-
-            </div>
-
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "The salad was fresh and the delivery
-                    was convenient."
-                </p>
-
-                <span class="verified">
-                    Verified Customer
-                </span>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         REWARDS
-    ========================================================== -->
-
-    <section class="section">
-
-        <div class="rewards">
-
-
-            <div>
-
-                <div class="rewards-icon">
-                    🎁
-                </div>
-
-                <h2>
-                    Wendy's Rewards
-                </h2>
-
-                <p>
-                    Every order can bring you closer
-                    to your next reward.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    ⭐ Earn points when you shop
-                </h3>
-
-                <p>
-                    Create an account to track points
-                    and receive special offers.
-                </p>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="showToast('Rewards account coming soon!')"
-                >
-                    VIEW REWARDS
-                </button>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         NEWSLETTER
-    ========================================================== -->
-
-    <section class="newsletter">
-
-        <h2>
-            Stay Fresh With Wendy's 🍹
-        </h2>
-
-        <p>
-            Get updates about new products,
-            promotions and special offers.
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-label">🌿 Fresh • Delicious • Made With Care</span>
+        <h1>
+          Freshness You
+          <span>Can Taste.</span>
+          ❤️
+        </h1>
+
+        <p class="hero-text">
+          Freshly prepared cold-pressed juices, zobo, tigernut milk and green salads —
+          made with quality ingredients and delivered fresh to you.
         </p>
 
-        <form
-            class="subscribe-form"
-            onsubmit="subscribeUser(event)"
-        >
-
-            <input
-                type="email"
-                id="emailInput"
-                placeholder="Enter your email address"
-                required
-            >
-
-            <button type="submit">
-                SUBSCRIBE
-            </button>
-
-        </form>
-
-    </section>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer id="contact">
-
-        <div class="footer-grid">
-
-
-            <div class="footer-brand">
-
-                <img
-                    src="images/logo.png.jpeg"
-                    alt="Wendy's Cold Pressed Juice"
-                >
-
-                <h2>
-                    Wendy's Cold Pressed Juice
-                </h2>
-
-                <p>
-                    Fresh. Delicious. Made With Care. ❤️
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Shop
-                </h3>
-
-                <a href="#shop">
-                    All Products
-                </a>
-
-                <a href="#shop">
-                    Juices
-                </a>
-
-                <a href="#shop">
-                    Zobo
-                </a>
-
-                <a href="#shop">
-                    Tigernut Milk
-                </a>
-
-                <a href="#shop">
-                    Green Salad
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Customer Care
-                </h3>
-
-                <a href="#contact">
-                    Contact Us
-                </a>
-
-                <a href="#contact">
-                    Delivery Information
-                </a>
-
-                <a
-                    href="#"
-                    onclick="showToast('FAQs coming soon!'); return false;"
-                >
-                    FAQs
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Contact
-                </h3>
-
-                <a
-                    href="https://wa.me/2347088314315"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    💬 WhatsApp
-                </a>
-
-                <a href="tel:+2349066114326">
-                    📞 0906 611 4326
-                </a>
-
-                <a href="mailto:Wendysjuicz@gmail.com">
-                    📧 Email
-                </a>
-
-                <a
-                    href="https://www.instagram.com/sip.wendys/"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    📸 Instagram
-                </a>
-
-                <a
-                    href="https://www.tiktok.com/@Wendysjuicz"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    🎵 TikTok
-                </a>
-
-            </div>
-
-
+        <div class="hero-buttons">
+          <a href="#shop" class="btn btn-primary">SHOP NOW</a>
+          <a href="https://wa.me/2347088314315" target="_blank" class="btn btn-secondary">
+            💬 ORDER ON WHATSAPP
+          </a>
         </div>
+      </div>
 
+      <div class="hero-image">
+        <img src="images/menu.jpg.jpeg" alt="Wendy's Cold Pressed Juice Menu" />
+        <div class="floating-badge">⭐ Freshly Made Daily</div>
+      </div>
+    </div>
+  </section>
 
-        <div class="copyright">
-            © 2026 Wendy's Cold Pressed Juice.
-            All Rights Reserved.
-        </div>
+  <!-- TRUST -->
+  <section class="trust-section">
+    <div class="trust-grid">
+      <div class="trust-card"><div class="trust-icon">🌿</div><div><h4>Fresh Ingredients</h4><p>Quality ingredients</p></div></div>
+      <div class="trust-card"><div class="trust-icon">🧊</div><div><h4>Made Fresh</h4><p>Prepared with care</p></div></div>
+      <div class="trust-card"><div class="trust-icon">📦</div><div><h4>Clean Packaging</h4><p>Neat & secure</p></div></div>
+      <div class="trust-card"><div class="trust-icon">🚚</div><div><h4>Delivery</h4><p>Convenient ordering</p></div></div>
+    </div>
+  </section>
 
-    </footer>
-
-
-    <!-- =========================================================
-         CART
-    ========================================================== -->
-
-    <div
-        class="cart-overlay"
-        id="cartOverlay"
-        onclick="closeCartOutside(event)"
-    >
-
-        <div
-            class="cart-drawer"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Shopping cart"
-        >
-
-
-            <div class="cart-header">
-
-                <h2>
-                    🛒 Your Cart
-                </h2>
-
-                <button
-                    class="close-cart"
-                    onclick="closeCart()"
-                    aria-label="Close cart"
-                >
-                    ×
-                </button>
-
-            </div>
-
-
-            <div
-                class="cart-items"
-                id="cartItems"
-            >
-            </div>
-
-
-            <div class="cart-footer">
-
-                <div class="cart-total">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <span id="cartTotal">
-                        ₦0
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="checkout-btn"
-                    onclick="checkoutWhatsApp()"
-                >
-                    💬 CHECKOUT ON WHATSAPP
-                </button>
-
-
-                <button
-                    class="clear-cart-btn"
-                    onclick="clearCart()"
-                >
-                    Clear Cart
-                </button>
-
-            </div>
-
-        </div>
-
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="section-heading">
+      <h2>Shop by Category</h2>
+      <p>What are you craving today?</p>
     </div>
 
+    <div class="category-grid">
+      <a href="#shop" class="category-card" onclick="filterProducts('Juices')">
+        <div class="category-icon">🥤</div>
+        <div><h3>Cold Pressed Juices</h3><p>Fresh fruit combinations</p></div>
+      </a>
 
-    <!-- =========================================================
-         TOAST
-    ========================================================== -->
+      <a href="#shop" class="category-card" onclick="filterProducts('Zobo')">
+        <div class="category-icon">🌺</div>
+        <div><h3>Zobo</h3><p>Refreshing and delicious</p></div>
+      </a>
 
-    <div
-        class="toast"
-        id="toast"
-    ></div>
+      <a href="#shop" class="category-card" onclick="filterProducts('Tigernut Milk')">
+        <div class="category-icon">🥛</div>
+        <div><h3>Tigernut Milk</h3><p>Creamy and refreshing</p></div>
+      </a>
 
+      <a href="#shop" class="category-card" onclick="filterProducts('Green Salad')">
+        <div class="category-icon">🥗</div>
+        <div><h3>Green Salads</h3><p>Fresh and crunchy</p></div>
+      </a>
+    </div>
+  </section>
 
-    <!-- =========================================================
-         MOBILE BOTTOM NAV
-    ========================================================== -->
+  <!-- SHOP -->
+  <section class="section" id="shop">
+    <div class="section-heading">
+      <h2>🔥 Our Best Sellers</h2>
+      <p>Customer favorites, ready to order.</p>
+    </div>
 
-    <nav class="mobile-bottom-nav">
+    <div class="shop-toolbar">
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="Search juices, zobo, tigernut milk..." oninput="searchProducts()" />
+      </div>
 
-        <button
-            class="bottom-nav-item active"
-            onclick="goHome()"
-        >
-            <span>🏠</span>
-            <span>Home</span>
-        </button>
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterProducts('All')">All</button>
+        <button class="filter-btn" onclick="filterProducts('Juices')">Juices</button>
+        <button class="filter-btn" onclick="filterProducts('Zobo')">Zobo</button>
+        <button class="filter-btn" onclick="filterProducts('Tigernut Milk')">Tigernut Milk</button>
+        <button class="filter-btn" onclick="filterProducts('Green Salad')">Salad</button>
+      </div>
+    </div>
 
+    <div class="product-grid" id="productGrid">
+      <!-- PRODUCT 1 -->
+      <div class="product-card" data-category="Juices" data-name="Watermelon Pineapple Juice">
+        <div class="product-image-wrap">
+          <span class="product-badge">BEST SELLER</span>
+          <button class="wishlist" data-product-name="Watermelon Pineapple Juice" onclick="toggleWishlist(this)">♡" aria-label="Add Watermelon Pineapple Juice to wishlist"></button>
+          <img src="images/pineapple.jpg.jpg" alt="Watermelon Pineapple Juice" class="product-image" />
+        </div>
 
-        <button
-            class="bottom-nav-item"
-            onclick="scrollToShop()"
-        >
-            <span>🛍️</span>
-            <span>Shop</span>
-        </button>
+        <div class="product-content">
+          <div class="rating">★★★★★ 4.9</div>
+          <h3 class="product-title">Watermelon Pineapple Juice</h3>
+          <p class="product-description">Refreshing watermelon and pineapple juice.</p>
+          <div class="product-bottom">
+            <span class="product-price">₦2,000</span>
+            <button class="add-cart" onclick="addToCart('Watermelon Pineapple Juice', 2000, 'images/pineapple.jpg.jpg')">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- PRODUCT 2 -->
+      <div class="product-card" data-category="Zobo" data-name="Cold Pressed Zobo">
+        <div class="product-image-wrap">
+          <span class="product-badge">BEST SELLER</span>
+          <button class="wishlist" data-product-name="Cold Pressed Zobo" onclick="toggleWishlist(this)">♡" aria-label="Add Cold Pressed Zobo to wishlist"></button>
+          <img src="images/zobo.jpg.jpeg" alt="Cold Pressed Zobo" class="product-image" />
+        </div>
 
-        <button
-            class="bottom-nav-item"
-            onclick="showWishlist()"
-        >
-            <span>❤️</span>
-            <span>Wishlist</span>
-        </button>
+        <div class="product-content">
+          <div class="rating">★★★★★ 4.9</div>
+          <h3 class="product-title">Cold Pressed Zobo</h3>
+          <p class="product-description">Rich, refreshing zobo prepared with care.</p>
+          <div class="product-bottom">
+            <span class="product-price">₦2,000</span>
+            <button class="add-cart" onclick="addToCart('Cold Pressed Zobo', 2000, 'images/zobo.jpg.jpeg')">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- PRODUCT 3 -->
+      <div class="product-card" data-category="Tigernut Milk" data-name="Tigernut Milk">
+        <div class="product-image-wrap">
+          <button class="wishlist" data-product-name="Tigernut Milk" onclick="toggleWishlist(this)">♡" aria-label="Add Tigernut Milk to wishlist"></button>
+          <img src="images/tigernut-milk.jpg.jpeg" alt="Tigernut Milk" class="product-image" />
+        </div>
 
-        <button
-            class="bottom-nav-item"
-            onclick="openCart()"
-        >
-            <span>🛒</span>
-            <span>Cart</span>
-        </button>
+        <div class="product-content">
+          <div class="rating">★★★★★ 4.8</div>
+          <h3 class="product-title">Tigernut Milk</h3>
+          <p class="product-description">Creamy, refreshing and delicious.</p>
+          <div class="product-bottom">
+            <span class="product-price">₦2,500</span>
+            <button class="add-cart" onclick="addToCart('Tigernut Milk', 2500, 'images/tigernut-milk.jpg.jpeg')">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- PRODUCT 4 -->
+      <div class="product-card" data-category="Green Salad" data-name="Wendy's Green Salad">
+        <div class="product-image-wrap">
+          <span class="product-badge" style="background: #00a36a;">FRESH</span>
+          <button class="wishlist" data-product-name="Wendy Green Salad" onclick="toggleWishlist(this)">♡" aria-label="Add Wendy's Green Salad to wishlist"></button>
+          <img src="images/salads-wraps.jpg.jpg" alt="Wendy's Green Salad" class="product-image" />
+        </div>
 
-        <button
-            class="bottom-nav-item"
-            onclick="showAccount()"
-        >
-            <span>👤</span>
-            <span>Account</span>
-        </button>
+        <div class="product-content">
+          <div class="rating">★★★★★ 4.9</div>
+          <h3 class="product-title">Wendy's Green Salad</h3>
+          <p class="product-description">Fresh vegetables with delicious dressing.</p>
+          <div class="product-bottom">
+            <span class="product-price">₦3,500</span>
+            <button class="add-cart" onclick="addToCart('Wendy Green Salad', 3500, 'images/salads-wraps.jpg.jpg')">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </nav>
+  <!-- DEALS -->
+  <section class="section">
+    <div class="deals">
+      <h2>🎉 Fresh Deals & Special Offers</h2>
+      <p>Check back for Wendy's bundle deals and promotions.</p>
+      <a href="#shop" class="btn btn-secondary">SHOP OFFERS</a>
+    </div>
+  </section>
 
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-heading">
+      <h2>Why Choose Wendy's? ❤️</h2>
+      <p>Made with care. Served fresh.</p>
+    </div>
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">🌿</div>
+        <h3>Fresh Ingredients</h3>
+        <p>Quality ingredients.</p>
+      </div>
 
-    <script>
+      <div class="why-card">
+        <div class="icon">🧊</div>
+        <h3>Made Fresh</h3>
+        <p>Prepared with freshness in mind.</p>
+      </div>
 
-        /* =====================================================
-           STORAGE
-        ===================================================== */
+      <div class="why-card">
+        <div class="icon">📦</div>
+        <h3>Clean Packaging</h3>
+        <p>Every order handled with care.</p>
+      </div>
 
-        let cart =
-            JSON.parse(
-                localStorage.getItem("wendysCart")
-            ) || [];
+      <div class="why-card">
+        <div class="icon">❤️</div>
+        <h3>Made With Love</h3>
+        <p>Every order matters.</p>
+      </div>
+    </div>
+  </section>
 
-        let wishlist =
-            JSON.parse(
-                localStorage.getItem("wendysWishlist")
-            ) || [];
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>⭐ What Our Customers Are Saying</h2>
+      <p>Happy customers, fresh experiences.</p>
+    </div>
 
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"The juice was so fresh and delicious. I will definitely order again!"</p>
+        <span class="verified">Verified Customer</span>
+      </div>
 
-        /* =====================================================
-           ELEMENTS
-        ===================================================== */
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Everything came neatly packaged and tasted amazing."</p>
+        <span class="verified">Verified Customer</span>
+      </div>
 
-        const menuToggle =
-            document.getElementById("menuToggle");
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"The salad was fresh and the delivery was convenient."</p>
+        <span class="verified">Verified Customer</span>
+      </div>
+    </div>
+  </section>
 
-        const mobileMenuOverlay =
-            document.getElementById("mobileMenuOverlay");
+  <!-- REWARDS -->
+  <section class="section">
+    <div class="rewards">
+      <div>
+        <div class="rewards-icon">🎁</div>
+        <h2>Wendy's Rewards</h2>
+        <p>Every order can bring you closer to your next reward.</p>
+      </div>
 
+      <div>
+        <h3>⭐ Earn points when you shop</h3>
+        <p>Create an account to track points and receive special offers.</p>
+        <button class="btn btn-primary" onclick="showToast('Rewards account coming soon!')">VIEW REWARDS</button>
+      </div>
+    </div>
+  </section>
 
-        /* =====================================================
-           MONEY
-        ===================================================== */
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Stay Fresh With Wendy's 🍹</h2>
+    <p>Get updates about new products, promotions and special offers.</p>
 
-        function formatMoney(amount) {
+    <form class="subscribe-form" onsubmit="subscribeUser(event)">
+      <input type="email" id="emailInput" placeholder="Enter your email address" required />
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </section>
 
-            return "₦" +
-                amount.toLocaleString("en-NG");
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png.jpeg" alt="Wendy's Cold Pressed Juice" />
+        <h2>Wendy's Cold Pressed Juice</h2>
+        <p>Fresh. Delicious. Made With Care. ❤️</p>
+      </div>
 
+      <div>
+        <h3>Shop</h3>
+        <a href="#shop">All Products</a>
+        <a href="#shop">Juices</a>
+        <a href="#shop">Zobo</a>
+        <a href="#shop">Tigernut Milk</a>
+        <a href="#shop">Green Salad</a>
+      </div>
+
+      <div>
+        <h3>Customer Care</h3>
+        <a href="#contact">Contact Us</a>
+        <a href="#contact">Delivery Information</a>
+        <a href="#" onclick="showToast('FAQs coming soon!'); return false;">FAQs</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <a href="https://wa.me/2347088314315" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="tel:+2349066114326">📞 0906 611 4326</a>
+        <a href="mailto:Wendysjuicz@gmail.com">📧 Email</a>
+        <a href="https://www.instagram.com/sip.wendys/" target="_blank" rel="noopener">📸 Instagram</a>
+        <a href="https://www.tiktok.com/@Wendysjuicz" target="_blank" rel="noopener">🎵 TikTok</a>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 Wendy's Cold Pressed Juice. All Rights Reserved.</div>
+  </footer>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+    <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+      <div class="cart-header">
+        <h2>🛒 Your Cart</h2>
+        <button class="close-cart" onclick="closeCart()" aria-label="Close cart">×</button>
+      </div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotal">₦0</span>
+        </div>
+
+        <button class="checkout-btn" onclick="checkoutWhatsApp()">💬 CHECKOUT ON WHATSAPP</button>
+        <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-bottom-nav" aria-label="Bottom navigation">
+    <button class="bottom-nav-item active" onclick="goHome()">
+      <span>🏠</span><span>Home</span>
+    </button>
+    <button class="bottom-nav-item" onclick="scrollToShop()">
+      <span>🛍️</span><span>Shop</span>
+    </button>
+    <button class="bottom-nav-item" onclick="showWishlist()">
+      <span>❤️</span><span>Wishlist</span>
+    </button>
+    <button class="bottom-nav-item" onclick="openCart()">
+      <span>🛒</span><span>Cart</span>
+    </button>
+    <button class="bottom-nav-item" onclick="showAccount()">
+      <span>👤</span><span>Account</span>
+    </button>
+  </nav>
+
+  <script>
+    /******************************************************
+     * STORAGE
+     ******************************************************/
+    let cart = JSON.parse(localStorage.getItem("wendysCart")) || [];
+    let wishlist = JSON.parse(localStorage.getItem("wendysWishlist")) || [];
+
+    /******************************************************
+     * HELPERS
+     ******************************************************/
+    function formatMoney(amount) {
+      return "₦" + Number(amount).toLocaleString("en-NG");
+    }
+
+    function saveCart() {
+      localStorage.setItem("wendysCart", JSON.stringify(cart));
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => toast.classList.remove("show"), 2500);
+    }
+
+    /******************************************************
+     * CART
+     ******************************************************/
+    function addToCart(name, price, image) {
+      const existing = cart.find((item) => item.name === name);
+      if (existing) existing.quantity++;
+      else cart.push({ name, price, image, quantity: 1 });
+
+      saveCart();
+      updateCart();
+      showToast(name + " added to cart 🛒");
+    }
+
+    function updateCart() {
+      const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+      const cartItems = document.getElementById("cartItems");
+      document.getElementById("cartCount").textContent = cartCount;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            <div style="font-size:50px;">🛒</div>
+            <h3>Your cart is empty</h3>
+            <p>Add something fresh!</p>
+          </div>
+        `;
+      } else {
+        cartItems.innerHTML = cart
+          .map((item, index) => `
+            <div class="cart-item">
+              <img src="${item.image}" alt="${item.name}">
+              <div>
+                <h4>${item.name}</h4>
+                <div class="cart-item-price">${formatMoney(item.price)}</div>
+                <div class="quantity-controls">
+                  <button type="button" onclick="changeQuantity(${index}, -1)" aria-label="Decrease quantity">−</button>
+                  <span>${item.quantity}</span>
+                  <button type="button" onclick="changeQuantity(${index}, 1)" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              <button class="remove-item" onclick="removeFromCart(${index})" type="button">Remove</button>
+            </div>
+          `)
+          .join("");
+      }
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      document.getElementById("cartTotal").textContent = formatMoney(total);
+    }
+
+    function changeQuantity(index, amount) {
+      if (!cart[index]) return;
+      cart[index].quantity += amount;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+      saveCart();
+      updateCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      saveCart();
+      updateCart();
+      showToast("Item removed");
+    }
+
+    function clearCart() {
+      if (cart.length === 0) return showToast("Your cart is already empty");
+      cart = [];
+      saveCart();
+      updateCart();
+      showToast("Cart cleared");
+    }
+
+    function openCart() {
+      closeMobileMenu();
+      updateCart();
+      document.getElementById("cartOverlay").classList.add("active");
+      document.body.classList.add("cart-open");
+    }
+
+    function closeCart() {
+      document.getElementById("cartOverlay").classList.remove("active");
+      document.body.classList.remove("cart-open");
+    }
+
+    function closeCartOutside(event) {
+      if (event.target === document.getElementById("cartOverlay")) closeCart();
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) return showToast("Your cart is empty 🛒");
+
+      let message =
+        "Hello Wendy's Cold Pressed Juice! 👋\n\n" +
+        "I would like to order:\n\n";
+
+      cart.forEach((item) => {
+        message += `• ${item.name} x${item.quantity} — ${formatMoney(item.price * item.quantity)}\n`;
+      });
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      message += `\nTotal: ${formatMoney(total)}\n\n`;
+      message += "Please confirm availability and delivery details. Thank you! ❤️";
+
+      const whatsappURL =
+        "https://wa.me/2347088314315?text=" + encodeURIComponent(message);
+
+      window.open(whatsappURL, "_blank");
+    }
+
+    /******************************************************
+     * WISHLIST (fixed: no onclick parsing; uses data-product-name)
+     ******************************************************/
+    function toggleWishlist(buttonEl) {
+      const productName = buttonEl.getAttribute("data-product-name");
+      if (!productName) return;
+
+      const isIn = wishlist.includes(productName);
+
+      if (isIn) {
+        wishlist = wishlist.filter((x) => x !== productName);
+        buttonEl.classList.remove("active");
+        buttonEl.textContent = "♡";
+        showToast("Removed from wishlist");
+      } else {
+        wishlist.push(productName);
+        buttonEl.classList.add("active");
+        buttonEl.textContent = "♥";
+        showToast("Added to wishlist ❤️");
+      }
+
+      localStorage.setItem("wendysWishlist", JSON.stringify(wishlist));
+    }
+
+    function initializeWishlistButtons() {
+      document.querySelectorAll(".wishlist").forEach((btn) => {
+        const name = btn.getAttribute("data-product-name");
+        if (!name) return;
+        if (wishlist.includes(name)) {
+          btn.classList.add("active");
+          btn.textContent = "♥";
+        } else {
+          btn.classList.remove("active");
+          btn.textContent = "♡";
         }
-
-
-        /* =====================================================
-           CART STORAGE
-        ===================================================== */
-
-        function saveCart() {
-
-            localStorage.setItem(
-                "wendysCart",
-                JSON.stringify(cart)
-            );
-
-        }
-
-
-        /* =====================================================
-           ADD TO CART
-        ===================================================== */
-
-        function addToCart(
-            name,
-            price,
-            image
-        ) {
-
-            const existing =
-                cart.find(
-                    item => item.name === name
-                );
-
-            if (existing) {
-
-                existing.quantity++;
-
-            } else {
-
-                cart.push({
-                    name,
-                    price,
-                    image,
-                    quantity: 1
-                });
-
-            }
-
-            saveCart();
-            updateCart();
-
-            showToast(
-                name + " added to cart 🛒"
-            );
-        }
-
-
-        /* =====================================================
-           UPDATE CART
-        ===================================================== */
-
-        function updateCart() {
-
-            const cartCount =
-                cart.reduce(
-                    (total, item) =>
-                        total + item.quantity,
-                    0
-                );
-
-            document.getElementById(
-                "cartCount"
-            ).textContent = cartCount;
-
-
-            const cartItems =
-                document.getElementById(
-                    "cartItems"
-                );
-
-
-            if (cart.length === 0) {
-
-                cartItems.innerHTML = `
-                    <div class="empty-cart">
-
-                        <div style="font-size:50px;">
-                            🛒
-                        </div>
-
-                        <h3>
-                            Your cart is empty
-                        </h3>
-
-                        <p>
-                            Add something fresh!
-                        </p>
-
-                    </div>
-                `;
-
-            } else {
-
-                cartItems.innerHTML =
-                    cart.map(
-                        (item, index) => `
-
-                            <div class="cart-item">
-
-                                <img
-                                    src="${item.image}"
-                                    alt="${item.name}"
-                                >
-
-                                <div>
-
-                                    <h4>
-                                        ${item.name}
-                                    </h4>
-
-                                    <div class="cart-item-price">
-                                        ${formatMoney(
-                                            item.price
-                                        )}
-                                    </div>
-
-                                    <div class="quantity-controls">
-
-                                        <button
-                                            onclick="changeQuantity(
-                                                ${index},
-                                                -1
-                                            )"
-                                        >
-                                            −
-                                        </button>
-
-                                        <span>
-                                            ${item.quantity}
-                                        </span>
-
-                                        <button
-                                            onclick="changeQuantity(
-                                                ${index},
-                                                1
-                                            )"
-                                        >
-                                            +
-                                        </button>
-
-                                    </div>
-
-                                </div>
-
-                                <button
-                                    class="remove-item"
-                                    onclick="removeFromCart(${index})"
-                                >
-                                    Remove
-                                </button>
-
-                            </div>
-
-                        `
-                    ).join("");
-
-            }
-
-
-            const total =
-                cart.reduce(
-                    (sum, item) =>
-                        sum +
-                        item.price *
-                        item.quantity,
-                    0
-                );
-
-            document.getElementById(
-                "cartTotal"
-            ).textContent =
-                formatMoney(total);
-        }
-
-
-        /* =====================================================
-           CHANGE QUANTITY
-        ===================================================== */
-
-        function changeQuantity(
-            index,
-            amount
-        ) {
-
-            cart[index].quantity += amount;
-
-            if (cart[index].quantity <= 0) {
-
-                cart.splice(index, 1);
-
-            }
-
-            saveCart();
-            updateCart();
-        }
-
-
-        /* =====================================================
-           REMOVE ITEM
-        ===================================================== */
-
-        function removeFromCart(index) {
-
-            cart.splice(index, 1);
-
-            saveCart();
-            updateCart();
-
-            showToast("Item removed");
-        }
-
-
-        /* =====================================================
-           CLEAR CART
-        ===================================================== */
-
-        function clearCart() {
-
-            if (cart.length === 0) {
-
-                showToast("Your cart is already empty");
-
-                return;
-            }
-
-            cart = [];
-
-            saveCart();
-            updateCart();
-
-            showToast("Cart cleared");
-        }
-
-
-        /* =====================================================
-           OPEN CART
-        ===================================================== */
-
-        function openCart() {
-
-            closeMobileMenu();
-
-            updateCart();
-
-            document
-                .getElementById("cartOverlay")
-                .classList.add("active");
-
-            document.body.classList.add("cart-open");
-        }
-
-
-        /* =====================================================
-           CLOSE CART
-        ===================================================== */
-
-        function closeCart() {
-
-            document
-                .getElementById("cartOverlay")
-                .classList.remove("active");
-
-            document.body.classList.remove("cart-open");
-        }
-
-
-        /* =====================================================
-           CART OUTSIDE CLICK
-        ===================================================== */
-
-        function closeCartOutside(event) {
-
-            if (
-                event.target ===
-                document.getElementById("cartOverlay")
-            ) {
-
-                closeCart();
-
-            }
-        }
-
-
-        /* =====================================================
-           WHATSAPP CHECKOUT
-        ===================================================== */
-
-        function checkoutWhatsApp() {
-
-            if (cart.length === 0) {
-
-                showToast(
-                    "Your cart is empty 🛒"
-                );
-
-                return;
-            }
-
-
-            let message =
-                "Hello Wendy's Cold Pressed Juice! 👋\n\n" +
-                "I would like to order:\n\n";
-
-
-            cart.forEach(item => {
-
-                message +=
-                    "• " +
-                    item.name +
-                    " x" +
-                    item.quantity +
-                    " — " +
-                    formatMoney(
-                        item.price *
-                        item.quantity
-                    ) +
-                    "\n";
-
-            });
-
-
-            const total =
-                cart.reduce(
-                    (sum, item) =>
-                        sum +
-                        item.price *
-                        item.quantity,
-                    0
-                );
-
-
-            message +=
-                "\nTotal: " +
-                formatMoney(total) +
-                "\n\n";
-
-            message +=
-                "Please confirm availability and delivery details. Thank you! ❤️";
-
-
-            const whatsappURL =
-                "https://wa.me/2347088314315?text=" +
-                encodeURIComponent(message);
-
-
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
-        }
-
-
-        /* =====================================================
-           WISHLIST
-        ===================================================== */
-
-        function toggleWishlist(
-            button,
-            productName
-        ) {
-
-            if (
-                wishlist.includes(productName)
-            ) {
-
-                wishlist =
-                    wishlist.filter(
-                        item =>
-                            item !== productName
-                    );
-
-                button.classList.remove("active");
-                button.textContent = "♡";
-
-                showToast(
-                    "Removed from wishlist"
-                );
-
-            } else {
-
-                wishlist.push(productName);
-
-                button.classList.add("active");
-                button.textContent = "♥";
-
-                showToast(
-                    "Added to wishlist ❤️"
-                );
-            }
-
-
-            localStorage.setItem(
-                "wendysWishlist",
-                JSON.stringify(wishlist)
-            );
-        }
-
-
-        /* =====================================================
-           SHOW WISHLIST
-        ===================================================== */
-
-        function showWishlist() {
-
-            closeMobileMenu();
-
-            if (wishlist.length === 0) {
-
-                showToast(
-                    "Your wishlist is empty ❤️"
-                );
-
-                return;
-            }
-
-            showToast(
-                wishlist.length +
-                " item(s) in your wishlist ❤️"
-            );
-
-            scrollToShop();
-        }
-
-
-        /* =====================================================
-           MOBILE WISHLIST
-        ===================================================== */
-
-        function mobileWishlistAction() {
-
-            closeMobileMenu();
-
-            showWishlist();
-        }
-
-
-        /* =====================================================
-           MOBILE CART
-        ===================================================== */
-
-        function mobileCartAction() {
-
-            closeMobileMenu();
-
-            setTimeout(
-                () => openCart(),
-                250
-            );
-        }
-
-
-        /* =====================================================
-           MOBILE ACCOUNT
-        ===================================================== */
-
-        function mobileAccountAction() {
-
-            closeMobileMenu();
-
-            setTimeout(
-                () => showAccount(),
-                250
-            );
-        }
-
-
-        /* =====================================================
-           SEARCH
-        ===================================================== */
-
-        function searchProducts() {
-
-            const search =
-                document
-                    .getElementById("searchInput")
-                    .value
-                    .toLowerCase()
-                    .trim();
-
-
-            document
-                .querySelectorAll(".product-card")
-                .forEach(card => {
-
-                    const name =
-                        card.dataset.name
-                            .toLowerCase();
-
-                    const category =
-                        card.dataset.category
-                            .toLowerCase();
-
-                    card.style.display =
-                        (
-                            name.includes(search) ||
-                            category.includes(search)
-                        )
-                            ? ""
-                            : "none";
-                });
-        }
-
-
-        /* =====================================================
-           FILTER
-        ===================================================== */
-
-        function filterProducts(category) {
-
-            document
-                .querySelectorAll(".filter-btn")
-                .forEach(button => {
-
-                    button.classList.remove("active");
-
-                });
-
-
-            document
-                .querySelectorAll(".filter-btn")
-                .forEach(button => {
-
-                    if (
-                        button.textContent
-                            .trim()
-                            .toLowerCase()
-                            .includes(
-                                category === "Green Salad"
-                                    ? "salad"
-                                    : category.toLowerCase()
-                            )
-                    ) {
-
-                        button.classList.add("active");
-
-                    }
-
-                    if (
-                        category === "All" &&
-                        button.textContent.trim() === "All"
-                    ) {
-
-                        button.classList.add("active");
-
-                    }
-                });
-
-
-            document
-                .querySelectorAll(".product-card")
-                .forEach(card => {
-
-                    card.style.display =
-                        (
-                            category === "All" ||
-                            card.dataset.category === category
-                        )
-                            ? ""
-                            : "none";
-
-                });
-
-
-            const searchInput =
-                document.getElementById(
-                    "searchInput"
-                );
-
-            if (searchInput) {
-                searchInput.value = "";
-            }
-
-
-            document
-                .getElementById("shop")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-        }
-
-
-        /* =====================================================
-           SCROLL TO SHOP
-        ===================================================== */
-
-        function scrollToShop() {
-
-            closeMobileMenu();
-
-            document
-                .getElementById("shop")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
-        }
-
-
-        /* =====================================================
-           HOME
-        ===================================================== */
-
-        function goHome() {
-
-            closeMobileMenu();
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-
-
-        /* =====================================================
-           ACCOUNT
-        ===================================================== */
-
-        function showAccount() {
-
-            showToast(
-                "Account features coming soon 👤"
-            );
-        }
-
-
-        /* =====================================================
-           NEWSLETTER
-        ===================================================== */
-
-        function subscribeUser(event) {
-
-            event.preventDefault();
-
-            const email =
-                document
-                    .getElementById("emailInput")
-                    .value;
-
-            if (email) {
-
-                showToast(
-                    "You're subscribed! 🎉"
-                );
-
-                document
-                    .getElementById("emailInput")
-                    .value = "";
-            }
-        }
-
-
-        /* =====================================================
-           TOAST
-        ===================================================== */
-
-        let toastTimer;
-
-        function showToast(message) {
-
-            const toast =
-                document.getElementById("toast");
-
-            toast.textContent = message;
-
-            toast.classList.add("show");
-
-            clearTimeout(toastTimer);
-
-            toastTimer =
-                setTimeout(() => {
-
-                    toast.classList.remove("show");
-
-                }, 2500);
-        }
-
-
-        /* =====================================================
-           OPEN MOBILE MENU
-        ===================================================== */
-
-        function openMobileMenu() {
-
-            mobileMenuOverlay.classList.add("active");
-
-            menuToggle.classList.add("active");
-
-            menuToggle.textContent = "×";
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Close menu"
-            );
-
-            document.body.classList.add("menu-open");
-        }
-
-
-        /* =====================================================
-           CLOSE MOBILE MENU
-        ===================================================== */
-
-        function closeMobileMenu() {
-
-            mobileMenuOverlay.classList.remove("active");
-
-            menuToggle.classList.remove("active");
-
-            menuToggle.textContent = "☰";
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open menu"
-            );
-
-            document.body.classList.remove("menu-open");
-        }
-
-
-        /* =====================================================
-           TOGGLE MOBILE MENU
-        ===================================================== */
-
-        function toggleMobileMenu() {
-
-            if (
-                mobileMenuOverlay.classList.contains("active")
-            ) {
-
-                closeMobileMenu();
-
-            } else {
-
-                openMobileMenu();
-
-            }
-        }
-
-
-        /* =====================================================
-           CLICK OUTSIDE MOBILE MENU
-        ===================================================== */
-
-        function handleMenuOverlayClick(event) {
-
-            if (
-                event.target ===
-                mobileMenuOverlay
-            ) {
-
-                closeMobileMenu();
-
-            }
-        }
-
-
-        /* =====================================================
-           ESCAPE KEY
-        ===================================================== */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (event.key === "Escape") {
-
-                    closeMobileMenu();
-                    closeCart();
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           INITIALIZE WISHLIST BUTTONS
-        ===================================================== */
-
-        function initializeWishlistButtons() {
-
-            document
-                .querySelectorAll(".wishlist")
-                .forEach(button => {
-
-                    const onclick =
-                        button.getAttribute("onclick") || "";
-
-                    const match =
-                        onclick.match(
-                            /'([^']+)'/
-                        );
-
-                    if (
-                        match &&
-                        wishlist.includes(match[1])
-                    ) {
-
-                        button.classList.add("active");
-
-                        button.textContent = "♥";
-                    }
-
-                });
-        }
-
-
-        /* =====================================================
-           INITIALIZE
-        ===================================================== */
-
-        updateCart();
-
-        initializeWishlistButtons();
-
-    </script>
-
+      });
+    }
+
+    function showWishlist() {
+      closeMobileMenu();
+      if (wishlist.length === 0) return showToast("Your wishlist is empty ❤️");
+      showToast(`${wishlist.length} item(s) in your wishlist ❤️`);
+      scrollToShop();
+    }
+
+    function mobileWishlistAction() {
+      closeMobileMenu();
+      showWishlist();
+    }
+
+    /******************************************************
+     * SEARCH & FILTER
+     ******************************************************/
+    function searchProducts() {
+      const search = (document.getElementById("searchInput").value || "").toLowerCase().trim();
+
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const name = (card.dataset.name || "").toLowerCase();
+        const category = (card.dataset.category || "").toLowerCase();
+        card.style.display = (name.includes(search) || category.includes(search)) ? "" : "none";
+      });
+    }
+
+    function filterProducts(category) {
+      document.querySelectorAll(".filter-btn").forEach((btn) => btn.classList.remove("active"));
+
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        const text = (btn.textContent || "").trim();
+        const lower = text.toLowerCase();
+        const match =
+          (category === "All" && text === "All") ||
+          (category === "Green Salad" && lower === "salad") ||
+          (category !== "All" && category !== "Green Salad" && lower === category.toLowerCase());
+
+        if (match) btn.classList.add("active");
+      });
+
+      document.querySelectorAll(".product-card").forEach((card) => {
+        card.style.display = (category === "All" || card.dataset.category === category) ? "" : "none";
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput) searchInput.value = "";
+
+      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
+    }
+
+    /******************************************************
+     * NAV / SCROLL
+     ******************************************************/
+    function scrollToShop() {
+      closeMobileMenu();
+      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function goHome() {
+      closeMobileMenu();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /******************************************************
+     * ACCOUNT + MOBILE ACTIONS
+     ******************************************************/
+    function showAccount() {
+      showToast("Account features coming soon 👤");
+    }
+
+    function mobileCartAction() {
+      closeMobileMenu();
+      setTimeout(() => openCart(), 250);
+    }
+
+    function mobileAccountAction() {
+      closeMobileMenu();
+      setTimeout(() => showAccount(), 250);
+    }
+
+    /******************************************************
+     * MOBILE MENU
+     ******************************************************/
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+
+    function openMobileMenu() {
+      mobileMenuOverlay.classList.add("active");
+      menuToggle.classList.add("active");
+      menuToggle.textContent = "×";
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Close menu");
+      document.body.classList.add("menu-open");
+    }
+
+    function closeMobileMenu() {
+      mobileMenuOverlay.classList.remove("active");
+      menuToggle.classList.remove("active");
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open menu");
+      document.body.classList.remove("menu-open");
+    }
+
+    function toggleMobileMenu() {
+      if (mobileMenuOverlay.classList.contains("active")) closeMobileMenu();
+      else openMobileMenu();
+    }
+
+    function handleMenuOverlayClick(event) {
+      if (event.target === mobileMenuOverlay) closeMobileMenu();
+    }
+
+    /******************************************************
+     * NEWSLETTER
+     ******************************************************/
+    function subscribeUser(event) {
+      event.preventDefault();
+      const emailEl = document.getElementById("emailInput");
+      const email = (emailEl.value || "").trim();
+
+      if (!email) return;
+
+      showToast("You're subscribed! 🎉");
+      emailEl.value = "";
+    }
+
+    /******************************************************
+     * ESC key
+     ******************************************************/
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+        closeCart();
+      }
+    });
+
+    /******************************************************
+     * INIT
+     ******************************************************/
+    updateCart();
+    initializeWishlistButtons();
+  </script>
 </body>
 </html>
