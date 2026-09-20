@@ -11,8 +11,8 @@
 
   <style>
     /* =========================================================
-       Professional UI Refresh (Single-file)
-       Theme: same green
+       Wendy's Cold Pressed Juice
+       Update: full-bleed hero image + luxury product cards
     ========================================================= */
     :root{
       --green:#08783d;
@@ -30,6 +30,12 @@
 
       --shadow:0 10px 30px rgba(0,0,0,0.08);
       --shadow-heavy:0 20px 60px rgba(0,0,0,0.16);
+
+      /* luxury card tokens */
+      --card-radius:26px;
+      --card-shadow:0 14px 38px rgba(6,77,41,.09);
+      --card-shadow-hover:0 28px 66px rgba(6,77,41,.20);
+
       --radius:18px;
       --radius-lg:26px;
 
@@ -50,6 +56,12 @@
     button,input{font-family:inherit}
     a{text-decoration:none}
     img{max-width:100%}
+    :focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important; animation:none !important}
+      html{scroll-behavior:auto}
+    }
 
     /* =========================================================
        Announcement
@@ -152,52 +164,93 @@
     .menu-toggle:hover{background:var(--light-green); transform:translateY(-2px)}
 
     /* =========================================================
-       Hero
+       Hero — FULL BLEED BACKGROUND IMAGE
     ========================================================= */
     .hero{
-      background:linear-gradient(135deg, #effff4, #ffffff);
-      padding:72px 6%;
+      position:relative;
+      min-height:min(86vh, 760px);
+      display:flex;
+      align-items:center;
+      padding:90px 6%;
+      background-image:
+        linear-gradient(105deg, rgba(4,44,24,.92) 0%, rgba(4,44,24,.72) 42%, rgba(4,44,24,.30) 72%, rgba(4,44,24,.15) 100%),
+        url("images/menu.jpg.jpeg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      color:#fff;
       overflow:hidden;
     }
+    /* bottom fade so the section blends into the page */
+    .hero::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:0;
+      height:130px;
+      background:linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+      pointer-events:none;
+    }
+
     .container{max-width:var(--container); margin:auto}
     .hero-inner{
-      display:grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items:center;
-      gap:56px;
+      position:relative;
+      z-index:2;
+      display:block;
     }
     .hero-content{max-width:660px}
     .hero-label{
       display:inline-flex; align-items:center; gap:10px;
-      background:var(--light-green);
-      color:var(--green);
-      padding:8px 14px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.3);
+      backdrop-filter:blur(6px);
+      color:#fff;
+      padding:9px 16px;
       border-radius:999px;
       font-size:14px;
       font-weight:900;
-      margin-bottom:18px;
+      margin-bottom:20px;
     }
     .hero h1{
-      font-size:clamp(42px, 6vw, 76px);
-      line-height:1.04;
-      color:var(--dark-green);
+      font-size:clamp(44px, 6.4vw, 80px);
+      line-height:1.03;
+      color:#fff;
       margin-bottom:18px;
       font-weight:1000;
+      text-shadow:0 4px 30px rgba(0,0,0,.35);
     }
-    .hero h1 span{color:var(--green)}
+    .hero h1 span{color:var(--gold)}
     .hero-text{
       font-size:19px;
-      color:#575757;
-      max-width:610px;
-      margin-bottom:26px;
+      color:rgba(255,255,255,.92);
+      max-width:60ch;
+      margin-bottom:28px;
       font-weight:600;
+      text-shadow:0 2px 16px rgba(0,0,0,.35);
     }
-    .hero-buttons{display:flex; gap:12px; flex-wrap:wrap}
+    .hero-buttons{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px}
+
+    .hero-points{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .hero-point{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(6px);
+      padding:9px 15px;
+      border-radius:999px;
+      font-size:13.5px;
+      font-weight:800;
+      color:#fff;
+    }
 
     .btn{
       border:none;
       border-radius:999px;
-      padding:14px 22px;
+      padding:15px 24px;
       font-weight:1000;
       display:inline-flex;
       align-items:center;
@@ -205,33 +258,12 @@
       gap:8px;
       transition:.25s;
       letter-spacing:.2px;
+      cursor:pointer;
     }
-    .btn-primary{background:var(--green); color:#fff}
-    .btn-primary:hover{background:var(--dark-green); transform:translateY(-2px)}
-    .btn-secondary{background:var(--gold); color:#111}
+    .btn-primary{background:var(--green); color:#fff; box-shadow:0 14px 30px rgba(8,120,61,.35)}
+    .btn-primary:hover{background:#0a8d48; transform:translateY(-2px)}
+    .btn-secondary{background:var(--gold); color:#111; box-shadow:0 14px 30px rgba(245,183,44,.3)}
     .btn-secondary:hover{transform:translateY(-2px)}
-
-    .hero-image{position:relative}
-    .hero-image img{
-      width:100%;
-      height:520px;
-      object-fit:cover;
-      border-radius:30px;
-      box-shadow:var(--shadow-heavy);
-      background:#fff;
-    }
-    .floating-badge{
-      position:absolute;
-      bottom:22px; left:-14px;
-      background:#fff;
-      padding:14px 18px;
-      border-radius:16px;
-      box-shadow:var(--shadow);
-      font-weight:1000;
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
 
     /* =========================================================
        Sections
@@ -253,7 +285,7 @@
     /* =========================================================
        Trust
     ========================================================= */
-    .trust-section{padding:30px 6% 10px; background:#fff}
+    .trust-section{padding:34px 6% 10px; background:#fff}
     .trust-grid{
       max-width:var(--container);
       margin:auto;
@@ -264,8 +296,8 @@
     .trust-card{
       background:#fff;
       border:1px solid var(--border);
-      border-radius:16px;
-      padding:18px 18px;
+      border-radius:18px;
+      padding:18px;
       display:flex;
       align-items:center;
       gap:12px;
@@ -284,11 +316,13 @@
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap:20px;
+      max-width:var(--container);
+      margin:0 auto;
     }
     .category-card{
       position:relative;
       min-height:220px;
-      border-radius:22px;
+      border-radius:26px;
       overflow:hidden;
       display:flex;
       align-items:flex-end;
@@ -296,9 +330,9 @@
       color:#fff;
       background:var(--green);
       transition:.28s;
-      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+      box-shadow:0 14px 34px rgba(0,0,0,.10);
     }
-    .category-card:hover{transform:translateY(-6px)}
+    .category-card:hover{transform:translateY(-6px); box-shadow:0 26px 56px rgba(0,0,0,.18)}
     .category-card:nth-child(2){background:#8c2542}
     .category-card:nth-child(3){background:#a87920}
     .category-card:nth-child(4){background:#438c43}
@@ -352,64 +386,72 @@
     }
 
     /* =========================================================
-       Products
+       Products — LUXURY CARDS
     ========================================================= */
     .product-grid{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
-      gap:22px;
+      gap:26px;
       max-width:var(--container);
       margin:0 auto;
     }
     .product-card{
-      border:1px solid var(--border);
-      border-radius:18px;
+      border:1px solid rgba(228,232,229,.9);
+      border-radius:var(--card-radius);
       overflow:hidden;
       background:#fff;
-      transition:.28s;
+      transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
       position:relative;
-      box-shadow:0 1px 0 rgba(0,0,0,.02);
+      box-shadow:var(--card-shadow);
     }
-    .product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow)}
+    .product-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--card-shadow-hover);
+    }
     .product-image-wrap{
       position:relative;
       background:var(--light-gray);
-      min-height:230px;
+      min-height:250px;
+      padding:10px 10px 0;
     }
     .product-image{
       width:100%;
-      height:230px;
+      height:240px;
       object-fit:cover;
       display:block;
+      border-radius:20px;
     }
     .product-badge{
-      position:absolute; top:12px; left:12px;
-      background:var(--green);
+      position:absolute; top:20px; left:20px;
+      background:rgba(6,77,41,.94);
+      backdrop-filter:blur(4px);
       color:#fff;
-      padding:6px 12px;
+      padding:7px 13px;
       border-radius:999px;
       font-size:11px;
       font-weight:1000;
       letter-spacing:.3px;
-      box-shadow:0 8px 18px rgba(0,0,0,.15);
+      box-shadow:0 10px 22px rgba(0,0,0,.22);
+      z-index:2;
     }
     .wishlist{
-      position:absolute; top:12px; right:12px;
+      position:absolute; top:20px; right:20px;
       width:42px; height:42px;
       border:none;
-      background:rgba(255,255,255,.95);
+      background:rgba(255,255,255,.96);
       border-radius:999px;
       font-size:18px;
-      box-shadow:0 8px 18px rgba(0,0,0,.12);
+      box-shadow:0 10px 22px rgba(0,0,0,.15);
       transition:.2s;
       cursor:pointer;
       font-weight:900;
       color:#222;
+      z-index:2;
     }
     .wishlist:hover{transform:translateY(-2px)}
     .wishlist.active{color:var(--red)}
 
-    .product-content{padding:18px}
+    .product-content{padding:20px 20px 22px}
     .rating{
       color:var(--gold);
       font-size:13px;
@@ -435,11 +477,13 @@
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      margin-top:14px;
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--border);
     }
     .product-price{
-      color:var(--green);
-      font-size:19px;
+      color:var(--dark-green);
+      font-size:20px;
       font-weight:1100;
       letter-spacing:.2px;
       white-space:nowrap;
@@ -448,35 +492,44 @@
       border:none;
       background:var(--green);
       color:#fff;
-      padding:10px 14px;
-      border-radius:12px;
+      padding:11px 16px;
+      border-radius:999px;
       font-weight:1000;
       font-size:13px;
       transition:.2s;
       white-space:nowrap;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(8,120,61,.25);
     }
     .add-cart:hover{background:var(--dark-green); transform:translateY(-2px)}
+
     /* =========================================================
        Deals
     ========================================================= */
     .deals{
       background:linear-gradient(135deg, var(--dark-green), var(--green));
       color:#fff;
-      border-radius:25px;
+      border-radius:30px;
       padding:46px;
       text-align:center;
       box-shadow:0 30px 80px rgba(8,120,61,.25);
+      max-width:var(--container);
+      margin:0 auto;
     }
     .deals h2{font-size:34px; margin-bottom:10px; font-weight:1100}
     .deals p{margin-bottom:20px; opacity:.92; font-weight:650}
+
     /* =========================================================
        Why
     ========================================================= */
-    .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+    .why-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+      max-width:var(--container); margin:0 auto;
+    }
     .why-card{
       background:var(--light-gray);
-      border-radius:18px;
-      padding:26px;
+      border-radius:24px;
+      padding:28px;
       box-shadow:0 1px 0 rgba(0,0,0,.02);
       transition:.25s;
     }
@@ -484,38 +537,46 @@
     .why-card .icon{font-size:36px; margin-bottom:10px}
     .why-card h3{margin-bottom:6px; font-weight:1100}
     .why-card p{color:var(--gray); font-size:14px; font-weight:650}
+
     /* =========================================================
        Testimonials
     ========================================================= */
-    .testimonial-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+    .testimonial-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+      max-width:var(--container); margin:0 auto;
+    }
     .testimonial{
-      padding:26px;
+      padding:28px;
       border:1px solid var(--border);
-      border-radius:18px;
+      border-radius:24px;
       background:#fff;
       transition:.25s;
-      box-shadow:0 1px 0 rgba(0,0,0,.02);
+      box-shadow:0 8px 24px rgba(6,77,41,.05);
     }
     .testimonial:hover{transform:translateY(-4px); box-shadow:var(--shadow)}
     .testimonial .stars{color:var(--gold); margin-bottom:12px; font-weight:1100}
     .testimonial p{color:#444; font-style:italic; margin-bottom:14px; font-weight:650}
     .verified{font-size:13px; font-weight:1000; color:var(--green)}
+
     /* =========================================================
        Rewards
     ========================================================= */
     .rewards{
       background:#fff8e7;
-      border-radius:25px;
+      border-radius:30px;
       padding:46px;
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:30px;
       box-shadow:0 25px 70px rgba(245,183,44,.15);
+      max-width:var(--container);
+      margin:0 auto;
     }
     .rewards-icon{font-size:55px}
     .rewards h2{color:var(--dark-green); font-weight:1100}
     .rewards p{color:var(--gray); font-weight:650; margin-top:8px}
+
     /* =========================================================
        Newsletter
     ========================================================= */
@@ -556,6 +617,7 @@
       transition:.2s;
     }
     .subscribe-form button:hover{background:var(--dark-green); transform:translateY(-2px)}
+
     /* =========================================================
        Footer
     ========================================================= */
@@ -601,7 +663,6 @@
       background:rgba(4,77,41,0.35);
       backdrop-filter:blur(5px);
       z-index:5000;
-
       opacity:0;
       visibility:hidden;
       transition:opacity .3s ease, visibility .3s ease;
@@ -614,7 +675,6 @@
       height:100%;
       background:linear-gradient(160deg,#ffffff 0%, #f7fff9 100%);
       overflow-y:auto;
-
       transform:translateX(100%);
       transition:transform .4s cubic-bezier(.22,1,.36,1);
       box-shadow:-15px 0 50px rgba(0,0,0,.15);
@@ -718,7 +778,6 @@
       margin-top:20px;
     }
     .mobile-action{
-      border:none;
       padding:15px 10px;
       border-radius:15px;
       background:#fff;
@@ -726,6 +785,7 @@
       font-weight:1100;
       color:#222;
       transition:.25s;
+      cursor:pointer;
     }
     .mobile-action:hover{
       border-color:var(--green);
@@ -796,7 +856,7 @@
     .cart-item img{
       width:65px; height:65px;
       object-fit:cover;
-      border-radius:10px;
+      border-radius:14px;
       background:var(--light-gray);
     }
     .cart-item h4{font-size:14px; font-weight:1100}
@@ -848,7 +908,7 @@
       background:var(--green);
       color:#fff;
       padding:15px;
-      border-radius:12px;
+      border-radius:14px;
       font-weight:1100;
       cursor:pointer;
       transition:.2s;
@@ -902,10 +962,9 @@
       .why-grid{grid-template-columns:repeat(2,1fr)}
       .trust-grid{grid-template-columns:repeat(2,1fr)}
       .testimonial-grid{grid-template-columns:1fr}
-      .hero-inner{gap:36px}
-      .hero-image img{height:460px}
       .desktop-nav{gap:18px}
       .desktop-nav a{font-size:14px}
+      .hero{min-height:auto; padding:80px 6%}
     }
 
     @media (max-width:700px){
@@ -920,15 +979,21 @@
       .header-actions .icon-button:first-child{display:none}
       .logo img{height:53px; max-width:155px}
 
-      .hero{padding:46px 18px}
-      .hero-inner{grid-template-columns:1fr; gap:30px}
-      .hero-image{order:-1}
-      .hero-image img{height:310px; border-radius:20px}
-      .hero h1{font-size:43px}
-      .hero-text{font-size:16px}
-      .hero-buttons{flex-direction:column}
+      .hero{
+        padding:62px 20px 74px;
+        min-height:78vh;
+        align-items:flex-end;
+        background-image:
+          linear-gradient(to bottom, rgba(4,44,24,.55) 0%, rgba(4,44,24,.80) 55%, rgba(4,44,24,.94) 100%),
+          url("images/menu.jpg.jpeg");
+        background-position:center 30%;
+      }
+      .hero::after{height:70px}
+      .hero h1{font-size:42px}
+      .hero-text{font-size:16px; margin-bottom:22px}
+      .hero-buttons{flex-direction:column; width:100%}
       .btn{width:100%}
-      .floating-badge{left:10px; bottom:12px; font-size:12px; padding:12px 14px}
+      .hero-point{font-size:12.5px; padding:8px 13px}
 
       .trust-grid{grid-template-columns:repeat(2,1fr)}
       .category-grid{grid-template-columns:repeat(2,1fr); gap:12px}
@@ -937,14 +1002,18 @@
       .section-heading{margin-bottom:36px}
       .section-heading h2{font-size:30px}
 
-      .product-grid{grid-template-columns:repeat(2,1fr); gap:12px}
-      .product-image{height:160px}
-      .product-content{padding:12px}
+      .product-grid{grid-template-columns:repeat(2,1fr); gap:14px}
+      .product-card{border-radius:22px}
+      .product-image-wrap{min-height:auto; padding:8px 8px 0}
+      .product-image{height:165px; border-radius:16px}
+      .product-badge{top:16px; left:16px; font-size:10px; padding:6px 10px}
+      .wishlist{top:16px; right:16px; width:36px; height:36px; font-size:16px}
+      .product-content{padding:14px}
       .product-title{font-size:15px}
       .product-description{font-size:12px}
-      .product-price{font-size:15px}
-      .add-cart{font-size:11px; padding:8px}
-      .product-bottom{align-items:flex-end}
+      .product-price{font-size:16px}
+      .add-cart{font-size:11px; padding:9px 12px}
+      .product-bottom{align-items:center; margin-top:12px; padding-top:12px}
 
       .shop-toolbar{display:block}
       .search-box{min-width:unset; margin-bottom:12px}
@@ -990,9 +1059,10 @@
 
     @media (max-width:430px){
       .logo img{max-width:135px}
+      .hero h1{font-size:37px}
       .product-title{font-size:14px}
-      .product-price{font-size:14px}
-      .add-cart{font-size:10px; padding:7px}
+      .product-price{font-size:15px}
+      .add-cart{font-size:10px; padding:8px 10px}
       .footer-grid{grid-template-columns:1fr}
     }
 
@@ -1106,15 +1176,13 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero (full-bleed background image) -->
   <section class="hero" id="home">
     <div class="container hero-inner">
       <div class="hero-content">
         <span class="hero-label">🌿 Fresh • Delicious • Made With Care</span>
 
-        <h1>
-          Freshness You <span>Can Taste.</span> ❤️
-        </h1>
+        <h1>Freshness You <span>Can Taste.</span> ❤️</h1>
 
         <p class="hero-text">
           Freshly prepared cold-pressed juices, zobo, tigernut milk and green salads —
@@ -1123,13 +1191,14 @@
 
         <div class="hero-buttons">
           <a href="#shop" class="btn btn-primary">SHOP NOW</a>
-          <a href="https://wa.me/2347088314315" target="_blank" class="btn btn-secondary">💬 ORDER ON WHATSAPP</a>
+          <a href="https://wa.me/2347088314315" target="_blank" rel="noopener" class="btn btn-secondary">💬 ORDER ON WHATSAPP</a>
         </div>
-      </div>
 
-      <div class="hero-image">
-        <img src="images/menu.jpg.jpeg" alt="Wendy's Cold Pressed Juice Menu">
-        <div class="floating-badge">⭐ Freshly Made Daily</div>
+        <div class="hero-points">
+          <span class="hero-point">⭐ Freshly made daily</span>
+          <span class="hero-point">🧊 Cold pressed</span>
+          <span class="hero-point">🚚 Delivery available</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1324,7 +1393,7 @@
       <!-- Product 4 -->
       <div class="product-card" data-category="Green Salad" data-name="Wendy's Green Salad">
         <div class="product-image-wrap">
-          <span class="product-badge" style="background:#0aa561">FRESH</span>
+          <span class="product-badge" style="background:rgba(10,165,97,.95)">FRESH</span>
           <button
             class="wishlist"
             data-product-name="Wendy Green Salad"
@@ -1432,7 +1501,7 @@
       <div>
         <h3 style="font-weight:1100; color:var(--dark-green); margin-bottom:8px;">⭐ Earn points when you shop</h3>
         <p>Create an account to track points and receive special offers.</p>
-        <button class="btn btn-primary" type="button" onclick="showToast('Rewards account coming soon!')">VIEW REWARDS</button>
+        <button class="btn btn-primary" type="button" onclick="showToast('Rewards account coming soon!')" style="margin-top:12px;">VIEW REWARDS</button>
       </div>
     </div>
   </section>
@@ -1668,7 +1737,7 @@
     }
 
     /* =========================================================
-       Wishlist (professional fix: no onclick parsing)
+       Wishlist
     ========================================================= */
     function toggleWishlist(buttonEl) {
       const productName = buttonEl.getAttribute("data-product-name");
@@ -1730,7 +1799,6 @@
     }
 
     function filterProducts(category) {
-      // update filter button UI
       document.querySelectorAll(".filter-btn").forEach((btn) => btn.classList.remove("active"));
       document.querySelectorAll(".filter-btn").forEach((btn) => {
         const t = (btn.textContent || "").trim().toLowerCase();
@@ -1739,13 +1807,11 @@
         if (category === "Green Salad" && t === "salad") btn.classList.add("active");
       });
 
-      // filter products
       document.querySelectorAll(".product-card").forEach((card) => {
         const show = (category === "All") || (card.dataset.category === category);
         card.style.display = show ? "" : "none";
       });
 
-      // clear search
       const input = document.getElementById("searchInput");
       if (input) input.value = "";
 
