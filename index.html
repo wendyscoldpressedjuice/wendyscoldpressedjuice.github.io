@@ -12,7 +12,7 @@
   <style>
     /* =========================================================
        Wendy's Cold Pressed Juice
-       Update: full-bleed hero image + luxury product cards
+       Update: full-bleed hero image + luxury product cards + full menu section
     ========================================================= */
     :root{
       --green:#08783d;
@@ -578,6 +578,38 @@
     .rewards p{color:var(--gray); font-weight:650; margin-top:8px}
 
     /* =========================================================
+       Full Menu showcase (whole picture, nothing cropped)
+    ========================================================= */
+    .menu-section{
+      padding:84px 25px;
+      background:linear-gradient(180deg,#ffffff 0%, var(--light-gray) 100%);
+    }
+    .menu-frame{
+      max-width:920px;
+      margin:0 auto;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:16px;
+      box-shadow:var(--card-shadow-hover);
+    }
+    .menu-frame img{
+      display:block;
+      width:100%;
+      height:auto;          /* full image, no cropping */
+      object-fit:contain;
+      border-radius:20px;
+      background:#fff;
+    }
+    .menu-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    /* =========================================================
        Newsletter
     ========================================================= */
     .newsletter{
@@ -1022,6 +1054,10 @@
       .deals{padding:36px 20px}
       .deals h2{font-size:27px}
 
+      .menu-section{padding:60px 15px}
+      .menu-frame{padding:10px; border-radius:22px}
+      .menu-frame img{border-radius:15px}
+
       .testimonial-grid{grid-template-columns:1fr}
       .rewards{flex-direction:column; text-align:center; padding:34px 20px; gap:18px}
       .subscribe-form{flex-direction:column; background:transparent; border:none; gap:10px; padding:0}
@@ -1088,6 +1124,7 @@
         <a href="#home">Home</a>
         <a href="#shop">Shop</a>
         <a href="#categories">Categories</a>
+        <a href="#menu">Menu</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1145,6 +1182,12 @@
           <a href="#categories" class="mobile-menu-link" onclick="closeMobileMenu()">
             <div class="mobile-menu-link-icon">🥤</div>
             <div class="mobile-menu-link-text">Categories<small>Juices, Zobo, Tigernut & Salad</small></div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+
+          <a href="#menu" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">📋</div>
+            <div class="mobile-menu-link-text">Full Menu<small>See everything with prices</small></div>
             <span class="mobile-menu-arrow">›</span>
           </a>
 
@@ -1506,6 +1549,25 @@
     </div>
   </section>
 
+  <!-- Full Menu -->
+  <section class="menu-section" id="menu">
+    <div class="section-heading">
+      <h2>📋 Our Full Menu</h2>
+      <p>Everything we make, with prices. Tap the image to view it full size.</p>
+    </div>
+
+    <div class="menu-frame">
+      <a href="images/menu.jpg.jpeg" target="_blank" rel="noopener">
+        <img src="images/menu.jpg.jpeg" alt="Wendy's Cold Pressed Juice full menu with prices" loading="lazy">
+      </a>
+    </div>
+
+    <div class="menu-actions">
+      <a href="#shop" class="btn btn-primary" onclick="filterProducts('All'); return false;">SHOP THE MENU</a>
+      <a href="https://wa.me/2347088314315" target="_blank" rel="noopener" class="btn btn-secondary">💬 ORDER ON WHATSAPP</a>
+    </div>
+  </section>
+
   <!-- Newsletter -->
   <section class="newsletter" aria-label="Newsletter">
     <h2>Stay Fresh With Wendy's 🍹</h2>
@@ -1533,6 +1595,7 @@
         <a href="#shop" onclick="filterProducts('Zobo'); return false;">Zobo</a>
         <a href="#shop" onclick="filterProducts('Tigernut Milk'); return false;">Tigernut Milk</a>
         <a href="#shop" onclick="filterProducts('Green Salad'); return false;">Green Salad</a>
+        <a href="#menu">Full Menu</a>
       </div>
 
       <div>
