@@ -12,7 +12,7 @@
   <style>
     /* =========================================================
        Wendy's Cold Pressed Juice
-       UPDATE: hero background picture removed (now a clean green gradient)
+       UPDATE: added Gallery section (16 photos) with filters + lightbox
     ========================================================= */
     :root{
       --green:#08783d;
@@ -103,7 +103,7 @@
     .logo img{height:62px; width:auto; max-width:190px; object-fit:contain}
 
     .desktop-nav{
-      display:flex; align-items:center; justify-content:center; gap:20px;
+      display:flex; align-items:center; justify-content:center; gap:16px;
     }
     .desktop-nav a{
       position:relative;
@@ -644,6 +644,116 @@
     }
 
     /* =========================================================
+       Gallery (masonry columns + filters + lightbox)
+    ========================================================= */
+    .gallery-filters{
+      max-width:var(--container);
+      margin:0 auto 26px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .gallery-grid{
+      max-width:var(--container);
+      margin:0 auto;
+      column-count:4;
+      column-gap:16px;
+    }
+    .gallery-item{
+      position:relative;
+      display:block;
+      width:100%;
+      margin:0 0 16px;
+      padding:0;
+      border:none;
+      background:var(--light-gray);
+      border-radius:22px;
+      overflow:hidden;
+      cursor:zoom-in;
+      break-inside:avoid;
+      box-shadow:var(--card-shadow);
+      transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
+    }
+    .gallery-item:hover{transform:translateY(-5px); box-shadow:var(--card-shadow-hover)}
+    .gallery-item img{
+      display:block;
+      width:100%;
+      height:auto;
+      transition:transform .5s;
+    }
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-item .gallery-cap{
+      position:absolute; left:0; right:0; bottom:0;
+      padding:38px 14px 12px;
+      background:linear-gradient(to top, rgba(6,77,41,.86), rgba(6,77,41,0));
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+      text-align:left;
+      line-height:1.35;
+      opacity:0;
+      transition:opacity .25s;
+    }
+    .gallery-item:hover .gallery-cap,
+    .gallery-item:focus-visible .gallery-cap{opacity:1}
+    .gallery-item.is-hidden{display:none}
+    .gallery-count{
+      max-width:var(--container);
+      margin:6px auto 0;
+      text-align:center;
+      color:var(--gray);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .lightbox{
+      position:fixed; inset:0;
+      z-index:9000;
+      background:rgba(4,30,17,.94);
+      display:flex; align-items:center; justify-content:center;
+      padding:56px 64px;
+      opacity:0; visibility:hidden;
+      transition:opacity .25s, visibility .25s;
+    }
+    .lightbox.active{opacity:1; visibility:visible}
+    .lightbox-figure{
+      max-width:100%; max-height:100%;
+      display:flex; flex-direction:column; align-items:center; gap:14px;
+    }
+    .lightbox-figure img{
+      max-width:100%;
+      max-height:calc(100vh - 170px);
+      width:auto; height:auto;
+      border-radius:16px;
+      box-shadow:0 30px 80px rgba(0,0,0,.5);
+      background:#111;
+    }
+    .lightbox-caption{
+      color:#fff;
+      font-weight:800;
+      font-size:15px;
+      text-align:center;
+      max-width:60ch;
+    }
+    .lightbox-count{display:block; color:rgba(255,255,255,.65); font-size:12.5px; font-weight:700; margin-top:2px}
+    .lightbox-btn{
+      position:absolute;
+      width:48px; height:48px;
+      border:none; border-radius:50%;
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      font-size:26px; line-height:1;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer;
+      transition:background .2s;
+    }
+    .lightbox-btn:hover{background:rgba(255,255,255,.28)}
+    .lightbox-close{top:16px; right:16px}
+    .lightbox-prev{left:12px; top:50%; transform:translateY(-50%)}
+    .lightbox-next{right:12px; top:50%; transform:translateY(-50%)}
+
+    /* =========================================================
        Full Menu showcase (whole picture, nothing cropped)
     ========================================================= */
     .menu-section{
@@ -1040,7 +1150,7 @@
       opacity:0;
       pointer-events:none;
       transition:.25s;
-      z-index:7000;
+      z-index:9500;
       font-size:14px;
       max-width:90%;
       text-align:center;
@@ -1641,7 +1751,7 @@
     /* =========================================================
        Responsive
     ========================================================= */
-    @media (max-width:1150px){
+    @media (max-width:1200px){
       .header-inner{display:flex; justify-content:space-between}
       .desktop-nav{display:none}
       .menu-toggle{display:flex}
@@ -1668,6 +1778,7 @@
       .insta-grid{grid-template-columns:repeat(3,1fr)}
       .soon-grid{grid-template-columns:repeat(2,1fr)}
       .counter-grid{grid-template-columns:repeat(2,1fr); row-gap:28px}
+      .gallery-grid{column-count:3}
     }
 
     @media (max-width:700px){
@@ -1750,6 +1861,15 @@
       .modal h3{font-size:23px}
       .counter-band{padding:44px 15px}
 
+      /* gallery on mobile: 2 columns, tap to open */
+      .gallery-grid{column-count:2; column-gap:10px}
+      .gallery-item{margin-bottom:10px; border-radius:16px}
+      .lightbox{padding:60px 12px 48px}
+      .lightbox-figure img{max-height:calc(100vh - 190px)}
+      .lightbox-prev, .lightbox-next{top:auto; bottom:10px; transform:none}
+      .lightbox-prev{left:calc(50% - 60px)}
+      .lightbox-next{right:calc(50% - 60px)}
+
       .mobile-bottom-nav{
         position:fixed;
         bottom:0; left:0; right:0;
@@ -1814,6 +1934,7 @@
         <a href="#plans">Plans</a>
         <a href="#delivery">Delivery</a>
         <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1895,6 +2016,12 @@
           <a href="#delivery" class="mobile-menu-link" onclick="closeMobileMenu()">
             <div class="mobile-menu-link-icon">📍</div>
             <div class="mobile-menu-link-text">Delivery Areas<small>Where we deliver in Lagos</small></div>
+            <span class="mobile-menu-arrow">›</span>
+          </a>
+
+          <a href="#gallery" class="mobile-menu-link" onclick="closeMobileMenu()">
+            <div class="mobile-menu-link-icon">📸</div>
+            <div class="mobile-menu-link-text">Gallery<small>Our juices, zobo &amp; events</small></div>
             <span class="mobile-menu-arrow">›</span>
           </a>
 
@@ -2594,8 +2721,91 @@
     </div>
   </section>
 
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="section-heading">
+      <h2>📸 Wendy's Gallery</h2>
+      <p>Our bottles, our zobo and the events we've served. Tap any photo to view it bigger.</p>
+    </div>
+
+    <div class="gallery-filters" role="group" aria-label="Filter gallery photos">
+      <button class="filter-btn active" type="button" data-gallery-filter="all">All</button>
+      <button class="filter-btn" type="button" data-gallery-filter="juices">Juices</button>
+      <button class="filter-btn" type="button" data-gallery-filter="zobo">Zobo</button>
+      <button class="filter-btn" type="button" data-gallery-filter="events">Events</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <button class="gallery-item" type="button" data-cat="juices" data-caption="Chilled on ice: Cucumber Detox, Pineapple Ginger, Watermelon Beets and Orange" aria-label="Open photo: chilled juices on ice">
+        <img src="images/gallery-01.jpeg" width="810" height="1080" alt="Bowl of ice with Wendy's Cucumber Detox, Pineapple Ginger, Watermelon Beets and Orange juice bottles" loading="lazy">
+        <span class="gallery-cap">Chilled on ice: Cucumber Detox, Pineapple Ginger, Watermelon Beets and Orange</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="zobo" data-caption="Wendy's Cold Pressed Zobo, freshly bottled" aria-label="Open photo: cold pressed zobo bottles">
+        <img src="images/gallery-02.jpeg" width="810" height="1080" alt="Two dark bottles of Wendy's Cold Pressed Zobo with red and white labels" loading="lazy">
+        <span class="gallery-cap">Wendy's Cold Pressed Zobo, freshly bottled</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="events" data-caption="Our stall and banner at an outdoor event" aria-label="Open photo: Wendy's event stall">
+        <img src="images/gallery-03.jpeg" width="499" height="667" alt="Wendy's stall at an outdoor event with cooler boxes and a Wendy's Cold Pressed Juice banner" loading="lazy">
+        <span class="gallery-cap">Our stall and banner at an outdoor event</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="events" data-caption="A watermelon fruit cake made for a celebration" aria-label="Open photo: watermelon fruit cake">
+        <img src="images/gallery-04.jpeg" width="654" height="1280" alt="Three-tier watermelon cake decorated with grapes, tangerine segments and cucumber slices" loading="lazy">
+        <span class="gallery-cap">A watermelon fruit cake made for a celebration</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="events zobo" data-caption="Zobo dispenser cart with calabash decor" aria-label="Open photo: zobo dispenser cart">
+        <img src="images/gallery-05.jpeg" width="810" height="1080" alt="Serving cart with a zobo dispenser, decorated calabashes and wooden cups at an outdoor event" loading="lazy">
+        <span class="gallery-cap">Zobo dispenser cart with calabash decor</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="juices" data-caption="Watermelon juice, ready to sip" aria-label="Open photo: watermelon juice">
+        <img src="images/gallery-06.jpeg" width="499" height="667" alt="Hand holding a bottle of Wendy's watermelon juice next to a glass of the juice" loading="lazy">
+        <span class="gallery-cap">Watermelon juice, ready to sip</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="events" data-caption="A party cart lined with custom-labelled bottles" aria-label="Open photo: party cart with custom-labelled bottles">
+        <img src="images/gallery-07.jpeg" width="960" height="1280" alt="White party cart filled with colourful juice bottles with custom labels, beside a Wendy's banner" loading="lazy">
+        <span class="gallery-cap">A party cart lined with custom-labelled bottles</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="zobo" data-caption="Zobo packs loaded up for a bulk order" aria-label="Open photo: packs of zobo for bulk order">
+        <img src="images/gallery-08.jpeg" width="1080" height="810" alt="Shrink-wrapped packs of Wendy's Cold Pressed Zobo and a large zobo jug in a car boot" loading="lazy">
+        <span class="gallery-cap">Zobo packs loaded up for a bulk order</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="juices" data-caption="Detox and orange juices, bottled fresh" aria-label="Open photo: detox and orange juices">
+        <img src="images/gallery-09.jpeg" width="499" height="375" alt="Bottles of Wendy's Detox Juice and Orange Juice lined up side by side" loading="lazy">
+        <span class="gallery-cap">Detox and orange juices, bottled fresh</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="events" data-caption="Serving guests at an event" aria-label="Open photo: serving guests at an event">
+        <img src="images/gallery-10.jpeg" width="810" height="1080" alt="Black and white photo of guests being served drinks under a canopy at an event" loading="lazy">
+        <span class="gallery-cap">Serving guests at an event</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="zobo" data-caption="Zobo on the go" aria-label="Open photo: zobo bottles">
+        <img src="images/gallery-11.jpeg" width="810" height="1080" alt="Bottles of Wendy's Cold Pressed Zobo with white caps resting on a car seat" loading="lazy">
+        <span class="gallery-cap">Zobo on the go</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="events zobo" data-caption="Zobo served with straws and calabash cups" aria-label="Open photo: zobo with straws and calabash cups">
+        <img src="images/gallery-12.jpeg" width="810" height="1080" alt="Close-up of a zobo dispenser, decorated calabashes and a box of colourful straws" loading="lazy">
+        <span class="gallery-cap">Zobo served with straws and calabash cups</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="juices events" data-caption="A Wendy's bottle held up at an outdoor event" aria-label="Open photo: bottle held up at an outdoor event">
+        <img src="images/gallery-13.jpeg" width="499" height="666" alt="Hand holding up a Wendy's cold pressed juice bottle against green trees" loading="lazy">
+        <span class="gallery-cap">A Wendy's bottle held up at an outdoor event</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="juices" data-caption="The full chilled line-up" aria-label="Open photo: chilled juice line-up">
+        <img src="images/gallery-14.jpeg" width="810" height="1080" alt="Round silver tray of ice and Wendy's juice bottles including orange, pineapple ginger and watermelon beets" loading="lazy">
+        <span class="gallery-cap">The full chilled line-up</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="zobo" data-caption="Cold Pressed Zobo, labelled with care" aria-label="Open photo: zobo bottle labels">
+        <img src="images/gallery-15.jpeg" width="810" height="1080" alt="Two bottles of Wendy's Cold Pressed Zobo showing their labels" loading="lazy">
+        <span class="gallery-cap">Cold Pressed Zobo, labelled with care</span>
+      </button>
+      <button class="gallery-item" type="button" data-cat="juices" data-caption="Fresh flavours, straight from the ice" aria-label="Open photo: juices on ice">
+        <img src="images/gallery-16.jpeg" width="810" height="1080" alt="Close-up of Wendy's Pineapple Ginger, Cucumber Detox, Watermelon Beets and Orange juices on ice" loading="lazy">
+        <span class="gallery-cap">Fresh flavours, straight from the ice</span>
+      </button>
+    </div>
+    <p class="gallery-count" id="galleryCount" aria-live="polite"></p>
+  </section>
+
   <!-- Reviews -->
-  <section class="section" aria-label="Customer reviews" id="reviews">
+  <section class="section bg-soft" aria-label="Customer reviews" id="reviews">
     <div class="section-heading">
       <h2>⭐ What Our Customers Are Saying</h2>
       <p>Happy customers, fresh experiences.</p>
@@ -2635,7 +2845,7 @@
   </section>
 
   <!-- Blog -->
-  <section class="section bg-soft" id="blog">
+  <section class="section" id="blog">
     <div class="section-heading">
       <h2>📰 Fresh From the Blog</h2>
       <p>Simple guides to help you get more from every sip.</p>
@@ -2682,7 +2892,7 @@
   </section>
 
   <!-- Instagram -->
-  <section class="section" id="instagram">
+  <section class="section bg-soft" id="instagram">
     <div class="section-heading">
       <h2>📸 Follow Us @sip.wendys</h2>
       <p>Fresh pours, new flavours and behind-the-scenes on Instagram.</p>
@@ -2818,6 +3028,7 @@
         <h3>Customer Care</h3>
         <a href="#contact">Contact Us</a>
         <a href="#delivery">Delivery Areas</a>
+        <a href="#gallery">Gallery</a>
         <a href="#blog">Blog</a>
         <a href="#" onclick="showToast('FAQs coming soon!'); return false;">FAQs</a>
       </div>
@@ -2871,6 +3082,20 @@
       <div id="blogContent"></div>
       <div style="margin-top:18px;">
         <a class="btn btn-primary" href="#shop" onclick="closeBlog(); filterProducts('All'); return false;">SHOP FRESH JUICE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="if(event.target===this) closeLightbox()">
+    <button class="lightbox-btn lightbox-close" type="button" onclick="closeLightbox()" aria-label="Close photo">×</button>
+    <button class="lightbox-btn lightbox-prev" type="button" onclick="stepLightbox(-1)" aria-label="Previous photo">‹</button>
+    <button class="lightbox-btn lightbox-next" type="button" onclick="stepLightbox(1)" aria-label="Next photo">›</button>
+    <div class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption">
+        <span id="lightboxCaption"></span>
+        <span class="lightbox-count" id="lightboxCount"></span>
       </div>
     </div>
   </div>
@@ -3164,8 +3389,8 @@
     }
 
     function setActiveFilterButton(category) {
-      document.querySelectorAll(".filter-btn").forEach((btn) => btn.classList.remove("active"));
-      document.querySelectorAll(".filter-btn").forEach((btn) => {
+      document.querySelectorAll(".shop-toolbar .filter-btn").forEach((btn) => btn.classList.remove("active"));
+      document.querySelectorAll(".shop-toolbar .filter-btn").forEach((btn) => {
         const t = (btn.textContent || "").trim().toLowerCase();
         if (category === "All" && t === "all") btn.classList.add("active");
         if (category !== "All" && t === category.toLowerCase()) btn.classList.add("active");
@@ -3519,6 +3744,93 @@
     }
 
     /* =========================================================
+       Gallery
+       To add a photo: copy any <button class="gallery-item"> block in the HTML,
+       change the image path, data-caption, data-cat (juices / zobo / events) and alt text.
+    ========================================================= */
+    let galleryFilter = "all";
+    let lightboxIndex = 0;
+    let lightboxList = [];
+
+    function galleryItems() {
+      return [...document.querySelectorAll("#galleryGrid .gallery-item")];
+    }
+
+    function applyGalleryFilter(filter) {
+      galleryFilter = filter;
+      let shown = 0;
+      galleryItems().forEach((item) => {
+        const cats = (item.dataset.cat || "").split(" ");
+        const show = filter === "all" || cats.includes(filter);
+        item.classList.toggle("is-hidden", !show);
+        if (show) shown++;
+      });
+      document.querySelectorAll("[data-gallery-filter]").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.galleryFilter === filter);
+      });
+      const count = document.getElementById("galleryCount");
+      if (count) count.textContent = shown + (shown === 1 ? " photo" : " photos");
+    }
+
+    function openLightbox(index) {
+      lightboxList = galleryItems().filter((el) => !el.classList.contains("is-hidden"));
+      lightboxIndex = index;
+      showLightboxPhoto();
+      document.getElementById("lightbox").classList.add("active");
+      document.body.classList.add("modal-open");
+    }
+
+    function showLightboxPhoto() {
+      const item = lightboxList[lightboxIndex];
+      if (!item) return;
+      const img = item.querySelector("img");
+      const lb = document.getElementById("lightboxImg");
+      lb.src = img.getAttribute("src");
+      lb.alt = img.getAttribute("alt") || "";
+      document.getElementById("lightboxCaption").textContent = item.dataset.caption || "";
+      document.getElementById("lightboxCount").textContent = (lightboxIndex + 1) + " of " + lightboxList.length;
+    }
+
+    function stepLightbox(dir) {
+      if (!lightboxList.length) return;
+      lightboxIndex = (lightboxIndex + dir + lightboxList.length) % lightboxList.length;
+      showLightboxPhoto();
+    }
+
+    function closeLightbox() {
+      const box = document.getElementById("lightbox");
+      if (!box.classList.contains("active")) return;
+      box.classList.remove("active");
+      document.body.classList.remove("modal-open");
+    }
+
+    function initGallery() {
+      document.querySelectorAll("[data-gallery-filter]").forEach((btn) => {
+        btn.addEventListener("click", () => applyGalleryFilter(btn.dataset.galleryFilter));
+      });
+
+      galleryItems().forEach((item) => {
+        item.addEventListener("click", () => {
+          const visible = galleryItems().filter((el) => !el.classList.contains("is-hidden"));
+          openLightbox(visible.indexOf(item));
+        });
+      });
+
+      // swipe left / right inside the lightbox
+      const box = document.getElementById("lightbox");
+      let startX = null;
+      box.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener("touchend", (e) => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) stepLightbox(dx < 0 ? 1 : -1);
+        startX = null;
+      }, { passive: true });
+
+      applyGalleryFilter("all");
+    }
+
+    /* =========================================================
        Blog
        Edit / add articles here.
     ========================================================= */
@@ -3605,14 +3917,19 @@
     }
 
     /* =========================================================
-       ESC support
+       Keyboard support (ESC closes things, arrows move through gallery photos)
     ========================================================= */
     document.addEventListener("keydown", (event) => {
+      const lightboxOpen = document.getElementById("lightbox").classList.contains("active");
+
       if (event.key === "Escape") {
         closeMobileMenu();
         closeCart();
         closeBlog();
+        closeLightbox();
       }
+      if (lightboxOpen && event.key === "ArrowRight") stepLightbox(1);
+      if (lightboxOpen && event.key === "ArrowLeft") stepLightbox(-1);
     });
 
     /* =========================================================
@@ -3624,6 +3941,7 @@
     renderQuiz();
     initDeliveryMap();
     initCounters();
+    initGallery();
   </script>
 </body>
 </html>
