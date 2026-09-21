@@ -11,8 +11,8 @@
 
   <style>
     /* =========================================================
-       Wendy's Cold Pressed Juice
-       UPDATE: added Gallery section (16 photos) with filters + lightbox
+       Wendy's Cold Pressed Juice — single merged file
+       (shop + gallery + cart + builder + quiz + blog in one page)
     ========================================================= */
     :root{
       --green:#08783d;
@@ -167,7 +167,7 @@
     .menu-toggle:hover{background:var(--light-green); transform:translateY(-2px)}
 
     /* =========================================================
-       Hero — clean green gradient (background picture removed)
+       Hero — clean green gradient
     ========================================================= */
     .hero{
       position:relative;
@@ -179,7 +179,6 @@
       color:#fff;
       overflow:hidden;
     }
-    /* bottom fade so the section blends into the page */
     .hero::after{
       content:"";
       position:absolute; left:0; right:0; bottom:0;
@@ -228,7 +227,7 @@
 
     .hero-points{
       display:flex;
-      flex-wrap:wrap;
+      flex-wrap:wrap,
       gap:10px;
     }
     .hero-point{
@@ -650,7 +649,7 @@
       max-width:var(--container);
       margin:0 auto 26px;
       display:flex;
-      justify-content:center;
+      justify-content:center,
       gap:10px;
       flex-wrap:wrap;
     }
@@ -754,7 +753,7 @@
     .lightbox-next{right:12px; top:50%; transform:translateY(-50%)}
 
     /* =========================================================
-       Full Menu showcase (whole picture, nothing cropped)
+       Full Menu showcase
     ========================================================= */
     .menu-section{
       padding:84px 25px;
@@ -808,7 +807,7 @@
     .subscribe-form input{
       flex:1;
       border:none;
-      outline:none;
+      outline:none,
       padding:12px 18px;
       border-radius:999px;
       background:transparent;
@@ -1129,7 +1128,7 @@
       width:100%;
       border:none;
       background:transparent;
-      color:var(--red);
+      color:var(--red),
       padding:10px;
       font-weight:1000;
       cursor:pointer;
@@ -1162,7 +1161,6 @@
        Mobile bottom nav
     ========================================================= */
     .mobile-bottom-nav{display:none}
-
     /* =========================================================
        Wellness categories
     ========================================================= */
@@ -1789,7 +1787,6 @@
       .header-actions .icon-button:first-child{display:none}
       .logo img{height:53px; max-width:155px}
 
-      /* Hero on mobile — no background picture, keeps the green gradient */
       .hero{
         padding:62px 20px 74px;
         min-height:78vh;
@@ -1976,6 +1973,7 @@
         </div>
 
         <div class="mobile-menu-section-title">Main Menu</div>
+        <div class="mobile-menu-section-title">Main Menu</div>
         <div class="mobile-menu-links">
           <a href="#home" class="mobile-menu-link" onclick="closeMobileMenu()">
             <div class="mobile-menu-link-icon">🏠</div>
@@ -2065,7 +2063,7 @@
     </div>
   </div>
 
-  <!-- Hero (clean green gradient, no background picture) -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="container hero-inner">
       <div class="hero-content">
@@ -3116,7 +3114,6 @@
     <button class="bottom-nav-item" type="button" onclick="openCart()"><span>🛒</span><span>Cart</span></button>
     <button class="bottom-nav-item" type="button" onclick="showAccount()"><span>👤</span><span>Account</span></button>
   </nav>
-
   <script>
     /* =========================================================
        Storage (safe read so a corrupted value never breaks the site)
