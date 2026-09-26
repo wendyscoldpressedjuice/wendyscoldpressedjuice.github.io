@@ -19,11 +19,11 @@ ul { list-style: none; }
 button, input, select, textarea { font-family: inherit; font-size: inherit; border: none; outline: none; }
 button { cursor: pointer; }
 
-/* ===== VARIABLES ===== */
+/* ===== VARIABLES (DARK GREEN) ===== */
 :root {
-  --green: #2d6a4f;
-  --green-light: #40916c;
-  --green-dark: #1b4332;
+  --green: #1b4332;
+  --green-light: #2d6a4f;
+  --green-dark: #0d2818;
   --gold: #d4a017;
   --orange: #e67e22;
   --pink: #e84393;
@@ -57,6 +57,7 @@ button { cursor: pointer; }
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo { font-size: 20px; font-weight: 700; color: var(--green); cursor: pointer; }
+.nav-logo img { height: 40px; }
 .nav-links { display: flex; gap: 24px; }
 .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-dark); transition: var(--transition); }
 .nav-links a:hover { color: var(--green); }
@@ -111,17 +112,17 @@ button { cursor: pointer; }
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+  background: linear-gradient(135deg, #d4edda 0%, #a8d5ba 50%, #7bc89c 100%);
   padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
 }
 .hero::before {
   content: ''; position: absolute; top: -50%; right: -20%;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(45,106,79,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(27,67,50,0.1) 0%, transparent 70%);
   border-radius: 50%;
 }
 .hero-badge {
-  display: inline-block; background: rgba(45,106,79,0.1); color: var(--green);
+  display: inline-block; background: rgba(27,67,50,0.15); color: var(--green);
   padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; margin-bottom: 12px;
 }
 .hero-location { font-size: 13px; color: var(--text-mid); margin-bottom: 24px; }
@@ -222,13 +223,14 @@ button { cursor: pointer; }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .product-img {
   height: 200px; display: flex; align-items: center; justify-content: center;
-  font-size: 64px; position: relative;
+  font-size: 64px; position: relative; overflow: hidden;
 }
+.product-img img { width: 100%; height: 100%; object-fit: cover; }
 .product-badge-label {
   position: absolute; top: 12px; left: 12px; background: var(--green); color: #fff;
-  padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; z-index: 2;
 }
-.product-wishlist { position: absolute; top: 12px; right: 12px; font-size: 18px; cursor: pointer; }
+.product-wishlist { position: absolute; top: 12px; right: 12px; font-size: 18px; cursor: pointer; z-index: 2; }
 .product-info { padding: 20px; }
 .product-rating { font-size: 13px; color: var(--gold); margin-bottom: 8px; }
 .product-info h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text-dark); }
@@ -292,9 +294,9 @@ button { cursor: pointer; }
   max-width: 1000px; margin: 0 auto;
 }
 .tigernut-img {
-  height: 350px; background: linear-gradient(135deg, #f5e6ca, #ede0c8);
-  border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 80px;
+  height: 350px; border-radius: var(--radius); overflow: hidden;
 }
+.tigernut-img img { width: 100%; height: 100%; object-fit: cover; }
 .tigernut-content .sig-badge {
   display: inline-block; background: rgba(212,160,23,0.15); color: var(--gold);
   padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-bottom: 12px;
@@ -350,7 +352,7 @@ button { cursor: pointer; }
 .map-container { position: relative; width: 100%; height: 250px; }
 .map-water { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: rgba(100,181,246,0.3); border-radius: 0 0 8px 8px; }
 .map-label {
-  display: inline-block; background: rgba(45,106,79,0.9); color: #fff;
+  display: inline-block; background: rgba(27,67,50,0.9); color: #fff;
   padding: 6px 14px; border-radius: 16px; font-size: 12px; font-weight: 500;
   position: absolute; cursor: pointer; transition: var(--transition);
 }
@@ -424,10 +426,7 @@ button { cursor: pointer; }
   border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; transition: var(--transition);
 }
 .gallery-item:hover { transform: scale(1.03); }
-.gallery-placeholder {
-  height: 200px; display: flex; align-items: center; justify-content: center;
-  font-size: 13px; color: var(--text-mid); padding: 16px; text-align: center;
-}
+.gallery-item img { width: 100%; height: 200px; object-fit: cover; }
 
 /* ===== TESTIMONIALS ===== */
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -463,8 +462,6 @@ button { cursor: pointer; }
 
 /* ===== INSTAGRAM ===== */
 .instagram-section { text-align: center; padding: 60px 24px; }
-.instagram-grid { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
-.insta-item { width: 120px; height: 120px; border-radius: var(--radius-sm); }
 
 /* ===== REWARDS ===== */
 .rewards-section { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: #fff; padding: 60px 24px; }
@@ -503,9 +500,9 @@ button { cursor: pointer; }
 
 /* ===== FULL MENU ===== */
 .menu-image {
-  max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-  border-radius: var(--radius); padding: 60px; text-align: center; font-size: 18px; color: var(--text-mid);
+  max-width: 600px; margin: 0 auto; border-radius: var(--radius); overflow: hidden;
 }
+.menu-image img { width: 100%; cursor: pointer; }
 .menu-actions { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
 
 /* ===== NEWSLETTER ===== */
@@ -518,7 +515,7 @@ button { cursor: pointer; }
   background: var(--green-dark); color: #fff; padding: 14px 28px;
   border-radius: 8px; font-weight: 600; transition: var(--transition);
 }
-.btn-subscribe:hover { background: #0f2b1d; }
+.btn-subscribe:hover { background: #061a0e; }
 
 /* ===== FOOTER ===== */
 .footer { background: var(--text-dark); color: rgba(255,255,255,0.8); padding: 60px 24px 24px; }
@@ -604,6 +601,7 @@ button { cursor: pointer; }
 .lightbox-prev { left: 16px; }
 .lightbox-next { right: 16px; }
 .lightbox-content { text-align: center; color: #fff; max-width: 80%; }
+.lightbox-content img { max-width: 90vw; max-height: 75vh; object-fit: contain; border-radius: 12px; }
 .lightbox-content p { margin-top: 16px; font-size: 14px; }
 
 /* ===== WHATSAPP FAB ===== */
@@ -672,7 +670,9 @@ button { cursor: pointer; }
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="nav-logo" onclick="scrollToTop()">🌿 Wendy's</div>
+  <div class="nav-logo" onclick="scrollToTop()">
+    <img src="images/logo.png.jpeg" alt="Wendy's Cold Pressed Juice">
+  </div>
   <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#shop">Shop</a>
@@ -698,7 +698,7 @@ button { cursor: pointer; }
 <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <div class="nav-logo">🌿 Wendy's</div>
+    <div class="nav-logo"><img src="images/logo.png.jpeg" alt="Wendy's" style="height:36px;"></div>
     <span class="mobile-menu-close" onclick="toggleMobileMenu()">×</span>
   </div>
   <div class="mobile-menu-welcome">
@@ -736,7 +736,7 @@ button { cursor: pointer; }
     <div class="hero-badge">🌿 Fresh • Delicious • Made With Care</div>
     <div class="hero-location">📍 Proudly serving Lagos with fresh batches daily</div>
     <h1>Freshness You Can Taste. ❤️</h1>
-    <p>Freshly prepared cold-pressed juices, zobo, tigernut milk and green salads — made with quality ingredients and delivered fresh to your doorstep.</p>
+    <p style="font-size:18px;color:var(--text-mid);max-width:600px;margin:0 auto 32px;">Freshly prepared cold-pressed juices, zobo, tigernut milk and green salads — made with quality ingredients and delivered fresh to your doorstep.</p>
     <div class="hero-buttons">
       <button class="btn btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">SHOP NOW</button>
       <button class="btn btn-outline" onclick="document.getElementById('builder').scrollIntoView({behavior:'smooth'})">🧃 BUILD YOUR OWN JUICE</button>
@@ -814,10 +814,10 @@ button { cursor: pointer; }
 <section class="section" id="bestsellers">
   <div class="container">
     <div class="section-header"><h2>🔥 Our Best Sellers</h2><p>Customer favorites, ready to order.</p></div>
-    <div class="product-filters">
-      <button class="filter-btn active" onclick="filterProducts('all
+    
 
-', this)">All</button>
+    <div class="product-filters">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
       <button class="filter-btn" onclick="filterProducts('juice', this)">Juices</button>
       <button class="filter-btn" onclick="filterProducts('zobo', this)">Zobo</button>
       <button class="filter-btn" onclick="filterProducts('tigernut', this)">Tigernut Milk</button>
@@ -826,10 +826,10 @@ button { cursor: pointer; }
     <div class="products-grid" id="productsGrid">
       <!-- Product 1: Watermelon Pineapple -->
       <div class="product-card" data-category="juice">
-        <div class="product-img" style="background: linear-gradient(135deg, #ffcdd2, #ef9a9a);">
+        <div class="product-img" style="position:relative;">
           <span class="product-badge-label">BEST SELLER</span>
           <span class="product-wishlist">♡</span>
-          🍉
+          <img src="images/pineapple.jpg.jpg" alt="Watermelon Pineapple Juice">
         </div>
         <div class="product-info">
           <div class="product-rating">★★★★★ 4.9</div>
@@ -847,10 +847,10 @@ button { cursor: pointer; }
       </div>
       <!-- Product 2: Zobo -->
       <div class="product-card" data-category="zobo">
-        <div class="product-img" style="background: linear-gradient(135deg, #f8bbd0, #f48fb1);">
+        <div class="product-img" style="position:relative;">
           <span class="product-badge-label">BEST SELLER</span>
           <span class="product-wishlist">♡</span>
-          🌺
+          <img src="images/zobo.jpg.jpeg" alt="Cold Pressed Zobo">
         </div>
         <div class="product-info">
           <div class="product-rating">★★★★★ 4.9</div>
@@ -868,9 +868,9 @@ button { cursor: pointer; }
       </div>
       <!-- Product 3: Tigernut Milk -->
       <div class="product-card" data-category="tigernut">
-        <div class="product-img" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+        <div class="product-img" style="position:relative;">
           <span class="product-wishlist">♡</span>
-          🥛
+          <img src="images/tigernut-milk.jpg.jpeg" alt="Tigernut Milk">
         </div>
         <div class="product-info">
           <div class="product-rating">★★★★★ 4.8</div>
@@ -888,10 +888,10 @@ button { cursor: pointer; }
       </div>
       <!-- Product 4: Green Salad -->
       <div class="product-card" data-category="salad">
-        <div class="product-img" style="background: linear-gradient(135deg, #c8e6c9, #a5d6a7);">
+        <div class="product-img" style="position:relative;">
           <span class="product-badge-label">FRESH</span>
           <span class="product-wishlist">♡</span>
-          🥗
+          <img src="images/salads-wraps.jpg.jpg" alt="Wendy's Green Salad">
         </div>
         <div class="product-info">
           <div class="product-rating">★★★★★ 4.9</div>
@@ -1030,7 +1030,9 @@ button { cursor: pointer; }
 <!-- TIGERNUT FEATURE -->
 <section class="tigernut-section">
   <div class="tigernut-grid">
-    <div class="tigernut-img">🥛</div>
+    <div class="tigernut-img">
+      <img src="images/tigernut-milk.jpg.jpeg" alt="Wendy's Premium Tigernut Milk">
+    </div>
     <div class="tigernut-content">
       <div class="sig-badge">🥛 SIGNATURE PRODUCT</div>
       <h2>Wendy's Premium Tigernut Milk</h2>
@@ -1146,23 +1148,7 @@ button { cursor: pointer; }
         <div class="area-item"><span>📍</span><span class="name">Victoria Island</span><span class="detail">Delivery available</span></div>
         <div class="area-item"><span>📍</span><span class="name">Ikeja</span><span class="detail">Delivery available</span></div>
         <div class="area-item"><span>📍</span><span class="name">Surulere</span><span class="detail">Delivery available</span></div>
-        <div class="delivery-note">Don't see your area? Ask us on WhatsApp. Delivery fees depend on your location.</div>
-      </div>
-    </div>
-
-    <!-- Delivery Steps -->
-    <div class="section-header" style="margin-top:48px;"><h2>📦 How your delivery works</h2></div>
-    <div class="delivery-steps">
-      <div class="delivery-step"><div class="num">1</div><div class="icon">📝</div><h4>Order placed</h4><p>Add to cart or message us on WhatsApp with your order.</p></div>
-      <div class="delivery-step"><div class="num">2</div><div class="icon">🧃</div><h4>Freshly prepared</h4><p>Your bottles are pressed fresh, usually the same day.</p></div>
-      <div class="delivery-step"><div class="num">3</div><div class="icon">🚚</div><h4>Out for delivery</h4><p>We confirm your delivery time and dispatch your order.</p></div>
-      <div class="delivery-step"><div class="num">4</div><div class="icon">📬</div><h4>Delivered fresh</h4><p>Your order arrives chilled and ready to enjoy.</p></div>
-    </div>
-    <p class="delivery-whatsapp-note"><em>We'll keep you posted on WhatsApp at each stage. Automatic SMS updates are coming soon.</em></p>
-  </div>
-</section>
-
-
+        <div class=
 <!-- OUR STORY -->
 <section class="section section-alt" id="story">
   <div class="container">
@@ -1223,22 +1209,54 @@ button { cursor: pointer; }
       <button class="filter-btn" onclick="filterGallery('event', this)">Events</button>
     </div>
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item" data-cat="juice" onclick="openLightbox(0)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">Chilled on ice: Cucumber Detox, Pineapple Ginger, Watermelon Beets and Orange</div></div>
-      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(1)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">Wendy's Cold Pressed Zobo, freshly bottled</div></div>
-      <div class="gallery-item" data-cat="event" onclick="openLightbox(2)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">Our stall and banner at an outdoor event</div></div>
-      <div class="gallery-item" data-cat="event" onclick="openLightbox(3)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);">A watermelon fruit cake made for a celebration</div></div>
-      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(4)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">Zobo dispenser cart with calabash decor</div></div>
-      <div class="gallery-item" data-cat="juice" onclick="openLightbox(5)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#ffcdd2,#ef9a9a);">Watermelon juice, ready to sip</div></div>
-      <div class="gallery-item" data-cat="event" onclick="openLightbox(6)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">A party cart lined with custom-labelled bottles</div></div>
-      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(7)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">Zobo packs loaded up for a bulk order</div></div>
-      <div class="gallery-item" data-cat="juice" onclick="openLightbox(8)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">Detox and orange juices, bottled fresh</div></div>
-      <div class="gallery-item" data-cat="event" onclick="openLightbox(9)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);">Serving guests at an event</div></div>
-      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(10)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">Zobo on the go</div></div>
-      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(11)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#f8bbd0,#f48fb1);">Zobo served with straws and calabash cups</div></div>
-      <div class="gallery-item" data-cat="event" onclick="openLightbox(12)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">A Wendy's bottle held up at an outdoor event</div></div>
-      <div class="gallery-item" data-cat="juice" onclick="openLightbox(13)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#c8e6c9,#a5d6a7);">The full chilled line-up</div></div>
-      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(14)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">Cold Pressed Zobo, labelled with care</div></div>
-      <div class="gallery-item" data-cat="juice" onclick="openLightbox(15)"><div class="gallery-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">Fresh flavours, straight from the ice</div></div>
+      <div class="gallery-item" data-cat="juice" onclick="openLightbox(0)">
+        <img src="images/gallery-01.jpeg" alt="Chilled on ice: Cucumber Detox, Pineapple Ginger, Watermelon Beets and Orange">
+      </div>
+      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(1)">
+        <img src="images/gallery-02.jpeg" alt="Wendy's Cold Pressed Zobo, freshly bottled">
+      </div>
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(2)">
+        <img src="images/gallery-03.jpeg" alt="Our stall and banner at an outdoor event">
+      </div>
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(3)">
+        <img src="images/gallery-04.jpeg" alt="A watermelon fruit cake made for a celebration">
+      </div>
+      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(4)">
+        <img src="images/gallery-05.jpeg" alt="Zobo dispenser cart with calabash decor">
+      </div>
+      <div class="gallery-item" data-cat="juice" onclick="openLightbox(5)">
+        <img src="images/gallery-06.jpeg" alt="Watermelon juice, ready to sip">
+      </div>
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(6)">
+        <img src="images/gallery-07.jpeg" alt="A party cart lined with custom-labelled bottles">
+      </div>
+      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(7)">
+        <img src="images/gallery-08.jpeg" alt="Zobo packs loaded up for a bulk order">
+      </div>
+      <div class="gallery-item" data-cat="juice" onclick="openLightbox(8)">
+        <img src="images/gallery-09.jpeg" alt="Detox and orange juices, bottled fresh">
+      </div>
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(9)">
+        <img src="images/gallery-10.jpeg" alt="Serving guests at an event">
+      </div>
+      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(10)">
+        <img src="images/gallery-11.jpeg" alt="Zobo on the go">
+      </div>
+      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(11)">
+        <img src="images/gallery-12.jpeg" alt="Zobo served with straws and calabash cups">
+      </div>
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(12)">
+        <img src="images/gallery-13.jpeg" alt="A Wendy's bottle held up at an outdoor event">
+      </div>
+      <div class="gallery-item" data-cat="juice" onclick="openLightbox(13)">
+        <img src="images/gallery-14.jpeg" alt="The full chilled line-up">
+      </div>
+      <div class="gallery-item" data-cat="zobo" onclick="openLightbox(14)">
+        <img src="images/gallery-15.jpeg" alt="Cold Pressed Zobo, labelled with care">
+      </div>
+      <div class="gallery-item" data-cat="juice" onclick="openLightbox(15)">
+        <img src="images/gallery-16.jpeg" alt="Fresh flavours, straight from the ice">
+      </div>
     </div>
   </div>
 </section>
@@ -1299,18 +1317,33 @@ button { cursor: pointer; }
   </div>
 </section>
 
+"delivery-note">Don't see your area? Ask us on WhatsApp. Delivery fees depend on your location.</div>
+      </div>
+    </div>
+
+    <!-- Delivery Steps -->
+    <div class="section-header" style="margin-top:48px;"><h2>📦 How your delivery works</h2></div>
+    <div class="delivery-steps">
+      <div class="delivery-step"><div class="num">1</div><div class="icon">📝</div><h4>Order placed</h4><p>Add to cart or message us on WhatsApp with your order.</p></div>
+      <div class="delivery-step"><div class="num">2</div><div class="icon">🧃</div><h4>Freshly prepared</h4><p>Your bottles are pressed fresh, usually the same day.</p></div>
+      <div class="delivery-step"><div class="num">3</div><div class="icon">🚚</div><h4>Out for delivery</h4><p>We confirm your delivery time and dispatch your order.</p></div>
+      <div class="delivery-step"><div class="num">4</div><div class="icon">📬</div><h4>Delivered fresh</h4><p>Your order arrives chilled and ready to enjoy.</p></div>
+    </div>
+    <p class="delivery-whatsapp-note"><em>We'll keep you posted on WhatsApp at each stage. Automatic SMS updates are coming soon.</em></p>
+  </div>
+</section>
 
 <!-- INSTAGRAM -->
 <section class="instagram-section">
   <h2>📸 Follow Us @sip.wendys</h2>
   <p style="color:var(--text-mid);">Fresh pours, new flavours and behind-the-scenes on Instagram.</p>
-  <div class="instagram-grid">
-    <div class="insta-item" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"></div>
-    <div class="insta-item" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"></div>
-    <div class="insta-item" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"></div>
-    <div class="insta-item" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);"></div>
-    <div class="insta-item" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8);"></div>
-    <div class="insta-item" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7);"></div>
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:900px;margin:24px auto;">
+    <div style="border-radius:8px;overflow:hidden;"><img src="images/gallery-01.jpeg" alt="Instagram 1" style="width:100%;height:120px;object-fit:cover;"></div>
+    <div style="border-radius:8px;overflow:hidden;"><img src="images/gallery-06.jpeg" alt="Instagram 2" style="width:100%;height:120px;object-fit:cover;"></div>
+    <div style="border-radius:8px;overflow:hidden;"><img src="images/gallery-02.jpeg" alt="Instagram 3" style="width:100%;height:120px;object-fit:cover;"></div>
+    <div style="border-radius:8px;overflow:hidden;"><img src="images/gallery-10.jpeg" alt="Instagram 4" style="width:100%;height:120px;object-fit:cover;"></div>
+    <div style="border-radius:8px;overflow:hidden;"><img src="images/gallery-05.jpeg" alt="Instagram 5" style="width:100%;height:120px;object-fit:cover;"></div>
+    <div style="border-radius:8px;overflow:hidden;"><img src="images/gallery-14.jpeg" alt="Instagram 6" style="width:100%;height:120px;object-fit:cover;"></div>
   </div>
   <a class="btn btn-primary" href="https://instagram.com/sip.wendys" target="_blank" style="margin-top:16px;">📸 FOLLOW @SIP.WENDYS</a>
 </section>
@@ -1347,8 +1380,7 @@ button { cursor: pointer; }
   <div class="container">
     <div class="section-header"><h2>📋 Our Full Menu</h2><p>Everything we make, with prices. Tap the image to view it full size.</p></div>
     <div class="menu-image">
-      <p>📋 Full menu image placeholder</p>
-      <p style="font-size:14px; margin-top:12px;">All our products and prices in one view.</p>
+      <img src="images/menu.jpg.jpeg" alt="Wendy's Full Menu" onclick="window.open('images/menu.jpg.jpeg','_blank')">
     </div>
     <div class="menu-actions">
       <button class="btn btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">SHOP THE MENU</button>
@@ -1371,7 +1403,8 @@ button { cursor: pointer; }
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <h3>🌿 Wendy's Cold Pressed Juice</h3>
+      <img src="images/logo.png.jpeg" alt="Wendy's Cold Pressed Juice" style="height:40px;margin-bottom:12px;">
+      <h3>Wendy's Cold Pressed Juice</h3>
       <p>Fresh. Delicious. Made With Care. ❤️</p>
     </div>
     <div class="footer-col">
@@ -1544,7 +1577,9 @@ function toggleMobileMenu() {
 }
 
 function navTo(hash) {
-  toggleMobileMenu();
+  if (document.getElementById('mobileMenu').classList.contains('active')) {
+    toggleMobileMenu();
+  }
   setTimeout(() => { document.querySelector(hash).scrollIntoView({ behavior: 'smooth' }); }, 300);
 }
 
@@ -1687,7 +1722,7 @@ function checkDelivery() {
   }
 }
 
-// ===== LIGHTBOX =====
+// ===== LIGHTBOX (REAL IMAGES) =====
 const galleryCaptions = [
   'Chilled on ice: Cucumber Detox, Pineapple Ginger, Watermelon Beets and Orange',
   'Wendy\'s Cold Pressed Zobo, freshly bottled',
@@ -1712,7 +1747,12 @@ function openLightbox(index) {
   currentLightbox = index;
   const lb = document.getElementById('lightbox');
   const content = document.getElementById('lightboxContent');
-  content.innerHTML = `<div style="width:400px;height:300px;background:rgba(255,255,255,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:16px;">${galleryCaptions[index]}</div><p>${index + 1} / ${galleryCaptions.length}</p>`;
+  const imgNum = String(index + 1).padStart(2, '0');
+  content.innerHTML = `
+    <img src="images/gallery-${imgNum}.jpeg" alt="${galleryCaptions[index]}" style="max-width:90vw;max-height:75vh;object-fit:contain;border-radius:12px;">
+    <p>${galleryCaptions[index]}</p>
+    <p style="font-size:12px;opacity:0.7;">${index + 1} / ${galleryCaptions.length}</p>
+  `;
   lb.classList.add('active');
 }
 
@@ -1734,3 +1774,130 @@ function animateCounter(id, target, suffix) {
 
 // Trigger counters when stats bar is visible
 const stats
+
+// (Continuing from Part 4 — paste directly after "const stats")
+
+Observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter('stat1', 500, '+');
+      animateCounter('stat2', 2000, '+');
+      animateCounter('stat3', 10, '+');
+      animateCounter('stat4', 100, '%');
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) statsObserver.observe(statsBar);
+
+// ===== WISHLIST TOGGLE =====
+document.querySelectorAll('.product-wishlist').forEach(heart => {
+  heart.addEventListener('click', function() {
+    this.textContent = this.textContent === '♡' ? '♥' : '♡';
+    this.style.color = this.textContent === '♥' ? '#e74c3c' : '';
+  });
+});
+
+// ===== NAVBAR SCROLL EFFECT =====
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 100) {
+    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+  lastScroll = currentScroll;
+});
+
+// ===== CLOSE MODALS ON ESCAPE KEY =====
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+    closeDeliveryModal();
+    if (document.getElementById('cartSidebar').classList.contains('active')) toggleCart();
+    if (document.getElementById('mobileMenu').classList.contains('active')) toggleMobileMenu();
+  }
+});
+
+// ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// ===== BOTTOM NAV ACTIVE STATE =====
+const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+bottomNavItems.forEach(item => {
+  item.addEventListener('click', function() {
+    bottomNavItems.forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// ===== NEWSLETTER FORM =====
+document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+});
+
+document.querySelector('.btn-subscribe')?.addEventListener('click', function() {
+  const input = this.previousElementSibling;
+  if (input && input.value && input.value.includes('@')) {
+    alert('Thank you for subscribing! 🍹 You\'ll receive updates from Wendy\'s.');
+    input.value = '';
+  } else {
+    alert('Please enter a valid email address.');
+  }
+});
+
+// ===== NOTIFY ME BUTTONS =====
+document.querySelectorAll('.btn-notify').forEach(btn => {
+  btn.addEventListener('click', function() {
+    this.textContent = '✅ Notified!';
+    this.style.background = 'var(--green)';
+    this.style.color = '#fff';
+    this.disabled = true;
+  });
+});
+
+// ===== SCROLL REVEAL ANIMATION =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section, .step-card, .category-card, .wellness-card, .product-card, .plan-card, .sourcing-card, .blog-card, .testimonial-card, .coming-card, .delivery-step').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  revealObserver.observe(el);
+});
+
+// ===== PRELOAD — SET INITIAL DATE =====
+window.addEventListener('DOMContentLoaded', () => {
+  const dateInput = document.getElementById('builderDate');
+  if (dateInput) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.min = tomorrow.toISOString().split('T')[0];
+  }
+});
+</script>
+
+</body>
+</html>
+
+
