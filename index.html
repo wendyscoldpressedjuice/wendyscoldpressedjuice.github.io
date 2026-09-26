@@ -1781,9 +1781,9 @@ const stats
 Observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      animateCounter('stat1', 500, '+');
-      animateCounter('stat2', 2000, '+');
-      animateCounter('stat3', 10, '+');
+         animateCounter('stat1', 5000, '+');
+      animateCounter('stat2', 20000, '+');
+      animateCounter('stat3', 25, '+');
       animateCounter('stat4', 100, '%');
       statsObserver.disconnect();
     }
