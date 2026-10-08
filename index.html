@@ -3619,7 +3619,7 @@
         <span class="soon-badge" style="background:var(--green);color:#fff;">NOW LIVE</span>
         <h3>Online Payment</h3>
         <p>Pay securely by card or transfer at checkout.</p>
-        <a class="btn btn-primary" href="https://paystack.shop/pay/wendys-juice" target="_blank" rel="noopener">Pay now</a>
+        <button class="btn btn-primary" type="button" onclick="payOnline()">Pay now</button>
       </div>
       <div class="soon-card">
         <div class="emo">⭐</div>
@@ -4575,11 +4575,31 @@
       return m + `\nTotal: ${formatMoney(t.total)}\n`;
     }
 
+    function paystackPayUrl(amountNaira) {
+      const naira = Math.max(0, Math.round(Number(amountNaira) || 0));
+      const url = new URL(PAYSTACK_LINK);
+      url.searchParams.set("amount", String(naira));
+      url.searchParams.set("read-only", "amount");
+      const R = getRewards();
+      if (R) {
+        const parts = String(R.name || "").trim().split(/\s+/).filter(Boolean);
+        if (parts[0]) url.searchParams.set("first_name", parts[0]);
+        if (parts.length > 1) url.searchParams.set("last_name", parts.slice(1).join(" "));
+        const digits = String(R.phone || "").replace(/\D/g, "");
+        let local = digits;
+        if (local.startsWith("234")) local = local.slice(3);
+        else if (local.startsWith("0")) local = local.slice(1);
+        if (local) url.searchParams.set("phone", local);
+      }
+      return url.toString();
+    }
+
     function payOnline() {
       if (cart.length === 0) return showToast("Your cart is empty 🛒");
       const t = cartTotals();
-      window.open(PAYSTACK_LINK, "_blank", "noopener");
-      showToast("Pay " + formatMoney(t.total) + " on the page that opened, then send proof on WhatsApp 💚");
+      if (t.total <= 0) return showToast("Your total is ₦0 — no payment needed");
+      window.open(paystackPayUrl(t.total), "_blank", "noopener");
+      showToast("Paystack opened with " + formatMoney(t.total) + ". Complete payment, then send proof 💚");
       sendPaidProof();
     }
 
