@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wendy's Cold Pressed Juice | Fresh Juices, Shots & Cleanses in Lagos</title>
+  <title>WENDY’S JUICZ | Freshly Pressed. Naturally Better.</title>
   <meta
     name="description"
-    content="Shop Wendy's Cold Pressed Juice — fresh juices, wellness shots, zobo, tigernut milk, green salads and cleanse packages delivered fresh across Lagos."
+    content="WENDY’S JUICZ offers fresh juices, tigernut milk, zobo drinks, smoothies, wellness drinks, salads and wraps. Freshly pressed and delivered across Lagos."
   />
-  <meta name="theme-color" content="#064d29" />
+  <meta name="theme-color" content="#123524" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Wendy's Juice" />
   <meta name="keywords" content="cold pressed juice Lagos, fresh juice Nigeria, juice cleanse Lagos, zobo, tigernut milk, wellness shots, healthy drinks Nigeria" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Wendy's Cold Pressed Juice" />
-  <meta property="og:title" content="Wendy's Cold Pressed Juice | Fresh Juices in Lagos" />
-  <meta property="og:description" content="Fresh cold pressed juices, shots, zobo, tigernut milk and cleanses delivered across Lagos. Order on WhatsApp." />
+  <meta property="og:site_name" content="WENDY’S JUICZ" />
+  <meta property="og:title" content="WENDY’S JUICZ | Freshly Pressed. Naturally Better." />
+  <meta property="og:description" content="Fresh juices, tigernut milk, zobo, smoothies, wellness drinks, salads and wraps delivered across Lagos. Order on WhatsApp." />
   <meta property="og:locale" content="en_NG" />
   <meta name="twitter:card" content="summary" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Wendy's Cold Pressed Juice", "description": "Fresh cold pressed juices, wellness shots, zobo, tigernut milk, green salads and cleanse packages delivered across Lagos.", "telephone": "+2347088314315", "priceRange": "₦₦", "address": {"@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG"}, "areaServed": ["Lagos Island", "Lekki", "Ikoyi", "Victoria Island", "Ikeja", "Surulere"], "servesCuisine": "Cold pressed juices"}</script>
@@ -29,11 +29,11 @@
        (shop + shots + cleanses + gallery + cart + builder + quiz + blog)
     ========================================================= */
     :root{
-      --green:#08783d;
-      --dark-green:#064d29;
-      --light-green:#eafff1;
+      --green:#0b7a3b;
+      --dark-green:#123524;
+      --light-green:#f0fff4;
 
-      --gold:#f5b72c;
+      --gold:#f7b731;
       --red:#e53935;
 
       --white:#fff;
@@ -2257,13 +2257,94 @@
     .faq-item p{padding:0 22px 20px; color:var(--gray); font-weight:650; line-height:1.65}
     .newsletter input[aria-invalid="true"]{outline:2px solid var(--red)}
     @media (prefers-reduced-motion: reduce){ #cartCount.bump,.add-cart.added-flash{animation:none; transform:none} }
-</style>
+
+    /* WENDY'S JUICZ refinement: clearer hierarchy, warmer brand palette,
+       accessible focus states, responsive cards and comfortable mobile spacing. */
+    :root{
+      --green:#0b7a3b;
+      --dark-green:#123524;
+      --light-green:#f0fff4;
+      --gold:#f7b731;
+      --white:#ffffff;
+      --black:#222222;
+      --gray:#626b65;
+      --light-gray:#f6fff8;
+      --border:#e1ebe3;
+      --shadow:0 12px 34px rgba(18,53,36,.09);
+      --shadow-heavy:0 22px 58px rgba(18,53,36,.16);
+    }
+    body{color:#222;background:#fff;font-size:16px}
+    .announcement{background:#123524;padding:11px 16px;letter-spacing:.35px}
+    header{border-bottom:1px solid #e1ebe3;box-shadow:0 6px 22px rgba(18,53,36,.07)}
+    .desktop-nav a{font-size:14px}
+    .desktop-nav a:hover{color:#0b7a3b}
+    .hero{background:radial-gradient(circle at 82% 20%,rgba(247,183,49,.23),transparent 27%),linear-gradient(125deg,#123524 0%,#0b7a3b 65%,#16874b 100%)}
+    .hero h1{letter-spacing:-1.8px;text-wrap:balance}
+    .hero-text{line-height:1.75}
+    .btn{min-height:48px}
+    .btn-primary{background:#0b7a3b}
+    .btn-primary:hover{background:#095f2f}
+    .section-heading h2{letter-spacing:-.6px;text-wrap:balance}
+    .product-card,.category-card,.wellness-card,.plan-card,.gallery-item{
+      transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+    }
+    .product-card{border:1px solid #e1ebe3;box-shadow:0 10px 28px rgba(18,53,36,.07);overflow:hidden}
+    .product-card:hover,.category-card:hover,.wellness-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(18,53,36,.13)}
+    .product-card img{transition:transform .35s ease}
+    .product-card:hover img{transform:scale(1.035)}
+    .category-card{border:1px solid #e1ebe3;border-radius:20px}
+    .shop-toolbar input,.search-box input,.shop-toolbar select{border-color:#d6e4d9;border-radius:14px}
+    .wa-float{box-shadow:0 12px 30px rgba(18,53,36,.24);font-weight:800}
+    .mobile-bottom-nav{border-top:1px solid #e1ebe3;box-shadow:0 -8px 25px rgba(18,53,36,.08)}
+    .skip-link:focus{z-index:2000}
+    a,button{ -webkit-tap-highlight-color:transparent }
+    @media(max-width:900px){
+      .header-inner{grid-template-columns:1fr auto;min-height:72px;padding:10px 16px}
+      .desktop-nav{display:none}
+      .header-actions{justify-content:flex-end}
+      .logo img{height:54px;max-width:165px}
+      .hero{min-height:auto;padding:76px 22px 86px}
+      .hero h1{font-size:clamp(42px,9vw,66px)}
+      .hero-text{font-size:17px}
+      .section{padding-left:18px;padding-right:18px}
+    }
+    @media(max-width:560px){
+      body{font-size:15px}
+      .announcement{font-size:12px;padding:9px 10px}
+      .hero{padding:58px 18px 70px}
+      .hero h1{font-size:clamp(38px,11vw,54px);letter-spacing:-1.2px}
+      .hero-text{font-size:16px;line-height:1.65}
+      .hero-buttons .btn{width:100%}
+      .hero-points{gap:8px}
+      .hero-point{font-size:12px;padding:8px 11px}
+      .section-heading{margin-bottom:24px}
+      .section-heading h2{font-size:clamp(26px,7vw,34px)}
+      .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .product-card{border-radius:16px}
+      .product-card h3{font-size:15px}
+      .product-card .btn,.product-card button{padding:11px 12px}
+      .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .category-card{padding:14px;gap:10px}
+      .category-card h3{font-size:14px}
+      .category-card p{font-size:12px}
+      .header-actions{gap:7px}
+      .icon-button{width:38px;height:38px}
+      .menu-toggle{width:40px;height:40px}
+      .wa-float{right:12px;bottom:calc(76px + env(safe-area-inset-bottom));padding:12px 15px;font-size:13px}
+      .mobile-bottom-nav{padding-bottom:env(safe-area-inset-bottom)}
+      .footer-grid{gap:24px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .product-card,.category-card,.wellness-card,.plan-card,.gallery-item,.product-card img{transition:none!important}
+    }
+
+  </style>
 </head>
 
 <body>
   <a class="skip-link" href="#shop">Skip to the shop</a>
   <noscript><div style="background:#fff3cd;padding:12px;text-align:center;font-weight:700;">Please turn on JavaScript to use the cart and ordering. You can still order on WhatsApp: +234 708 831 4315</div></noscript>
-  <div class="announcement">🚚 Fresh orders • Delivery available • WhatsApp ordering available</div>
+  <div class="announcement">🌿 WENDY’S JUICZ · Freshly Pressed. Naturally Better. · Delivery across Lagos</div>
 
   <header>
     <div class="header-inner">
@@ -2306,7 +2387,7 @@
         <div class="mobile-menu-brand">
           <img src="images/logo.png.jpeg" alt="Wendy's logo">
           <div class="mobile-menu-brand-text">
-            <h3>Wendy's Cold Pressed Juice</h3>
+            <h3>WENDY’S JUICZ</h3>
             <p>Fresh. Delicious. Made With Care. ❤️</p>
           </div>
         </div>
@@ -2320,7 +2401,6 @@
           <p>Fresh juices, zobo, tigernut milk and salads made with care.</p>
         </div>
 
-        <div class="mobile-menu-section-title">Main Menu</div>
         <div class="mobile-menu-section-title">Main Menu</div>
         <div class="mobile-menu-links">
           <a href="#home" class="mobile-menu-link" onclick="closeMobileMenu()">
@@ -3757,8 +3837,8 @@
       <div>
         <h3>Contact</h3>
         <a href="https://wa.me/2347088314315" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a href="tel:+2349066114326">📞 0906 611 4326</a>
-        <a href="mailto:Wendysjuicz@gmail.com">📧 Email</a>
+        <a href="tel:+2347088314315">📞 +234 708 831 4315</a>
+        <a href="mailto:wendysjuicz@gmail.com">📧 wendysjuicz@gmail.com</a>
         <a href="https://www.instagram.com/sip.wendys/" target="_blank" rel="noopener">📸 Instagram</a>
         <a href="https://www.tiktok.com/@Wendysjuicz" target="_blank" rel="noopener">🎵 TikTok</a>
       </div>
