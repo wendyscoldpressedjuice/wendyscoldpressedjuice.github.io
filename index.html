@@ -399,6 +399,35 @@
       color:#fff;
     }
 
+
+    /* Wendy's Juicz signature menu refresh */
+    #shop{background:linear-gradient(180deg,#fffdf5 0%,#f2faf4 100%);position:relative}
+    #shop .section-heading h2{font-size:clamp(30px,4vw,46px);letter-spacing:-1.1px;color:#103f29}
+    #shop .section-heading p{max-width:680px;margin:10px auto 0;color:#617466;font-size:clamp(15px,1.4vw,18px)}
+    #shop .shop-toolbar{max-width:var(--container);margin:26px auto 22px;gap:16px}
+    #shop .search-box input{border:1px solid #dceade;border-radius:999px;min-height:52px;padding:0 20px;background:#fff}
+    #shop .filter-buttons{display:flex;flex-wrap:wrap;gap:9px}
+    #shop .filter-btn{border-radius:999px;padding:11px 17px;font-weight:850;border:1px solid #dbe9de;background:#fff;transition:all .2s ease}
+    #shop .filter-btn.active,#shop .filter-btn:hover{background:#0d6538;border-color:#0d6538;color:#fff;box-shadow:0 8px 18px rgba(13,101,56,.14)}
+    #shop .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    #shop .product-card{border:1px solid #e2ece2;border-radius:25px;box-shadow:0 12px 32px rgba(14,65,37,.07);background:#fffdf8}
+    #shop .product-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(14,65,37,.13)}
+    #shop .product-image-wrap{background:linear-gradient(140deg,#f4f8e9,#e9f6e9);padding:12px;min-height:245px}
+    #shop .product-image{height:235px;object-fit:cover;border-radius:18px}
+    #shop .product-badge{background:#0d6538;letter-spacing:.7px;text-transform:uppercase}
+    #shop .product-content{padding:21px}
+    #shop .rating{color:#b68a25}
+    #shop .product-title{font-size:20px;color:#103f29;letter-spacing:-.3px}
+    #shop .product-description{color:#627367;min-height:42px;line-height:1.55}
+    #shop .product-meta-row{border-radius:12px;background:#f5f9f3;padding:10px 12px;line-height:1.45;color:#53675a}
+    #shop .product-meta-row b{display:block;color:#17472d;margin-bottom:3px}
+    #shop .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid #e7eee5}
+    #shop .product-price{font-size:22px;font-weight:950;color:#0d6538;white-space:nowrap}
+    #shop .add-cart{border-radius:999px;background:#f7b731;color:#182b1e;font-weight:950;padding:13px 16px;min-height:46px}
+    #shop .price-request{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;background:#18bd62;color:#fff;font-weight:900;padding:13px 16px;min-height:46px;text-align:center}
+    @media(max-width:1050px){#shop .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){#shop .product-grid{grid-template-columns:1fr;gap:16px}#shop .product-image-wrap{min-height:220px}#shop .product-image{height:220px}#shop .shop-toolbar{padding:0 14px}#shop .product-content{padding:18px}#shop .product-bottom{align-items:stretch;flex-direction:column}#shop .product-price{font-size:24px}}
+
     /* =========================================================
        Products — LUXURY CARDS
     ========================================================= */
@@ -2783,8 +2812,8 @@
   <!-- Shop -->
   <section class="section" id="shop">
     <div class="section-heading">
-      <h2>🔥 Our Best Sellers</h2>
-      <p>Customer favorites, ready to order.</p>
+      <h2>🥤 The Wendy’s Juicz Menu</h2>
+      <p>Freshly pressed favourites, natural drinks and feel-good blends — thoughtfully made and ready for Lagos delivery.</p>
     </div>
 
     <div class="shop-toolbar">
@@ -2876,14 +2905,8 @@
           </div>
 
           <div class="product-bottom">
-            <span class="product-price">₦2,000</span>
-            <button
-              class="add-cart"
-              type="button"
-              onclick="addToCart('Cold Pressed Zobo', 2000, 'images/zobo.jpg.jpeg')"
-            >
-              ADD TO CART
-            </button>
+            <span class="product-price">Price on request</span>
+            <a class="price-request" href="https://wa.me/2347088314315?text=Hi%20Wendy%27s%20Juicz%2C%20please%20share%20the%20price%20for%20Cold%20Pressed%20Zobo." target="_blank" rel="noopener">ASK FOR PRICE</a>
           </div>
         </div>
       </div>
@@ -2912,11 +2935,11 @@
           </div>
 
           <div class="product-bottom">
-            <span class="product-price">₦2,500</span>
+            <span class="product-price">₦4,000</span>
             <button
               class="add-cart"
               type="button"
-              onclick="addToCart('Tigernut Milk', 2500, 'images/tigernut-milk.jpg.jpeg')"
+              onclick="addToCart('Tigernut Milk', 4000, 'images/tigernut-milk.jpg.jpeg')"
             >
               ADD TO CART
             </button>
@@ -3048,7 +3071,29 @@
           </div>
         </div>
       </div>
-    </div>
+    
+      <!-- Additional items from the Wendy's Juicz signature menu -->
+      <div class="product-card" data-category="Juices" data-name="Pineapple Juice" data-wellness="energy hydration">
+        <div class="product-image-wrap"><span class="product-badge">SIGNATURE</span><button class="wishlist" data-product-name="Pineapple Juice" onclick="toggleWishlist(this)" aria-label="Add Pineapple Juice to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/pineapple.jpg.jpg" alt="Fresh pineapple juice" class="product-image"></div>
+        <div class="product-content"><div class="rating">FRESHLY PRESSED</div><div class="product-title">Pineapple Juice</div><p class="product-description">Pure, fresh pineapple juice with a bright tropical taste.</p><div class="product-meta"><div class="product-meta-row"><b>🍍 The flavour</b>Fresh pineapple</div><div class="product-meta-row"><b>🌿 Made for</b>A refreshing everyday pick</div></div><div class="product-bottom"><span class="product-price">₦5,000</span><button class="add-cart" type="button" onclick="addToCart('Pineapple Juice',5000,'images/pineapple.jpg.jpg')">ADD TO CART</button></div></div>
+      </div>
+      <div class="product-card" data-category="Juices" data-name="Fruity Splash" data-wellness="energy hydration">
+        <div class="product-image-wrap"><span class="product-badge">FRUITY FAVOURITE</span><button class="wishlist" data-product-name="Fruity Splash" onclick="toggleWishlist(this)" aria-label="Add Fruity Splash to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/gallery-01.jpeg" alt="Fruity Splash juice blend" class="product-image"></div>
+        <div class="product-content"><div class="rating">A FRUITY BLEND</div><div class="product-title">Fruity Splash</div><p class="product-description">A colourful blend of fruity flavours for a fresh, juicy moment.</p><div class="product-meta"><div class="product-meta-row"><b>🍓 The flavour</b>Mixed fruity juice blend</div><div class="product-meta-row"><b>✨ Made for</b>A bright, refreshing pick-me-up</div></div><div class="product-bottom"><span class="product-price">₦4,500</span><button class="add-cart" type="button" onclick="addToCart('Fruity Splash',4500,'images/gallery-01.jpeg')">ADD TO CART</button></div></div>
+      </div>
+      <div class="product-card" data-category="Juices" data-name="Detox Magic" data-wellness="detox skin digestive">
+        <div class="product-image-wrap"><span class="product-badge">GREEN GOODNESS</span><button class="wishlist" data-product-name="Detox Magic" onclick="toggleWishlist(this)" aria-label="Add Detox Magic to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/gallery-02.jpeg" alt="Detox Magic green juice blend" class="product-image"></div>
+        <div class="product-content"><div class="rating">FRESH &amp; WHOLESOME</div><div class="product-title">Detox Magic</div><p class="product-description">A fresh green fruit-and-vegetable blend with a crisp taste.</p><div class="product-meta"><div class="product-meta-row"><b>🥒 The blend</b>Fruit and vegetable mix</div><div class="product-meta-row"><b>🌱 Made for</b>Those who love a greener sip</div></div><div class="product-bottom"><span class="product-price">₦5,500</span><button class="add-cart" type="button" onclick="addToCart('Detox Magic',5500,'images/gallery-02.jpeg')">ADD TO CART</button></div></div>
+      </div>
+      <div class="product-card" data-category="Zobo" data-name="Zobo Drink" data-wellness="hibiscus refreshing">
+        <div class="product-image-wrap"><span class="product-badge">NATURAL DRINK</span><button class="wishlist" data-product-name="Zobo Drink" onclick="toggleWishlist(this)" aria-label="Add Zobo Drink to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/zobo.jpg.jpeg" alt="Wendy's Juicz zobo drink" class="product-image"></div>
+        <div class="product-content"><div class="rating">MADE WITH CARE</div><div class="product-title">Zobo Drink</div><p class="product-description">A refreshing hibiscus-based drink with a bold, tangy flavour.</p><div class="product-meta"><div class="product-meta-row"><b>🌺 Main ingredient</b>Hibiscus (zobo) leaves</div><div class="product-meta-row"><b>💚 A good choice for</b>Fans of a refreshing traditional drink</div></div><div class="product-bottom"><span class="product-price">Price on request</span><a class="price-request" href="https://wa.me/2347088314315?text=Hi%20Wendy%27s%20Juicz%2C%20please%20share%20the%20price%20for%20Zobo%20Drink." target="_blank" rel="noopener">ASK FOR PRICE</a></div></div>
+      </div>
+      <div class="product-card" data-category="Green Salad" data-name="Salads & Wraps" data-wellness="fresh wholesome">
+        <div class="product-image-wrap"><span class="product-badge">FRESH &amp; WHOLESOME</span><button class="wishlist" data-product-name="Salads & Wraps" onclick="toggleWishlist(this)" aria-label="Add Salads and Wraps to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/salads-wraps.jpg.jpg" alt="Fresh salads and wraps" class="product-image"></div>
+        <div class="product-content"><div class="rating">MADE WITH CARE</div><div class="product-title">Salads &amp; Wraps</div><p class="product-description">Fresh, wholesome options made for a satisfying bite.</p><div class="product-meta"><div class="product-meta-row"><b>🥬 Fresh choice</b>Salads and wraps</div><div class="product-meta-row"><b>✨ Made for</b>A lighter, delicious meal</div></div><div class="product-bottom"><span class="product-price">Price on request</span><a class="price-request" href="https://wa.me/2347088314315?text=Hi%20Wendy%27s%20Juicz%2C%20please%20share%20the%20price%20for%20Salads%20%26%20Wraps." target="_blank" rel="noopener">ASK FOR PRICE</a></div></div>
+      </div>
+</div>
   </section>
 
   <!-- Build Your Own Juice -->
