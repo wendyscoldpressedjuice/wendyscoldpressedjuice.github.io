@@ -2809,12 +2809,37 @@
     <p class="fine-print">Wellness information is general and not medical advice. Speak to a health professional about specific conditions.</p>
   </section>
 
+    /* Signature menu artwork and product-photo presentation */
+    .signature-menu-preview{max-width:var(--container);margin:28px auto 30px;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.72fr);align-items:center;gap:26px;background:linear-gradient(135deg,#103e29,#17633d);border-radius:26px;box-shadow:0 18px 42px rgba(16,62,41,.14);overflow:hidden;color:#fff}
+    .signature-menu-copy{padding:8px 12px}
+    .signature-menu-copy .eyebrow{display:inline-block;color:#f7c75a;font-size:11px;font-weight:900;letter-spacing:1.8px;margin-bottom:12px}
+    .signature-menu-copy h3{font-size:clamp(25px,3vw,38px);line-height:1.12;margin:0 0 12px;color:#fff;letter-spacing:-.7px}
+    .signature-menu-copy p{max-width:520px;color:#e0eee4;line-height:1.7;margin:0 0 20px}
+    .menu-preview-link{display:inline-flex;align-items:center;justify-content:center;background:#f7b731;color:#153c27;padding:12px 18px;border-radius:999px;font-weight:900;text-decoration:none}
+    .menu-preview-link:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .signature-menu-art{display:block;max-height:330px;overflow:hidden;border:1px solid rgba(255,255,255,.3);border-radius:18px;background:#fff8e8}
+    .signature-menu-art img{display:block;width:100%;height:330px;object-fit:cover;object-position:top center;transition:transform .35s ease}
+    .signature-menu-art:hover img{transform:scale(1.025)}
+    @media(max-width:700px){.signature-menu-preview{margin:22px 14px;padding:18px;grid-template-columns:1fr;gap:18px;border-radius:22px}.signature-menu-copy{padding:4px}.signature-menu-art{max-height:360px}.signature-menu-art img{height:360px;object-fit:contain}}
+
   <!-- Shop -->
   <section class="section" id="shop">
     <div class="section-heading">
       <h2>🥤 The Wendy’s Juicz Menu</h2>
       <p>Freshly pressed favourites, natural drinks and feel-good blends — thoughtfully made and ready for Lagos delivery.</p>
     </div>
+
+    <section class="signature-menu-preview" id="signature-menu-preview" aria-label="Wendy's Juicz printed menu">
+      <div class="signature-menu-copy">
+        <span class="eyebrow">FRESHLY PRESSED · NATURALLY BETTER</span>
+        <h3>Your favourites, all in one place.</h3>
+        <p>Explore our signature juices, tigernut milk, zobo drinks and fresh food. Choose a product below to order, or open our menu artwork for a quick overview.</p>
+        <a class="menu-preview-link" href="images/menu.jpg.jpeg" target="_blank" rel="noopener">View full menu artwork ↗</a>
+      </div>
+      <a class="signature-menu-art" href="images/menu.jpg.jpeg" target="_blank" rel="noopener" aria-label="Open the Wendy's Juicz menu image">
+        <img src="images/menu.jpg.jpeg" alt="Wendy's Juicz signature menu featuring juices, tigernut milk, zobo drinks, salads and wraps" loading="lazy" decoding="async">
+      </a>
+    </section>
 
     <div class="shop-toolbar">
       <div class="search-box">
@@ -2854,7 +2879,7 @@
             aria-label="Add Watermelon Pineapple Juice to wishlist"
             type="button"
           >♡</button>
-          <img decoding="async" loading="lazy" src="images/pineapple.jpg.jpg" alt="Watermelon Pineapple Juice" class="product-image">
+          <img decoding="async" loading="lazy" src="images/gallery-03.jpeg" alt="Watermelon Pineapple Juice" class="product-image">
         </div>
 
         <div class="product-content">
@@ -2872,7 +2897,7 @@
             <button
               class="add-cart"
               type="button"
-              onclick="addToCart('Watermelon Pineapple Juice', 2000, 'images/pineapple.jpg.jpg')"
+              onclick="addToCart('Watermelon Pineapple Juice', 2000, 'images/gallery-03.jpeg')"
             >
               ADD TO CART
             </button>
@@ -3073,11 +3098,11 @@
       </div>
       <div class="product-card" data-category="Juices" data-name="Fruity Splash" data-wellness="energy hydration">
         <div class="product-image-wrap"><span class="product-badge">FRUITY FAVOURITE</span><button class="wishlist" data-product-name="Fruity Splash" onclick="toggleWishlist(this)" aria-label="Add Fruity Splash to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/gallery-01.jpeg" alt="Fruity Splash juice blend" class="product-image"></div>
-        <div class="product-content"><div class="rating">A FRUITY BLEND</div><div class="product-title">Fruity Splash</div><p class="product-description">A colourful blend of fruity flavours for a fresh, juicy moment.</p><div class="product-meta"><div class="product-meta-row"><b>🍓 The flavour</b>Mixed fruity juice blend</div><div class="product-meta-row"><b>✨ Made for</b>A bright, refreshing pick-me-up</div></div><div class="product-bottom"><span class="product-price">₦4,500</span><button class="add-cart" type="button" onclick="addToCart('Fruity Splash',4500,'images/gallery-01.jpeg')">ADD TO CART</button></div></div>
+        <div class="product-content"><div class="rating">A FRUITY BLEND</div><div class="product-title">Fruity Splash</div><p class="product-description">A colourful blend of fruity flavours for a fresh, juicy moment.</p><div class="product-meta"><div class="product-meta-row"><b>🍓 The flavour</b>Mixed fruity juice blend</div><div class="product-meta-row"><b>✨ Made for</b>A bright, refreshing pick-me-up</div></div><div class="product-bottom"><span class="product-price">₦4,500</span><button class="add-cart" type="button" onclick="addToCart('Fruity Splash',4500,'images/gallery-05.jpeg')">ADD TO CART</button></div></div>
       </div>
       <div class="product-card" data-category="Juices" data-name="Detox Magic" data-wellness="detox skin digestive">
         <div class="product-image-wrap"><span class="product-badge">GREEN GOODNESS</span><button class="wishlist" data-product-name="Detox Magic" onclick="toggleWishlist(this)" aria-label="Add Detox Magic to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/gallery-02.jpeg" alt="Detox Magic green juice blend" class="product-image"></div>
-        <div class="product-content"><div class="rating">FRESH &amp; WHOLESOME</div><div class="product-title">Detox Magic</div><p class="product-description">A fresh green fruit-and-vegetable blend with a crisp taste.</p><div class="product-meta"><div class="product-meta-row"><b>🥒 The blend</b>Fruit and vegetable mix</div><div class="product-meta-row"><b>🌱 Made for</b>Those who love a greener sip</div></div><div class="product-bottom"><span class="product-price">₦5,500</span><button class="add-cart" type="button" onclick="addToCart('Detox Magic',5500,'images/gallery-02.jpeg')">ADD TO CART</button></div></div>
+        <div class="product-content"><div class="rating">FRESH &amp; WHOLESOME</div><div class="product-title">Detox Magic</div><p class="product-description">A fresh green fruit-and-vegetable blend with a crisp taste.</p><div class="product-meta"><div class="product-meta-row"><b>🥒 The blend</b>Fruit and vegetable mix</div><div class="product-meta-row"><b>🌱 Made for</b>Those who love a greener sip</div></div><div class="product-bottom"><span class="product-price">₦5,500</span><button class="add-cart" type="button" onclick="addToCart('Detox Magic',5500,'images/gallery-08.jpeg')">ADD TO CART</button></div></div>
       </div>
       <div class="product-card" data-category="Zobo" data-name="Zobo Drink" data-wellness="hibiscus refreshing">
         <div class="product-image-wrap"><span class="product-badge">NATURAL DRINK</span><button class="wishlist" data-product-name="Zobo Drink" onclick="toggleWishlist(this)" aria-label="Add Zobo Drink to wishlist" type="button">♡</button><img decoding="async" loading="lazy" src="images/zobo.jpg.jpeg" alt="Wendy's Juicz zobo drink" class="product-image"></div>
