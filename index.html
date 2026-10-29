@@ -1392,6 +1392,27 @@
     .builder-summary .btn{width:100%}
     .builder-summary .btn + .btn{margin-top:10px}
 
+    /* Premium visual upgrade inspired by Wendy's signature menu */
+    #build .section-heading h2{font-weight:900}
+    #build .builder{align-items:start}
+    #build .builder-steps{gap:28px}
+    #build .builder-step{padding:0 0 22px;border-bottom:1px solid #edf3ee}
+    #build .builder-step:last-child{padding-bottom:0;border-bottom:0}
+    #build .choice-box{position:relative;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+    #build .choice input:checked + .choice-box:after{content:"✓";position:absolute;right:10px;top:9px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#087b40;color:white;font-size:13px;font-weight:900}
+    #build .builder-summary{overflow:hidden}
+    #build .builder-product-visual{position:relative;margin:-10px -10px 22px;min-height:170px;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#eff9e9,#d8f0d7);display:flex;align-items:center;justify-content:center}
+    #build .builder-product-visual img{display:block;width:100%;height:210px;object-fit:cover;opacity:.94}
+    #build .builder-product-badge{position:absolute;left:12px;bottom:12px;padding:8px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(7,63,39,.9);color:#fff;font-size:10px;letter-spacing:1px;font-weight:900}
+    #build .builder-summary-intro{margin:-10px 0 14px;color:#d1ead9;font-size:13px}
+    #build .summary-line{display:flex;align-items:flex-start;gap:12px}
+    #build .summary-line span:first-child{color:#c8e0d1}
+    #build .summary-line span:last-child{text-align:right;overflow-wrap:anywhere}
+    #build .builder-summary .btn{width:100%;margin-top:10px}
+    #build .summary-note{font-size:12px;color:#d2e8d9}
+    #build .choice-box small{display:block;margin-top:8px;padding:4px 8px;border-radius:999px;background:#f0f7f1;color:#17623b;font-weight:800}
+    @media(prefers-reduced-motion:reduce){#build .choice-box{transition:none}}
+
     /* Modern Build Your Own Juice refresh */
     #build{padding:clamp(34px,5vw,76px) 22px;background:radial-gradient(circle at 8% 8%,#f2fff5 0,transparent 34%),linear-gradient(180deg,#fbfffc 0%,#f2faf4 100%)}
     #build .section-heading{max-width:900px;margin:0 auto 34px}
@@ -3138,7 +3159,9 @@
       </div>
 
       <aside class="builder-summary" aria-live="polite">
+        <div class="builder-product-visual"><img id="customJuicePhoto" src="images/pineapple.jpg.jpg" alt="Wendy’s Juicz freshly prepared juice" loading="lazy"><span class="builder-product-badge">FRESHLY MADE · MADE TO ORDER</span></div>
         <h3>Your custom juice</h3>
+        <p class="builder-summary-intro">Your blend, your bottle, your moment.</p>
         <div class="summary-line"><span>Base</span><span id="sumBase">—</span></div>
         <div class="summary-line"><span>Boosters</span><span id="sumAddons">None</span></div>
         <div class="summary-line"><span>Size</span><span id="sumSize">—</span></div>
@@ -5034,6 +5057,8 @@
       document.getElementById("sumWindow").textContent = b.window || "—";
       document.getElementById("sumArea").textContent = b.area || "—";
       document.getElementById("sumTotal").textContent = formatMoney(b.total);
+      const photo = document.getElementById("customJuicePhoto");
+      if (photo) { photo.alt = "Wendy’s Juicz custom " + b.base.toLowerCase() + " juice"; }
     }
 
     function buildIsValid(b) {
