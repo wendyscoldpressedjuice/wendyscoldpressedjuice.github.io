@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wendyscoldpressedjuice.github.io/sitemap.xml
