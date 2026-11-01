@@ -4821,9 +4821,9 @@
       btn.onclick = function () {
         if (cart.length === 0) return showToast("Your cart is empty 🛒");
         const t = cartTotals();
-        let message = "Hello Wendy's Cold Pressed Juice! 👋\n\nI've just paid online (Paystack) for my order:\n\n" + orderLines();
+        let message = "Hi! Welcome to WENDY’S JUICZ 💚\n\nThank you for choosing us! We’re happy to bring you freshly pressed, delicious and refreshing drinks, made with carefully selected ingredients.\n\nYour order:\n\n" + orderLines();
         message += totalsLines(t) + rewardsNote(t) + orderCodeNote(t);
-        message += "\nI'll send my payment receipt here. Please confirm and arrange delivery. Thank you! ❤️";
+        message += "\nTo help us process your order, kindly confirm or provide these details:\n\nName:\nPhone Number:\nDelivery Address:\nPreferred Delivery Time:\n\nI’ve just made payment via Paystack and will attach my payment receipt here. Kindly confirm my order and delivery fee.\n\nThank you for choosing WENDY’S JUICZ! 💚\nFreshly Pressed. Naturally Better.\nInstagram: @sip.wendys";
         commitRewards(t, "Online order");
         openWhatsApp(message);
       };
@@ -4833,9 +4833,9 @@
     function checkoutWhatsApp() {
       if (cart.length === 0) return showToast("Your cart is empty 🛒");
       const t = cartTotals();
-      let message = "Hello Wendy's Cold Pressed Juice! 👋\n\nI would like to order:\n\n" + orderLines();
+      let message = "Hi! Welcome to WENDY’S JUICZ 💚\n\nThank you for choosing us! We’re happy to bring you freshly pressed, delicious and refreshing drinks, made with carefully selected ingredients.\n\nI would like to place this order:\n\n" + orderLines();
       message += totalsLines(t) + rewardsNote(t) + orderCodeNote(t);
-      message += "\nPlease confirm availability and delivery details. Thank you! ❤️";
+      message += "\nTo help us process your order, kindly provide the following details:\n\nName:\nPhone Number:\nDelivery Address:\nPreferred Delivery Time:\n\nPlease confirm availability and the delivery fee for my location. Thank you for choosing WENDY’S JUICZ! 💚\nFreshly Pressed. Naturally Better.\nInstagram: @sip.wendys";
       commitRewards(t, "WhatsApp order");
       openWhatsApp(message);
     }
